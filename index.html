@@ -220,18 +220,27 @@ header{height:auto;padding:12px 18px;gap:12px;flex-wrap:wrap;background:#141414}
 </div>
 </div>
 <script>
-
 const sources=[
-{identifier:"My-Favorite-Movies_202503"},
-{identifier:"28-days-later_202505"},
-{identifier:"the-village-2004_202606"},
-{identifier:"agent-cody-banks-2003"},
-{identifier:"are-you-alone-in-the-house",file:"It.mp4"},
-{identifier:"TR_Sub_Movies"},
-{identifier:"opener_202508"},
-{identifier:"AlansCC1"},
-{identifier:"comedy-collection",bottom:true}
+  {identifier:"My-Favorite-Movies_202503"},
+  {identifier:"28-days-later_202505"},
+  {identifier:"the-village-2004_202606"},
+  {identifier:"agent-cody-banks-2003"},
+  {identifier:"are-you-alone-in-the-house",file:"It.mp4"},
+  {identifier:"TR_Sub_Movies"},
+  {identifier:"opener_202508"},
+  {identifier:"AlansCC1"},
+  {identifier:"the.-equalizer.-2014.1080p.-blu-ray.x-264.-yify_202402"},
+  {identifier:"the-basketball-diaries"},
+  {identifier:"the-hateful-eight-extended-version"},
+  {identifier:"21.-jump.-street.-2012"},
+  {identifier:"training-day_202608"},
+  {identifier:"ferris-buellers-day-off-1986_202511"},
+  {identifier:"the-detective"},
+  {identifier:"disney-channel-original-movies"},
+  {identifier:"1-frosty-the-snowman"},
+  {identifier:"comedy-collection",bottom:true}
 ];
+
 const OMDB_API_KEY="46078d7c";
 const TMDB_API_KEY="aca84b0e81d6c2a67ca3d2f0e1e1add6";
 const FANART_API_KEY="d5403d50f1ee41ac0e0f6583f5718427";
@@ -250,13 +259,21 @@ let heroTimer=null;
 let currentPlayerMovie=null;
 let loadedCount=0;
 
-const titleOverrides={
-"spiderman6homecoming":"Spider-Man Homecoming",
-"spidermanhomecoming":"Spider-Man Homecoming",
-"spidermanhomecoming2017":"Spider-Man Homecoming",
-"spidermanhomecoming202506":"Spider-Man Homecoming"
-};
+const titleOverrides = {
+  "spiderman6homecoming": "Spider-Man Homecoming",
+"jurassicpark3": "Jurassic Park III",
 
+
+
+  "spidermanhomecoming": "Spider-Man Homecoming",
+  "spidermanhomecoming2017": "Spider-Man Homecoming",
+  "spidermanhomecoming202506": "Spider-Man Homecoming",
+"spiderman5theamazingspiderman2": "The Amazing Spider-Man 2",
+
+  "spiderman7farfromhome": "Spider-Man Far From Home",
+  "spiderman6theamazingspiderman2": "The Amazing Spider-Man 2",
+  "spiderman4theamazingspiderman": "The Amazing Spider-Man"
+};
 const posterObserver=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 const card=entry.target;
@@ -766,26 +783,148 @@ closePlayer();
 document.getElementById("playerOverlay").addEventListener("click",function(e){
 if(e.target===this)closePlayer();
 });
+function romanToNumber(roman){
+    const values = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+    };
 
-function getSearchScore(movie,query){
-if(!query)return 0;
-const q=normalizeTitle(query);
-const title=normalizeTitle(movie.displayTitle||"");
-const original=normalizeTitle(cleanMovieName(movie.file.name));
-const aliases=getSearchTitles(movie.file.name).map(normalizeTitle);
-let score=0;
-if(title===q)score+=10000;
-if(aliases.includes(q))score+=9000;
-if(original===q)score+=8500;
-if(title.startsWith(q))score+=5000;
-if(original.startsWith(q))score+=3500;
-if(title.includes(q))score+=2500;
-if(original.includes(q))score+=1500;
-const words=q.split(/\s+/).filter(Boolean);
-const titleRaw=(movie.displayTitle||"").toLowerCase();
-if(words.length&&words.every(w=>titleRaw.includes(w)))score+=1000;
-score+=Math.min(movie.rating||0,10);
-return score;
+    let total = 0;
+
+    for(let i = 0; i < roman.length; i++){
+        const current = values[roman[i]];
+        const next = values[roman[i + 1]] || 0;
+
+        if(current < next){
+            total -= current;
+        }else{
+            total += current;
+        }
+    }
+
+    return total;
+}
+
+function numberToRoman(num){
+    const values = [
+        [1000, "M"],
+        [900, "CM"],
+        [500, "D"],
+        [400, "CD"],
+        [100, "C"],
+        [90, "XC"],
+        [50, "L"],
+        [40, "XL"],
+        [10, "X"],
+        [9, "IX"],
+        [5, "V"],
+        [4, "IV"],
+        [1, "I"]
+    ];
+
+    let result = "";
+
+    for(const [value, symbol] of values){
+        while(num >= value){
+            result += symbol;
+            num -= value;
+        }
+    }
+
+    return result;
+}
+
+function normalizeSearchVariants(text){
+    const cleaned = removeEmoji(String(text || "")).toLowerCase().trim();
+    const variants = new Set();
+
+    // Original normalized text
+    variants.add(normalizeTitle(cleaned));
+
+    // Roman numeral → number
+    const romanConverted = cleaned.replace(
+        /\b[ivxlcdm]+\b/gi,
+        match => {
+            const upper = match.toUpperCase();
+
+            // Only accept valid standard Roman numerals
+            const number = romanToNumber(upper);
+
+            if(
+                number < 1 ||
+                number > 3999 ||
+                numberToRoman(number) !== upper
+            ){
+                return match;
+            }
+
+            return String(number);
+        }
+    );
+
+    variants.add(normalizeTitle(romanConverted));
+
+    // Number → Roman numeral
+    const numberConverted = cleaned.replace(
+        /\b\d{1,4}\b/g,
+        match => {
+            const number = Number(match);
+
+            if(number < 1 || number > 3999){
+                return match;
+            }
+
+            return numberToRoman(number);
+        }
+    );
+
+    variants.add(normalizeTitle(numberConverted));
+
+    return [...variants];
+}
+
+function getSearchScore(movie, query){
+    if(!query) return 0;
+
+    const queryVariants = normalizeSearchVariants(query);
+    const titleVariants = normalizeSearchVariants(movie.displayTitle);
+
+    // ONLY match against the movie title.
+    const matched = queryVariants.some(q =>
+        titleVariants.some(title => title.includes(q))
+    );
+
+    if(!matched) return 0;
+
+    const normalQuery = normalizeTitle(query);
+    const normalTitle = normalizeTitle(movie.displayTitle);
+
+    // Exact match
+    if(normalTitle === normalQuery){
+        return 10000;
+    }
+
+    // Roman numeral / number equivalent
+    if(queryVariants.some(q =>
+        titleVariants.includes(q)
+    )){
+        return 9500;
+    }
+
+    // Starts with search
+    if(queryVariants.some(q =>
+        titleVariants.some(title => title.startsWith(q))
+    )){
+        return 9000;
+    }
+
+    // Contains search
+    return 7000;
 }
 
 function applyFilters(){
