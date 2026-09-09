@@ -1,14 +1,59 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BronFlix+</title><style>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BronFlix+</title>
+<style>
 *{box-sizing:border-box}html,body{margin:0;background:#141414;color:#fff;font:14px Arial,sans-serif}body{overflow-x:hidden}.no-scroll{overflow:hidden}:root{--theme:#e50914}header{height:64px;padding:0 4%;display:flex;align-items:center;gap:22px;position:fixed;inset:0 0 auto;background:linear-gradient(#050505,#08080800);z-index:20}.logo{color:var(--theme);font-size:27px;font-weight:900;cursor:pointer}#search{width:370px;max-width:40%;height:37px;background:#111d;color:#fff;border:1px solid #555;border-radius:3px;padding:0 13px;outline:0}.header-buttons{margin-left:auto;display:flex;gap:20px}.header-btn,.filter-btn,.action-btn{border:0;border-radius:4px;cursor:pointer;font-weight:700}.header-btn{background:none;color:#fff}#hero{height:620px;position:relative;overflow:hidden;margin-bottom:-30px}.hero-slide{position:absolute;inset:0;background:center/cover;opacity:0;transition:.7s}.hero-slide.active{opacity:1}.hero-slide:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#141414 0,rgba(20,20,20,.8) 30%,transparent 80%),linear-gradient(0deg,#141414 0,transparent 55%,#0005)}.hero-content{position:absolute;z-index:1;left:4%;bottom:90px;max-width:600px}.hero-kicker{font-size:11px;font-weight:bold;letter-spacing:2px}.hero-title{font-size:clamp(42px,5vw,68px);font-weight:900;margin:10px 0}.hero-meta,.movie-meta{display:flex;gap:8px;align-items:center}.hero-description{color:#ddd;line-height:1.5;margin:14px 0 20px}.hero-play{padding:11px 25px;border:0;border-radius:4px;font-weight:bold}.hero-dots{position:absolute;z-index:2;right:4%;bottom:30px;display:flex;gap:7px}.hero-dot{width:8px;height:8px;border-radius:50%;background:#777}.hero-dot.active{background:#fff}#loading{padding:20px 4% 4px;color:#aaa;min-height:45px}.stats,.filter-bar,.section{padding-left:4%;padding-right:4%}.stats{color:#666;font-size:12px}.filter-bar{padding-top:16px;display:flex;gap:7px;flex-wrap:wrap}.filter-label{color:#aaa;padding:7px 3px}.filter-btn{padding:7px 12px;background:#222;color:#ccc;border:1px solid #555}.filter-btn.active{background:var(--theme);border-color:var(--theme);color:#fff}.section{padding-top:8px;padding-bottom:25px}.section-title{font-size:20px;font-weight:bold;margin:16px 0 12px}#files{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}.card{background:#181818;border-radius:3px;overflow:hidden;cursor:pointer;transition:.2s;box-shadow:0 2px 8px #0003}.card:hover{transform:scale(1.05) translateY(-3px);box-shadow:0 14px 35px #000;z-index:3}.poster-area{aspect-ratio:2/3;position:relative;background:#181818}.poster{width:100%;height:100%;object-fit:cover;display:block}.poster-loading{height:100%;background:linear-gradient(110deg,#181818 8%,#292929 18%,#181818 33%);background-size:200%;animation:s 1.1s infinite}@keyframes s{to{background-position:-200%}}.placeholder{height:100%;display:grid;place-items:center;text-align:center;padding:15px;color:#888;font-size:16px;font-weight:bold;background:linear-gradient(145deg,#292929,#0d0d0d)}.movie-info{padding:9px 10px 11px}.movie-title,.movie-original{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.movie-title{font-weight:bold}.movie-original{font-size:10px;color:#777;text-decoration:line-through;margin-top:4px}.movie-meta{margin-top:7px;color:#aaa;font-size:12px}.star{color:#ffd84d}.rating-badge{padding:3px 6px;border-radius:3px;font-size:10px;font-weight:bold}.rating-G{background:#258f3d}.rating-PG{background:#2979b9}.rating-PG13{background:#d28a16}.rating-R{background:#b32626}.rating-NC17{background:#701313}.rating-NR,.rating-NA{background:#555}.hidden{display:none!important}#noResults{display:none;text-align:center;color:#777;padding:60px}.continue-row{display:flex;gap:8px;overflow:auto;padding-bottom:10px;scrollbar-width:none}.continue-card{width:230px;min-width:230px;background:#191919;cursor:pointer;position:relative}.continue-poster{height:130px;position:relative}.continue-poster img{width:100%;height:100%;object-fit:cover;display:block}.continue-menu-btn{position:absolute;right:7px;top:7px;width:30px;height:30px;border:0;border-radius:50%;background:#000b;color:#fff;font-size:18px;line-height:25px;cursor:pointer;z-index:5}.continue-menu{display:none;position:absolute;right:7px;top:42px;width:190px;background:#222;border:1px solid #444;border-radius:5px;box-shadow:0 8px 25px #000;z-index:50;overflow:hidden}.continue-menu.open{display:block}.continue-menu button{display:block;width:100%;padding:11px 12px;background:none;border:0;color:#fff;text-align:left;cursor:pointer;font-size:13px}.continue-menu button:hover{background:#333}.continue-menu button.remove{color:#ff5a5a}.progress{height:3px;background:#444}.progress-bar{height:100%;background:var(--theme)}.continue-name{padding:9px;font-weight:bold;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#movieDetails,#settingsOverlay,#playerOverlay,#apiSetup{display:none;position:fixed;inset:0;z-index:100;background:#000d;overflow:auto}.details-inner,.settings-box{max-width:900px;margin:60px auto;background:#181818}.details-top{display:grid;grid-template-columns:280px 1fr}.details-poster{width:100%;height:100%;min-height:420px;object-fit:cover}.details-content,.settings-box{padding:30px}.details-title{font-size:36px;font-weight:900}.details-original{font-size:11px;color:#777;margin:8px 0 17px}.details-meta{display:flex;gap:9px;flex-wrap:wrap;align-items:center;color:#bbb}.details-description{color:#ccc;line-height:1.6;margin:20px 0}.details-actions{display:flex;gap:10px;flex-wrap:wrap}.action-btn{padding:11px 18px;background:#fff;color:#111}.action-btn.dark{background:#333;color:#fff}.action-btn.favorite{background:var(--theme);color:#fff}.details-close,#closePlayer{position:fixed;right:22px;top:17px;width:43px;height:43px;border:0;border-radius:50%;background:#fff;color:#111;font-size:26px;z-index:999;cursor:pointer}#playerContainer{height:100%;display:grid;place-items:center}#videoPlayer{width:100%;height:100%;object-fit:contain}#settingsOverlay{background:#000e}.setting-row{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid #333}.setting-info{display:flex;flex-direction:column;gap:5px}.setting-description{font-size:11px;color:#777;font-weight:normal;line-height:1.4}.switch{width:46px;height:25px;background:#444;border-radius:20px;position:relative;cursor:pointer;flex:none}.switch:after{content:"";position:absolute;width:19px;height:19px;top:3px;left:3px;background:#fff;border-radius:50%;transition:.2s}.switch.on{background:var(--theme)}.switch.on:after{left:24px}.setting-input,.setting-select,.color-input{background:#101010;border:1px solid #444;color:#fff;border-radius:4px;outline:0}.setting-input{width:90px;height:36px;padding:0 10px;text-align:center}.setting-select{height:36px;padding:0 10px}.color-input{width:55px;height:36px;padding:3px;cursor:pointer}.close-settings{margin-top:20px;padding:10px 18px;background:var(--theme);color:#fff;border:0;border-radius:4px;font-weight:bold}#apiSetup{display:flex;align-items:center;justify-content:center;background:#000f;z-index:1000}.api-box{width:min(500px,calc(100% - 30px));background:#181818;border:1px solid #333;border-radius:8px;padding:30px;box-shadow:0 20px 60px #000}.api-box h1{margin:0 0 10px;font-size:28px}.api-box p{color:#aaa;line-height:1.5;margin:0 0 22px}.api-field{margin-bottom:15px}.api-field label{display:block;color:#ccc;font-weight:bold;margin-bottom:6px}.api-field input{width:100%;height:42px;background:#101010;border:1px solid #444;border-radius:4px;color:#fff;padding:0 12px;outline:0}.api-field input:focus{border-color:var(--theme)}.api-save{width:100%;height:43px;background:var(--theme);color:#fff;border:0;border-radius:4px;font-weight:bold;font-size:14px;cursor:pointer;margin-top:5px}.api-save:disabled{opacity:.5;cursor:not-allowed}.api-note{font-size:11px!important;color:#666!important;margin-top:14px!important;margin-bottom:0!important}footer{text-align:center;color:#555;padding:35px;border-top:1px solid #222}@media(max-width:700px){header{height:auto;padding:11px 18px;flex-wrap:wrap;background:#141414}#search{order:3;max-width:none;width:100%}#hero{height:480px}.hero-content{left:22px;right:22px;bottom:60px}.hero-title{font-size:35px}.hero-description{font-size:13px}.section,.stats,.filter-bar,#loading{padding-left:18px;padding-right:18px}#files{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.card:hover{transform:none}.details-inner,.settings-box{margin:0;min-height:100vh}.details-top{grid-template-columns:1fr}.details-poster{height:400px;min-height:400px}.details-content{padding:24px}.details-title{font-size:29px}.api-box{padding:22px}}
-</style></head><body>
-<header><div class="logo" onclick="clearSearch()">BRONFLIX+</div><input id="search" placeholder="Search movies..." autocomplete="off"><div class="header-buttons"><button class="header-btn" onclick="showFavorites()">My List</button><button class="header-btn" onclick="openSettings()">⚙</button></div></header>
-<div id="hero"></div><div id="loading">Loading movie list...</div><div id="stats">0 loaded • 0 total</div>
-<div class="filter-bar"><span class="filter-label">Filter:</span><button class="filter-btn" data-filter="R">R</button><button class="filter-btn" data-filter="PG-13">PG-13</button><button class="filter-btn" data-filter="PG">PG</button><button class="filter-btn" data-filter="G">G</button><button class="filter-btn" data-filter="NC-17">NC-17</button></div>
-<section id="continueSection" class="section" style="display:none"><div class="section-title">Continue Watching</div><div id="continueRow" class="continue-row"></div></section>
-<section class="section"><div id="moviesTitle" class="section-title">Movies</div><div id="files"></div><div id="noResults">No movies found.</div></section><footer>BronFlix+</footer>
-<div id="movieDetails"><button class="details-close" onclick="closeDetails()">×</button><div class="details-inner"><div class="details-top"><div id="detailsPoster"></div><div class="details-content"><div id="detailsTitle" class="details-title"></div><div id="detailsOriginal" class="details-original"></div><div id="detailsMeta" class="details-meta"></div><div id="detailsDescription" class="details-description"></div><div id="detailsActions" class="details-actions"></div></div></div></div></div>
-<div id="playerOverlay"><div id="playerContainer"><button id="closePlayer">×</button><video id="videoPlayer" controls playsinline preload="metadata"></video></div></div>
-<div id="settingsOverlay"><div class="settings-box"><h2>Settings</h2>
+</style>
+</head>
+<body>
+<header>
+<div class="logo" onclick="clearSearch()">BRONFLIX+</div>
+<input id="search" placeholder="Search movies..." autocomplete="off">
+<div class="header-buttons"><button class="header-btn" onclick="showFavorites()">My List</button><button class="header-btn" onclick="openSettings()">⚙</button></div>
+</header>
+<div id="hero"></div>
+<div id="loading">Loading movie list...</div>
+<div id="stats">0 loaded • 0 total</div>
+<div class="filter-bar">
+<span class="filter-label">Filter:</span><button class="filter-btn" data-filter="R">R</button><button class="filter-btn" data-filter="PG-13">PG-13</button><button class="filter-btn" data-filter="PG">PG</button><button class="filter-btn" data-filter="G">G</button><button class="filter-btn" data-filter="NC-17">NC-17</button>
+</div>
+<section id="continueSection" class="section" style="display:none">
+<div class="section-title">Continue Watching</div>
+<div id="continueRow" class="continue-row"></div>
+</section>
+<section class="section">
+<div id="moviesTitle" class="section-title">Movies</div>
+<div id="files"></div>
+<div id="noResults">No movies found.</div>
+</section>
+<footer>BronFlix+</footer>
+<div id="movieDetails">
+<button class="details-close" onclick="closeDetails()">×</button>
+<div class="details-inner">
+<div class="details-top">
+<div id="detailsPoster"></div>
+<div class="details-content">
+<div id="detailsTitle" class="details-title"></div>
+<div id="detailsOriginal" class="details-original"></div>
+<div id="detailsMeta" class="details-meta"></div>
+<div id="detailsDescription" class="details-description"></div>
+<div id="detailsActions" class="details-actions"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="playerOverlay">
+<div id="playerContainer">
+<button id="closePlayer">×</button>
+<video id="videoPlayer" controls playsinline preload="metadata"></video>
+</div>
+</div>
+<div id="settingsOverlay">
+<div class="settings-box">
+<h2>Settings</h2>
 <div class="setting-row"><div class="setting-info"><b>Autoplay</b><span class="setting-description">Automatically start movies when opened</span></div><div id="autoplaySwitch" class="switch on" onclick="toggleSetting('autoplay')"></div></div>
 <div class="setting-row"><div class="setting-info"><b>Featured Movies</b><span class="setting-description">Show the featured movie banner at the top</span></div><div id="featuredSwitch" class="switch on" onclick="toggleSetting('featured')"></div></div>
 <div class="setting-row"><div class="setting-info"><b>My List First</b><span class="setting-description">Keep your saved movies prioritized</span></div><div id="favoritesSwitch" class="switch on" onclick="toggleSetting('favorites')"></div></div>
@@ -16,378 +61,3541 @@
 <div class="setting-row"><div class="setting-info"><b>Resume Offset</b><span class="setting-description">Start this many seconds before your saved position</span></div><input id="resumeOffset" class="setting-input" type="number" min="0" max="120" step="1" onchange="updateNumberSetting('resumeOffset',this.value)"></div>
 <div class="setting-row"><div class="setting-info"><b>Theme Color</b><span class="setting-description">Change the main BronFlix+ accent color</span></div><input id="themeColor" class="color-input" type="color" onchange="updateTheme(this.value)"></div>
 <div class="setting-row"><div class="setting-info"><b>Continue Watching Limit</b><span class="setting-description">Maximum number of movies kept in Continue Watching</span></div><input id="continueLimit" class="setting-input" type="number" min="1" max="50" step="1" onchange="updateNumberSetting('continueLimit',this.value)"></div>
-<div class="setting-row"><div class="setting-info"><b>Maximum Concurrent Loads</b><span class="setting-description">How many movie metadata and poster requests can load at once</span></div><select id="concurrentLoads" class="setting-select" onchange="updateConcurrentLoads(this.value)"><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="200">200</option><option value="0">Unlimited</option></select></div>
+<div class="setting-row"><div class="setting-info"><b>Maximum Concurrent Loads</b><span class="setting-description">How many movie metadata requests can load at once</span></div><select id="concurrentLoads" class="setting-select" onchange="updateConcurrentLoads(this.value)"><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="200">200</option><option value="0">Unlimited</option></select></div>
 <div class="setting-row"><div class="setting-info"><b>Playback Progress</b><span class="setting-description">Remember your movie position automatically</span></div><div id="progressSwitch" class="switch on" onclick="toggleSetting('progress')"></div></div>
 <div class="setting-row"><div class="setting-info"><b>API Keys</b><span class="setting-description">Update your saved movie API keys</span></div><button class="action-btn dark" onclick="openApiSetup(true)">Change</button></div>
-<button class="close-settings" onclick="closeSettings()">Close</button></div></div>
-<div id="apiSetup"><div class="api-box"><h1>Welcome to BronFlix+</h1><p>Enter your own API keys to enable movie posters, ratings, descriptions, and metadata. Your keys are saved only in this browser.</p><div class="api-field"><label for="tmdbKey">TMDB API Key</label><input id="tmdbKey" type="password" autocomplete="off" placeholder="Enter TMDB API key"></div><div class="api-field"><label for="omdbKey">OMDb API Key</label><input id="omdbKey" type="password" autocomplete="off" placeholder="Enter OMDb API key"></div><div class="api-field"><label for="fanartKey">Fanart.tv API Key</label><input id="fanartKey" type="password" autocomplete="off" placeholder="Enter Fanart.tv API key"></div><button id="apiSave" class="api-save" onclick="saveApiKeys()">Save & Continue</button><p class="api-note">Keys are stored with browser localStorage and are not included in the BronFlix+ source code.</p></div></div>
+<button class="close-settings" onclick="closeSettings()">Close</button>
+</div>
+</div>
+<div id="apiSetup">
+<div class="api-box">
+<h1>Welcome to BronFlix+</h1>
+<p>Enter your own API keys to enable movie posters, ratings, descriptions, and metadata. Your keys are saved only in this browser.</p>
+<div class="api-field"><label for="tmdbKey">TMDB API Key</label><input id="tmdbKey" type="password" autocomplete="off" placeholder="Enter TMDB API key"></div>
+<div class="api-field"><label for="omdbKey">OMDb API Key</label><input id="omdbKey" type="password" autocomplete="off" placeholder="Enter OMDb API key"></div>
+<div class="api-field"><label for="fanartKey">Fanart.tv API Key</label><input id="fanartKey" type="password" autocomplete="off" placeholder="Enter Fanart.tv API key"></div>
+<button id="apiSave" class="api-save" onclick="saveApiKeys()">Save & Continue</button>
+<p class="api-note">Keys are stored with browser localStorage and are not included in the BronFlix+ source code.</p>
+</div>
+</div>
 <script>
-const sources=["My-Favorite-Movies_202503","28-days-later_202505","the-village-2004_202606","agent-cody-banks-2003",["are-you-alone-in-the-house","It.mp4"],"TR_Sub_Movies","opener_202508","AlansCC1","the.-equalizer.-2014.1080p.-blu-ray.x-264.-yify_202402","the-basketball-diaries","the-hateful-eight-extended-version","21.-jump.-street.-2012","training-day_202608","ferris-buellers-day-off-1986_202511","the-detective","disney-channel-original-movies","1-frosty-the-snowman",["comedy-collection",null,1],["superbad-fullscreen-240p","Superbad (Fullscreen) 480p.mp4"],"office.-space.-1999.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx_202606","law.-abiding.-citizen.-720p.-br-rip.-450-mb.-yify_202606","django-unchained-2012_tarantino","r-73_20251103","the-patriot-2000","escape-from-new-york-1981-john-carpenter-1080p","mash.-1970.1080p.-blu-ray.-10-bit.-hevc.-eac-3-sartre","se-7en_202609","guardians-of-the-galaxy-2_202609"].map(x=>typeof x==="string"?{identifier:x}:{identifier:x[0],file:x[1],bottom:x[2]});
+const sources=[
+"My-Favorite-Movies_202503",
+"28-days-later_202505",
+"the-village-2004_202606",
+"agent-cody-banks-2003",
+["are-you-alone-in-the-house","It.mp4"],
+"TR_Sub_Movies",
+"opener_202508",
+"AlansCC1",
+"the.-equalizer.-2014.1080p.-blu-ray.x-264.-yify_202402",
+"the-basketball-diaries",
+"the-hateful-eight-extended-version",
+"21.-jump.-street.-2012",
+"training-day_202608",
+"ferris-buellers-day-off-1986_202511",
+"the-detective",
+"disney-channel-original-movies",
+"1-frosty-the-snowman",
+["comedy-collection",null,1],
+["superbad-fullscreen-240p","Superbad (Fullscreen) 480p.mp4"],
+"office.-space.-1999.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx_202606",
+"law.-abiding.-citizen.-720p.-br-rip.-450-mb.-yify_202606",
+"django-unchained-2012_tarantino",
+"r-73_20251103",
+"the-patriot-2000",
+"escape-from-new-york-1981-john-carpenter-1080p",
+"mash.-1970.1080p.-blu-ray.-10-bit.-hevc.-eac-3-sartre",
+"se-7en_202609",
+"guardians-of-the-galaxy-2_202609"
+].map(x=>typeof x==="string"?{identifier:x}:{identifier:x[0],file:x[1],bottom:x[2]});
+
 const savedApiKeys=JSON.parse(localStorage.bronflixApiKeys||"{}");
-let OMDB_API_KEY=savedApiKeys.omdb||"",TMDB_API_KEY=savedApiKeys.tmdb||"",FANART_API_KEY=savedApiKeys.fanart||"";
-const movies=[],cache=new Map,posterCache=new Map,filters=new Set;
-const defaultSettings={autoplay:true,featured:true,favorites:true,duplicates:false,progress:true,resumeOffset:10,continueLimit:12,theme:"#e50914",concurrentLoads:0};
-const settings={...defaultSettings,...JSON.parse(localStorage.movieSettings||"{}")};
-delete settings.loadAll;delete settings.preloadCount;
-let heroMovies=[],heroIndex=0,heroTimer,currentMovie,playerMovie,loadedCount=0,apiSetupOpen=false;
-let loadQueue=[],queued=new Set,activeLoads=0,renderedMovieCount=0,appendObserver=null,appendBusy=false;
-const MOVIES_PER_BATCH=24;
-let posterStore={};
-try{posterStore=JSON.parse(localStorage.bronflixPosterCache||"{}")}catch(e){posterStore={}}
-function saveSettings(){localStorage.movieSettings=JSON.stringify(settings)}
-function applyTheme(){document.documentElement.style.setProperty("--theme",settings.theme||"#e50914");const x=document.getElementById("themeColor");if(x)x.value=settings.theme||"#e50914"}
-applyTheme();
-const overrides={spiderman6homecoming:"Spider-Man Homecoming",jurassicpark3:"Jurassic Park III",spidermanhomecoming:"Spider-Man Homecoming",spidermanhomecoming2017:"Spider-Man Homecoming",spidermanhomecoming202506:"Spider-Man Homecoming",spiderman5theamazingspiderman2:"The Amazing Spider-Man 2",spiderman7farfromhome:"Spider-Man Far From Home",spiderman6theamazingspiderman2:"The Amazing Spider-Man 2",spiderman4theamazingspiderman:"The Amazing Spider-Man",scarfaceremastereddpp5110bit:"Scarface",itytsag:"It (2017)"};
-const sleep=t=>new Promise(r=>setTimeout(r,t));
-async function fetchJSON(url,timeout=7000,retries=1){
-for(let i=0;i<=retries;i++){
-const c=new AbortController(),t=setTimeout(()=>c.abort(),timeout);
-try{const r=await fetch(url,{signal:c.signal});clearTimeout(t);if(r.ok)return await r.json()}catch(e){clearTimeout(t)}
-if(i<retries)await sleep(150)
-}
-return null
-}
-function norm(s){return String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"")}
-function clean(s){
-let n=s.replace(/\.[^/.]+$/,"").replace(/[+_.]/g," ").replace(/[\u{1F000}-\u{1FFFF}\u2600-\u27BF]/gu,"");
-n=n.replace(/\b(19|20)\d{2}\b/g,"").replace(/\b(1080p|720p|2160p|4k|bluray|blu-ray|webrip|web-dl|hdtv|x264|x265|hevc|hdr|dvdrip|cam|proper|repack|aac|ddp5[\s.]?1|10bit|rarbg|yify|yts|ag)\b/gi,"");
-n=n.replace(/-+/g," ").replace(/\s+/g," ").trim();return overrides[norm(n)]||n
-}
-function titles(file){
-const b=clean(file),o=file.replace(/\.[^/.]+$/,""),a=[b,o];
-if(/^the /i.test(b))a.push(b.slice(4));
-if(/^spiderman/i.test(b))a.push(b.replace(/^spiderman/i,"spider-man"));
-if(/^spider man/i.test(b))a.push(b.replace(/^spider man/i,"spider-man"));
-if(/amazing spiderman/i.test(b))a.push(b.replace(/amazing\s*spiderman/i,"the amazing spider-man"));
-if(/ironman/i.test(b))a.push(b.replace(/ironman/i,"iron man"));
-return[...new Map(a.filter(Boolean).map(x=>[norm(x),x])).values()]
-}
-function match(a,b){a=norm(a);b=norm(b);return a===b||a.includes(b)||b.includes(a)}
-async function tmdb(title){
-if(!TMDB_API_KEY)return null;
-const k="t"+norm(title);if(cache.has(k))return cache.get(k);
-const d=await fetchJSON(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(title)}&include_adult=false`);
-const r=d?.results?.find(x=>norm(x.title)===norm(title))||d?.results?.find(x=>match(title,x.title))||d?.results?.[0]||null;cache.set(k,r);return r
-}
-async function details(id){
-if(!id||!TMDB_API_KEY)return null;
-const k="d"+id;if(cache.has(k))return cache.get(k);
-const r=await fetchJSON(`https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_API_KEY}&append_to_response=release_dates`);
-cache.set(k,r);return r
-}
-async function omdb(title){
-if(!OMDB_API_KEY)return null;
-const k="o"+norm(title);if(cache.has(k))return cache.get(k);
-const r=await fetchJSON(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${encodeURIComponent(title)}&type=movie&plot=full`,6500);
-const x=r?.Response==="True"?r:null;cache.set(k,x);return x
-}
-async function movieData(m){
-const k="m"+norm(m.file.name);if(cache.has(k))return cache.get(k);
-let t=null,o=null;
-for(const x of titles(m.file.name)){
-const[tt,oo]=await Promise.all([tmdb(x),omdb(x)]);
-t=t||tt;o=o||oo;
-if(t&&o)break
-}
-const r={tmdb:t,details:await details(t?.id),omdb:o};cache.set(k,r);return r
-}
-async function wiki(title){
-const k="w"+norm(title);if(posterCache.has(k))return posterCache.get(k);
-const d=await fetchJSON(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(title+" film")}&gsrlimit=5&prop=pageimages&piprop=original&format=json&origin=*`);
-const p=Object.values(d?.query?.pages||{}).find(x=>match(title,x.title)&&x.original?.source)?.original?.source||null;posterCache.set(k,p);return p
-}
-async function fanart(id){
-if(!FANART_API_KEY||!id)return null;
-const k="f"+id;if(posterCache.has(k))return posterCache.get(k);
-const d=await fetchJSON(`https://webservice.fanart.tv/v3/movies/${id}?api_key=${FANART_API_KEY}`);
-const p=d?.movieposter?.sort((a,b)=>(+b.likes||0)-(+a.likes||0))[0]?.url||null;posterCache.set(k,p);return p
-}
-async function poster(m,d){
-const k="p"+m.id;if(posterCache.has(k))return posterCache.get(k);
-if(posterStore[m.id]){posterCache.set(k,posterStore[m.id]);return posterStore[m.id]}
-let p=d?.tmdb?.poster_path?`https://image.tmdb.org/t/p/w500${d.tmdb.poster_path}`:d?.omdb?.Poster&&d.omdb.Poster!=="N/A"?d.omdb.Poster:null;
-p=p||await fanart(d?.omdb?.imdbID);p=p||await wiki(m.displayTitle);posterCache.set(k,p);return p
-}
-function savePoster(m,p){
-if(!m||!p)return;
-posterStore[m.id]=p;
-try{const keys=Object.keys(posterStore);if(keys.length>500)delete posterStore[keys[0]];localStorage.bronflixPosterCache=JSON.stringify(posterStore)}catch(e){}
-}
-function preloadImage(url){if(!url)return;const img=new Image;img.decoding="async";img.fetchPriority="high";img.src=url}
-function rating(m){return m.data?.omdb?.imdbRating&&m.data.omdb.imdbRating!=="N/A"?m.data.omdb.imdbRating:m.data?.tmdb?.vote_average?.toFixed(1)||null}
-function rated(m){
-const o=m.data?.omdb;
-if(o?.Rated&&o.Rated!=="N/A")return o.Rated;
-const u=m.data?.details?.release_dates?.results?.find(x=>x.iso_3166_1==="US");
-return u?.release_dates?.find(x=>x.certification)?.certification||"NR"
-}
-function rclass(x){return"rating-"+String(x||"NR").replace(/[^a-z0-9]/gi,"")}
-function plot(m){return m.data?.omdb?.Plot&&m.data.omdb.Plot!=="N/A"?m.data.omdb.Plot:m.data?.details?.overview||"Description not available."}
-function card(m){
-const c=document.createElement("div");c.className="card";c.innerHTML='<div class="poster-area"><div class="poster-loading"></div></div><div class="movie-info"><div class="movie-title"></div><div class="movie-original"></div><div class="movie-meta"><span class="star">★</span><span class="rating-number">—</span><span class="rating-badge rating-NR">NR</span></div></div>';
-c.querySelector(".movie-title").textContent=m.displayTitle;
-c.onclick=()=>{if(!m.loaded)queueMovie(m,1000000);openDetails(m)};
-m.card=c;return c
-}
-function getLoadLimit(){const n=Number(settings.concurrentLoads);return!n||n<1?Infinity:Math.min(250,n)}
-function queueMovie(m,priority=0){
-if(!m||m.loaded||m.loading)return;
-const existing=loadQueue.find(x=>x.m===m);
-if(existing){if(priority>existing.priority)existing.priority=priority;return}
-queued.add(m.id);loadQueue.push({m,priority});loadQueue.sort((a,b)=>b.priority-a.priority);processQueue()
-}
-function queueMovies(list,priority=0){list.forEach((m,i)=>queueMovie(m,priority-i*.01))}
-function processQueue(){
-const limit=getLoadLimit();
-while(activeLoads<limit&&loadQueue.length){
-const item=loadQueue.shift(),m=item.m;
-if(!m||m.loaded||m.loading)continue;
-queued.delete(m.id);activeLoads++;
-loadCard(m).catch(e=>console.warn("Movie load failed:",m.displayTitle,e)).finally(()=>{activeLoads--;if(loadQueue.length)processQueue()})
-}
-}
-async function loadCard(m){
-if(m.loading||m.loaded)return;
-m.loading=1;
-try{
-const d=await movieData(m);m.data=d;
-m.displayTitle=overrides[norm(m.file.name.replace(/\.[^/.]+$/,""))]||d?.tmdb?.title||d?.omdb?.Title||m.displayTitle;
-m.rating=parseFloat(rating(m))||0;m.rated=rated(m);
-const q=m.card;
-q.querySelector(".movie-title").textContent=m.displayTitle;
-const o=clean(m.file.name),orig=norm(o)!==norm(m.displayTitle)?o:"";
-q.querySelector(".movie-original").textContent=orig;q.querySelector(".movie-original").style.display=orig?"block":"none";
-q.querySelector(".movie-meta").innerHTML=`<span class=star>★</span><span>${m.rating||"—"}</span><span class="rating-badge ${rclass(m.rated)}">${m.rated}</span>`;
-const p=await poster(m,d);m.poster=p;
-if(p){
-savePoster(m,p);
-const img=new Image;img.className="poster";img.alt=m.displayTitle;img.decoding="async";img.fetchPriority="high";img.loading="eager";
-img.onload=()=>{q.querySelector(".poster-area").replaceChildren(img);m.posterLoaded=1;updateContinuePoster(m)};
-img.onerror=async()=>{const w=await wiki(m.displayTitle);if(w&&img.src!==w)img.src=w;else placeholder(m)};img.src=p
-}else placeholder(m);
-m.loaded=1;m.loading=0;loadedCount++;stats();scheduleApply();
-if(loadedCount<=20)buildHero()
-}catch(e){m.loading=0;console.warn("Failed loading movie:",m.displayTitle,e)}
-}
-function placeholder(m){m.card.querySelector(".poster-area").innerHTML=`<div class=placeholder>${m.displayTitle}</div>`}
-function stats(){document.getElementById("stats").textContent=`${loadedCount} loaded • ${movies.length} total`}
-function favorite(m){return JSON.parse(localStorage.favorites||"[]").includes(m.id)}
-function toggleFavorite(m){
-let a=JSON.parse(localStorage.favorites||"[]");a=favorite(m)?a.filter(x=>x!==m.id):[...a,m.id];localStorage.favorites=JSON.stringify(a);favButton(m);apply()
-}
-function favButton(m){
-const b=document.getElementById("favoriteBtn");if(b){b.textContent=favorite(m)?"♥ Remove from My List":"♡ Add to My List";b.classList.toggle("favorite",favorite(m))}
-}
-function openDetails(m){
-currentMovie=m;if(!m.loaded)queueMovie(m,200000);
-const d=m.data||{};document.getElementById("detailsTitle").textContent=m.displayTitle;
-const p=document.getElementById("detailsPoster");p.innerHTML=m.poster?`<img class=details-poster src="${m.poster}">`:`<div class=placeholder>${m.displayTitle}</div>`;
-const r=rating(m),rt=d.omdb?.Ratings?.find(x=>x.Source==="Rotten Tomatoes")?.Value,y=d.tmdb?.release_date?.slice(0,4);
-document.getElementById("detailsMeta").innerHTML=`<span class="rating-badge ${rclass(rated(m))}">${rated(m)}</span>${r?`<span class=star>★</span><b>${r}/10</b>`:""}${rt?`<span>🍅 ${rt}</span>`:""}${y?`<span>${y}</span>`:""}`;
-document.getElementById("detailsDescription").textContent=plot(m);
-const a=document.getElementById("detailsActions");a.innerHTML="";
-const play=document.createElement("button");play.className="action-btn";play.textContent="▶ Play";play.onclick=()=>{closeDetails();openPlayer(m)};a.appendChild(play);
-const f=document.createElement("button");f.id="favoriteBtn";f.className="action-btn dark";f.onclick=()=>toggleFavorite(m);a.appendChild(f);favButton(m);
-document.getElementById("movieDetails").style.display="block";document.body.classList.add("no-scroll")
-}
-function closeDetails(){document.getElementById("movieDetails").style.display="none";document.body.classList.remove("no-scroll")}
-function archiveURL(f){return`https://archive.org/download/${encodeURIComponent(f.identifier)}/${encodeURIComponent(f.name)}`}
-function openPlayer(m,start=0){
-const v=document.getElementById("videoPlayer");playerMovie=m;v.pause();v.removeAttribute("src");v.load();v.controls=true;v.playsInline=true;
-document.getElementById("playerOverlay").style.display="block";document.body.classList.add("no-scroll");
-v.src=archiveURL(m.file);v.load();
-v.onloadedmetadata=()=>{
-if(playerMovie!==m)return;
-if(start&&Number.isFinite(v.duration))v.currentTime=Math.max(0,Math.min(start,v.duration-1));
-if(settings.autoplay)v.play().catch(()=>{})
+let OMDB_API_KEY=savedApiKeys.omdb||"";
+let TMDB_API_KEY=savedApiKeys.tmdb||"";
+let FANART_API_KEY=savedApiKeys.fanart||"";
+
+const movies=[];
+const cache=new Map();
+const posterCache=new Map();
+const filters=new Set();
+
+const defaultSettings={
+autoplay:true,
+featured:true,
+favorites:true,
+duplicates:false,
+progress:true,
+resumeOffset:10,
+continueLimit:12,
+theme:"#e50914",
+concurrentLoads:25
 };
-let lastProgressSave=0;
-v.ontimeupdate=()=>{
-if(!settings.progress||playerMovie!==m||!v.duration)return;
-const now=Date.now();
-if(now-lastProgressSave>=5000){lastProgressSave=now;saveContinue(m,v.currentTime,v.duration)}
+
+const settings={
+...defaultSettings,
+...JSON.parse(localStorage.movieSettings||"{}")
 };
-v.onerror=()=>console.warn("Archive video failed:",archiveURL(m.file),v.error)
-}
-function closePlayer(){
-const v=document.getElementById("videoPlayer");
-if(settings.progress&&playerMovie&&v.duration)saveContinue(playerMovie,v.currentTime,v.duration);
-v.pause();v.removeAttribute("src");v.load();playerMovie=null;document.getElementById("playerOverlay").style.display="none";document.body.classList.remove("no-scroll")
-}
-document.getElementById("closePlayer").onclick=closePlayer;
-function saveContinue(m,t,d){
-if(!settings.progress||!d||d<10)return;
-let a=JSON.parse(localStorage.continueWatching||"[]").filter(x=>x.id!==m.id);
-if(t/d<.95)a.unshift({id:m.id,time:t,duration:d});
-localStorage.continueWatching=JSON.stringify(a.slice(0,Math.max(1,Number(settings.continueLimit)||12)));renderContinue()
-}
-function updateContinuePoster(m){
-document.querySelectorAll(".continue-card").forEach(c=>{
-if(c.dataset.id!==m.id)return;
-const p=c.querySelector(".continue-poster");if(!p)return;
-if(m.poster&&!p.querySelector("img")){const img=new Image;img.src=m.poster;img.loading="eager";img.decoding="async";img.fetchPriority="high";img.onload=()=>p.replaceChildren(img)}
-})
-}
-function moveContinue(m){
-let a=JSON.parse(localStorage.continueWatching||"[]"),i=a.findIndex(x=>x.id===m.id);if(i<0)return;
-const item=a.splice(i,1)[0];a.unshift(item);localStorage.continueWatching=JSON.stringify(a);renderContinue()
-}
-function removeContinue(m){localStorage.continueWatching=JSON.stringify(JSON.parse(localStorage.continueWatching||"[]").filter(x=>x.id!==m.id));renderContinue()}
-function renderContinue(){
-const row=document.getElementById("continueRow");row.innerHTML="";let n=0,ids=[];
-JSON.parse(localStorage.continueWatching||"[]").forEach(x=>{
-const m=movies.find(m=>m.id===x.id);if(!m)return;n++;ids.push(m);
-const cached=m.poster||posterStore[m.id];if(cached)preloadImage(cached);
-const c=document.createElement("div");c.className="continue-card";c.dataset.id=m.id;
-c.innerHTML=`<div class=continue-poster>${cached?`<img src="${cached}" loading="eager" fetchpriority="high">`:""}<button class=continue-menu-btn>⋮</button><div class=continue-menu><button data-action=front>Move to front</button><button data-action=remove class=remove>Remove from Continue Watching</button></div></div><div class=progress><div class=progress-bar style="width:${Math.min(100,x.time/x.duration*100)}%"></div></div><div class=continue-name>${m.displayTitle}</div>`;
-const menu=c.querySelector(".continue-menu"),btn=c.querySelector(".continue-menu-btn");
-btn.onclick=e=>{e.stopPropagation();document.querySelectorAll(".continue-menu.open").forEach(z=>z!==menu&&z.classList.remove("open"));menu.classList.toggle("open")};
-menu.onclick=e=>{e.stopPropagation();const a=e.target.dataset.action;if(a==="front")moveContinue(m);else if(a==="remove")removeContinue(m)};
-c.onclick=e=>{if(!e.target.closest(".continue-menu-btn")&&!e.target.closest(".continue-menu")){const offset=Math.max(0,Number(settings.resumeOffset)||0);openPlayer(m,Math.max(0,x.time-offset))}};
-row.appendChild(c)
-});
-document.getElementById("continueSection").style.display=n?"block":"none";
-if(ids.length)queueMovies(ids,1000000)
-}
-document.addEventListener("click",e=>{if(!e.target.closest(".continue-menu")&&!e.target.closest(".continue-menu-btn"))document.querySelectorAll(".continue-menu.open").forEach(x=>x.classList.remove("open"))});
-function searchVariants(s){
-s=String(s).toLowerCase().trim();const a=new Set([norm(s)]),roman={i:1,v:5,x:10,l:50,c:100,d:500,m:1000};
-const rn=x=>{let n=0;for(let i=0;i<x.length;i++)n+=(roman[x[i]]<(roman[x[i+1]]||0)?-roman[x[i]]:roman[x[i]]);return n};
-a.add(norm(s.replace(/\b[ivxlcdm]+\b/gi,x=>{let n=rn(x);return n>=1&&n<=3999?String(n):x})));return[...a]
-}
-function score(m,q){
-if(!q)return 0;
-const qs=searchVariants(q),ts=[m.displayTitle,m.title,m.file.name].flatMap(searchVariants);
-if(!qs.some(x=>ts.some(y=>y===x||y.includes(x)||x.includes(y))))return 0;
-if(norm(m.displayTitle)===norm(q))return 1e4;
-if(qs.some(x=>ts.includes(x)))return 9500;
-if(qs.some(x=>ts.some(y=>y.startsWith(x))))return 9000;
-return 7000
-}
-function apply(){
-const q=document.getElementById("search").value.trim(),dupes=new Set;
-if(settings.duplicates){
-const seen=new Map;
-movies.forEach(m=>{
-const title=norm(m.data?.tmdb?.title||m.data?.omdb?.Title||m.displayTitle||clean(m.file.name));if(!title)return;
-if(seen.has(title)){
-const first=seen.get(title),firstScore=first.data?.tmdb?.vote_count||first.data?.tmdb?.popularity||0,thisScore=m.data?.tmdb?.vote_count||m.data?.tmdb?.popularity||0;
-if(thisScore>firstScore){dupes.add(first.id);seen.set(title,m)}else dupes.add(m.id)
-}else seen.set(title,m)
-})
-}
-let a=movies.filter(m=>!dupes.has(m.id)&&(!filters.size||!m.data||filters.has(m.rated))).map(m=>(m.searchScore=score(m,q),m)).filter(m=>!q||m.searchScore);
-if(settings.favorites&&!q&&!filters.size){const favs=a.filter(favorite),others=a.filter(m=>!favorite(m));a=[...favs,...others]}
-if(q)a.sort((x,y)=>y.searchScore-x.searchScore||x.displayTitle.localeCompare(y.displayTitle));
-const box=document.getElementById("files"),visible=new Set(a);
-if(q){
-box.innerHTML="";renderedMovieCount=a.length;
-a.forEach(m=>{if(!m.card){m.card=card(m);m.card._movie=m}m.card.style.display="";box.appendChild(m.card)});
-a.forEach((m,i)=>queueMovie(m,1000000+(m.searchScore||0)-i*.01));processQueue()
-}else{
-for(let i=0;i<renderedMovieCount;i++){const m=movies[i];if(m.card)m.card.style.display=visible.has(m)?"":"none"}
-}
-document.getElementById("noResults").style.display=!a.length&&movies.length?"block":"none";
-document.getElementById("moviesTitle").textContent=q?"Search Results":filters.size?`Filtered Movies (${[...filters].join(", ")})`:"Movies";
-if(!q)queueCurrentBatch();
-updateInfiniteState()
-}
+
+delete settings.loadAll;
+delete settings.preloadCount;
+
+let heroMovies=[];
+let heroIndex=0;
+let heroTimer=null;
+let currentMovie=null;
+let playerMovie=null;
+let loadedCount=0;
+let apiSetupOpen=false;
+
+let metadataQueue=[];
+let metadataQueued=new Set();
+let activeMetadata=0;
+
+let posterQueue=[];
+let posterQueued=new Set();
+let activePosters=0;
+
+let posterObserver=null;
+let continueObserver=null;
+
 let applyFrame=0;
-function scheduleApply(){if(applyFrame)return;applyFrame=requestAnimationFrame(()=>{applyFrame=0;if(document.getElementById("search").value.trim())apply()})}
-document.querySelectorAll(".filter-btn").forEach(b=>b.onclick=()=>{const x=b.dataset.filter;filters.has(x)?(filters.delete(x),b.classList.remove("active")):(filters.add(x),b.classList.add("active"));apply()});
-document.getElementById("search").oninput=apply;
-function clearSearch(){
-document.getElementById("search").value="";filters.clear();document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));
-resetMovieRendering();appendMovieBatch();apply();scrollTo(0,0)
-}
-function showFavorites(){
-document.getElementById("search").value="";filters.clear();document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));
-const favs=movies.filter(favorite);document.getElementById("files").innerHTML="";renderedMovieCount=favs.length;
-favs.forEach(m=>{if(!m.card){m.card=card(m);m.card._movie=m}m.card.style.display="";document.getElementById("files").appendChild(m.card)});
-document.getElementById("moviesTitle").textContent="My List";document.getElementById("noResults").textContent="Your list is empty.";document.getElementById("noResults").style.display=favs.length?"none":"block";scrollTo(0,0);queueMovies(favs,200000);processQueue()
-}
-function buildHero(){
-const a=movies.filter(m=>m.poster&&m.rating>=6&&m.data);if(!a.length||!settings.featured)return;
-let seed=+new Date().toDateString().replace(/\D/g,"");const rnd=()=>((seed=seed*9301+49297)%233280)/233280;
-heroMovies=[...a].sort(()=>rnd()-.5).slice(0,5);const h=document.getElementById("hero");h.innerHTML="";
-heroMovies.forEach((m,i)=>{const s=document.createElement("div");s.className="hero-slide"+(!i?" active":"");s.style.backgroundImage=`url("${m.poster}")`;s.innerHTML=`<div class=hero-content><div class=hero-kicker>FEATURED MOVIE</div><div class=hero-title>${m.displayTitle}</div><div class=hero-meta><span class=star>★</span><b>${m.rating}/10</b><span class="rating-badge ${rclass(m.rated)}">${m.rated}</span></div><div class=hero-description>${plot(m)}</div><button class=hero-play>▶ Play</button></div>`;s.querySelector("button").onclick=()=>openPlayer(m);h.appendChild(s)});
-const d=document.createElement("div");d.className="hero-dots";heroMovies.forEach((m,i)=>{const x=document.createElement("div");x.className="hero-dot"+(!i?" active":"");x.onclick=()=>showHero(i);d.appendChild(x)});h.appendChild(d);clearInterval(heroTimer);heroTimer=setInterval(()=>showHero((heroIndex+1)%heroMovies.length),6500)
-}
-function showHero(i){heroIndex=i;document.querySelectorAll(".hero-slide").forEach((x,n)=>x.classList.toggle("active",n===i));document.querySelectorAll(".hero-dot").forEach((x,n)=>x.classList.toggle("active",n===i))}
-function openSettings(){document.getElementById("settingsOverlay").style.display="block";document.body.classList.add("no-scroll");updateSettings()}
-function closeSettings(){document.getElementById("settingsOverlay").style.display="none";document.body.classList.remove("no-scroll")}
-function toggleSetting(n){
-settings[n]=!settings[n];saveSettings();updateSettings();
-if(n==="featured"){document.getElementById("hero").style.display=settings.featured?"":"none";if(settings.featured)buildHero()}
-if(n==="duplicates"||n==="favorites")apply();
-if(n==="progress"&&!settings.progress){localStorage.continueWatching="[]";renderContinue()}
-}
-function updateNumberSetting(n,value){
-let v=parseInt(value,10);
-if(n==="resumeOffset")v=Math.max(0,Math.min(120,isNaN(v)?10:v));
-if(n==="continueLimit")v=Math.max(1,Math.min(50,isNaN(v)?12:v));
-settings[n]=v;saveSettings();if(n==="continueLimit")renderContinue()
-}
-function updateConcurrentLoads(value){let v=parseInt(value,10);if(isNaN(v))v=0;v=Math.max(0,Math.min(250,v));settings.concurrentLoads=v;saveSettings();updateSettings();processQueue()}
-function updateTheme(value){settings.theme=value||"#e50914";saveSettings();applyTheme()}
-function updateSettings(){
-["autoplay","featured","favorites","duplicates","progress"].forEach(x=>document.getElementById(x+"Switch").classList.toggle("on",!!settings[x]));
-document.getElementById("resumeOffset").value=Number(settings.resumeOffset)||10;document.getElementById("continueLimit").value=Number(settings.continueLimit)||12;document.getElementById("themeColor").value=settings.theme||"#e50914";document.getElementById("concurrentLoads").value=String(settings.concurrentLoads)
-}
-function openApiSetup(force=false){
-apiSetupOpen=true;document.getElementById("tmdbKey").value=TMDB_API_KEY;document.getElementById("omdbKey").value=OMDB_API_KEY;document.getElementById("fanartKey").value=FANART_API_KEY;document.getElementById("apiSetup").style.display="flex";document.body.classList.add("no-scroll");document.getElementById("apiSave").textContent=force?"Save API Keys":"Save & Continue"
-}
-function saveApiKeys(){
-const tmdb=document.getElementById("tmdbKey").value.trim(),omdb=document.getElementById("omdbKey").value.trim(),fanart=document.getElementById("fanartKey").value.trim();if(!tmdb||!omdb||!fanart)return;
-TMDB_API_KEY=tmdb;OMDB_API_KEY=omdb;FANART_API_KEY=fanart;localStorage.bronflixApiKeys=JSON.stringify({tmdb,omdb,fanart});cache.clear();posterCache.clear();
-document.getElementById("apiSetup").style.display="none";document.body.classList.remove("no-scroll");apiSetupOpen=false;
-if(!movies.length)loadMovies();else{movies.forEach(m=>{m.loaded=false;m.loading=false;m.data=null;m.poster=null});loadedCount=0;loadQueue=[];queued.clear();resetMovieRendering();stats();loadInitialMovies(true)}
-}
-document.onkeydown=e=>{if(e.key==="Escape"){if(apiSetupOpen)return;if(playerMovie)closePlayer();else if(currentMovie)closeDetails();else closeSettings()}};
-async function archiveFiles(s){
-const d=await fetchJSON(`https://archive.org/metadata/${encodeURIComponent(s.identifier)}`,10000,1);
-if(!d?.files)return[];
-return d.files.filter(f=>f?.name?.toLowerCase().endsWith(".mp4")&&(!s.file||f.name===s.file)).map(f=>({...f,identifier:s.identifier,bottom:s.bottom}))
-}
-function resetMovieRendering(){renderedMovieCount=0;appendBusy=false;document.getElementById("files").innerHTML=""}
-function appendMovieBatch(){
-if(appendBusy||renderedMovieCount>=movies.length)return;
-appendBusy=true;
-const box=document.getElementById("files"),end=Math.min(renderedMovieCount+MOVIES_PER_BATCH,movies.length),frag=document.createDocumentFragment();
-for(let i=renderedMovieCount;i<end;i++){const m=movies[i];if(!m.card){m.card=card(m);m.card._movie=m}frag.appendChild(m.card)}
-renderedMovieCount=end;box.appendChild(frag);appendBusy=false;applyLoadedVisibility();queueCurrentBatch();updateInfiniteState()
-}
-function applyLoadedVisibility(){
-const q=document.getElementById("search").value.trim();if(q)return;
-const visible=new Set(movies.filter(m=>!filters.size||!m.data||filters.has(m.rated)));
-for(let i=0;i<renderedMovieCount;i++){const m=movies[i];if(m.card)m.card.style.display=visible.has(m)?"":"none"}
-}
-function queueCurrentBatch(){
-const q=document.getElementById("search").value.trim();
-if(q){const a=movies.filter(m=>score(m,q));a.forEach((m,i)=>queueMovie(m,900000+(m.searchScore||0)-i*.01));processQueue();return}
-const batch=movies.slice(0,renderedMovieCount).filter(m=>m.card&&m.card.style.display!=="none");
-queueMovies(batch,500000);processQueue()
-}
-function updateInfiniteState(){
-const loading=document.getElementById("loading");
-if(renderedMovieCount>=movies.length){loading.textContent="Movie library ready";if(appendObserver)appendObserver.disconnect()}
-else loading.textContent="Scroll down to load more movies..."
-}
-function setupInfiniteScroll(){
-if(appendObserver)appendObserver.disconnect();
-appendObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting))appendMovieBatch()},{rootMargin:"700px 0px 700px 0px",threshold:0});
-appendObserver.observe(document.getElementById("loading"))
-}
-async function loadInitialMovies(refresh=false){
+let heroBuilt=false;
+
+let posterStore={};
+
 try{
-if(refresh){movies.length=0;resetMovieRendering();loadQueue=[];queued.clear()}
-const groups=await Promise.all(sources.map(archiveFiles));let files=groups.flat(),seen=new Set,unique=[];
-files.forEach(f=>{const t=clean(f.name),y=f.name.match(/\b(?:19|20)\d{2}\b/)?.[0]||"",k=norm(t)+"-"+y;if(!seen.has(k)){seen.add(k);unique.push(f)}});
-unique.sort((a,b)=>(a.bottom?1:0)-(b.bottom?1:0));
-unique.forEach(f=>{const m={id:norm(f.identifier+"|"+f.name),file:f,title:clean(f.name),displayTitle:clean(f.name),data:null,rating:0,rated:"NR"};movies.push(m);m.card=card(m);m.card._movie=m});
-stats();document.getElementById("loading").textContent="Loading movies...";renderContinue();setupInfiniteScroll();resetMovieRendering();appendMovieBatch();apply()
-}catch(e){console.error(e);document.getElementById("loading").textContent="Unable to load the movie list."}
+posterStore=JSON.parse(
+localStorage.bronflixPosterCache||"{}"
+);
+}catch(e){
+posterStore={};
 }
-function loadMovies(){loadInitialMovies()}
-if(TMDB_API_KEY&&OMDB_API_KEY&&FANART_API_KEY){document.getElementById("apiSetup").style.display="none";loadMovies()}else{document.getElementById("loading").textContent="API keys required";openApiSetup()}
-</script></body></html>
+
+function saveSettings(){
+localStorage.movieSettings=
+JSON.stringify(settings);
+}
+
+function applyTheme(){
+document.documentElement.style.setProperty(
+"--theme",
+settings.theme||"#e50914"
+);
+
+const x=document.getElementById("themeColor");
+
+if(x){
+x.value=settings.theme||"#e50914";
+}
+}
+
+applyTheme();
+
+const overrides={
+spiderman6homecoming:"Spider-Man Homecoming",
+jurassicpark3:"Jurassic Park III",
+spidermanhomecoming:"Spider-Man Homecoming",
+spidermanhomecoming2017:"Spider-Man Homecoming",
+spidermanhomecoming202506:"Spider-Man Homecoming",
+spiderman5theamazingspiderman2:"The Amazing Spider-Man 2",
+spiderman7farfromhome:"Spider-Man Far From Home",
+spiderman6theamazingspiderman2:"The Amazing Spider-Man 2",
+spiderman4theamazingspiderman:"The Amazing Spider-Man",
+scarfaceremastereddpp5110bit:"Scarface",
+itytsag:"It (2017)",
+guardiansofthegalaxy:"Guardians of the Galaxy",
+guardiansofthegalaxy1:"Guardians of the Galaxy",
+guardiansofthegalaxy2:"Guardians of the Galaxy Vol. 2",
+guardiansofthegalaxyvol1:"Guardians of the Galaxy",
+guardiansofthegalaxyvol2:"Guardians of the Galaxy Vol. 2",
+guardiansofthegalaxyvol3:"Guardians of the Galaxy Vol. 3"
+};
+
+const titleRules=[
+[/^guardians?\s+of\s+the\s+galaxy\s*$/i,"Guardians of the Galaxy"],
+[/^guardians?\s+of\s+the\s+galaxy\s*(?:vol\.?\s*)?1$/i,"Guardians of the Galaxy"],
+[/^guardians?\s+of\s+the\s+galaxy\s*(?:vol\.?\s*)?2$/i,"Guardians of the Galaxy Vol. 2"],
+[/^guardians?\s+of\s+the\s+galaxy\s*(?:vol\.?\s*)?3$/i,"Guardians of the Galaxy Vol. 3"],
+[/^guardians?\s+of\s+the\s+galaxy\s*ii$/i,"Guardians of the Galaxy Vol. 2"],
+[/^guardians?\s+of\s+the\s+galaxy\s*iii$/i,"Guardians of the Galaxy Vol. 3"],
+[/^spider\s*man\s*homecoming$/i,"Spider-Man: Homecoming"],
+[/^the\s+amazing\s+spider\s*man\s*2$/i,"The Amazing Spider-Man 2"],
+[/^the\s+amazing\s+spider\s*man$/i,"The Amazing Spider-Man"]
+];
+
+const sleep=t=>new Promise(r=>setTimeout(r,t));
+
+async function fetchJSON(url,timeout=8000,retries=1){
+
+for(let i=0;i<=retries;i++){
+
+const controller=new AbortController();
+
+const timer=setTimeout(
+()=>controller.abort(),
+timeout
+);
+
+try{
+
+const response=await fetch(
+url,
+{
+signal:controller.signal
+}
+);
+
+clearTimeout(timer);
+
+if(response.ok){
+
+return await response.json();
+
+}
+
+}catch(e){
+
+clearTimeout(timer);
+
+}
+
+if(i<retries){
+await sleep(150);
+}
+
+}
+
+return null;
+}
+
+function norm(s){
+
+return String(s||"")
+.toLowerCase()
+.replace(/[^a-z0-9]/g,"");
+}
+
+function basename(s){
+
+return String(s||"")
+.split("/")
+.pop()
+.split("\\")
+.pop();
+}
+
+function clean(s){
+
+let n=basename(s);
+
+n=n
+.replace(/\.[^/.]+$/,"")
+.replace(/[+_.]/g," ")
+.replace(/[\u{1F000}-\u{1FFFF}\u2600-\u27BF]/gu,"");
+
+n=n
+.replace(/\[[^\]]*\]/g," ")
+.replace(/\([^)]*(?:1080p|720p|2160p|4k|bluray|blu-ray|web|webrip|x264|x265|hevc|yify|yts)[^)]*\)/gi," ")
+.replace(/\b(?:19|20)\d{2}\b/g," ")
+.replace(/\b(?:1080p|720p|2160p|4k|uhd|fhd|hd|bluray|blu-ray|web-dl|webrip|web|hdtv|x264|x265|hevc|avc|hdr|dvdrip|brrip|br-rip|cam|proper|repack|aac|ac3|ddp|ddp5[\s.]?1|10bit|rarbg|yify|yts|extended|remastered|uncut|complete|fullscreen)\b/gi," ")
+.replace(/\b(?:part|pt)\s*[0-9]+\b/gi," ")
+.replace(/[-]+/g," ")
+.replace(/\s+/g," ")
+.trim();
+
+for(const[regex,value]of titleRules){
+
+if(regex.test(n)){
+return value;
+}
+
+}
+
+const override=overrides[norm(n)];
+
+if(override){
+return override;
+}
+
+return n;
+}
+
+function titleCandidates(file){
+
+const cleaned=clean(file);
+
+const original=basename(file)
+.replace(/\.[^/.]+$/,"");
+
+const list=[
+cleaned,
+original
+];
+
+if(/^the /i.test(cleaned)){
+list.push(cleaned.slice(4));
+}
+
+if(/^spiderman/i.test(cleaned)){
+list.push(
+cleaned.replace(
+/^spiderman/i,
+"spider-man"
+)
+);
+}
+
+if(/^spider man/i.test(cleaned)){
+list.push(
+cleaned.replace(
+/^spider man/i,
+"spider-man"
+)
+);
+}
+
+if(/amazing spiderman/i.test(cleaned)){
+list.push(
+cleaned.replace(
+/amazing\s*spiderman/i,
+"the amazing spider-man"
+)
+);
+}
+
+if(/ironman/i.test(cleaned)){
+list.push(
+cleaned.replace(
+/ironman/i,
+"iron man"
+)
+);
+}
+
+return[
+...new Map(
+list
+.filter(Boolean)
+.map(x=>[
+norm(x),
+x
+])
+).values()
+];
+}
+
+function match(a,b){
+
+a=norm(a);
+b=norm(b);
+
+return(
+a===b||
+a.includes(b)||
+b.includes(a)
+);
+}
+
+async function tmdb(title){
+
+if(!TMDB_API_KEY)return null;
+
+const key="tmdb:"+norm(title);
+
+if(cache.has(key)){
+return cache.get(key);
+}
+
+const data=await fetchJSON(
+`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(title)}&include_adult=false`,
+7000,
+0
+);
+
+const result=
+data?.results?.find(
+x=>norm(x.title)===norm(title)
+)||
+data?.results?.find(
+x=>match(title,x.title)
+)||
+data?.results?.[0]||
+null;
+
+cache.set(key,result);
+
+return result;
+}
+
+async function details(id){
+
+if(!id||!TMDB_API_KEY)return null;
+
+const key="details:"+id;
+
+if(cache.has(key)){
+return cache.get(key);
+}
+
+const result=await fetchJSON(
+`https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_API_KEY}&append_to_response=release_dates`,
+7000,
+0
+);
+
+cache.set(key,result);
+
+return result;
+}
+
+async function omdb(title){
+
+if(!OMDB_API_KEY)return null;
+
+const key="omdb:"+norm(title);
+
+if(cache.has(key)){
+return cache.get(key);
+}
+
+const result=await fetchJSON(
+`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${encodeURIComponent(title)}&type=movie&plot=full`,
+6500,
+0
+);
+
+const data=
+result?.Response==="True"
+?result
+:null;
+
+cache.set(key,data);
+
+return data;
+}
+
+async function movieData(m){
+
+const key="movie:"+m.id;
+
+if(cache.has(key)){
+return cache.get(key);
+}
+
+let tmdbData=null;
+let omdbData=null;
+
+for(const title of titleCandidates(m.file.name)){
+
+const[
+tmdbResult,
+omdbResult
+]=await Promise.all([
+tmdb(title),
+omdb(title)
+]);
+
+tmdbData=tmdbData||tmdbResult;
+omdbData=omdbData||omdbResult;
+
+if(tmdbData&&omdbData){
+break;
+}
+
+}
+
+const result={
+tmdb:tmdbData,
+details:await details(tmdbData?.id),
+omdb:omdbData
+};
+
+cache.set(key,result);
+
+return result;
+}
+
+async function wiki(title){
+
+const key="wiki:"+norm(title);
+
+if(posterCache.has(key)){
+return posterCache.get(key);
+}
+
+const data=await fetchJSON(
+`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(title+" film")}&gsrlimit=5&prop=pageimages&piprop=original&format=json&origin=*`,
+8000,
+0
+);
+
+const result=
+Object.values(
+data?.query?.pages||{}
+)
+.find(
+x=>
+match(title,x.title)&&
+x.original?.source
+)
+?.original?.source||
+null;
+
+posterCache.set(key,result);
+
+return result;
+}
+
+async function fanart(id){
+
+if(!FANART_API_KEY||!id){
+return null;
+}
+
+const key="fanart:"+id;
+
+if(posterCache.has(key)){
+return posterCache.get(key);
+}
+
+const data=await fetchJSON(
+`https://webservice.fanart.tv/v3/movies/${id}?api_key=${FANART_API_KEY}`,
+8000,
+0
+);
+
+const result=
+data?.movieposter
+?.slice()
+.sort(
+(a,b)=>
+(+b.likes||0)-
+(+a.likes||0)
+)[0]
+?.url||
+null;
+
+posterCache.set(key,result);
+
+return result;
+}
+
+async function getPoster(m){
+
+const key="poster:"+m.id;
+
+if(posterCache.has(key)){
+return posterCache.get(key);
+}
+
+if(posterStore[m.id]){
+
+posterCache.set(
+key,
+posterStore[m.id]
+);
+
+return posterStore[m.id];
+
+}
+
+const d=m.data;
+
+let result=null;
+
+if(d?.tmdb?.poster_path){
+
+result=
+`https://image.tmdb.org/t/p/w500${d.tmdb.poster_path}`;
+
+}
+
+if(
+!result&&
+d?.omdb?.Poster&&
+d.omdb.Poster!=="N/A"
+){
+
+result=d.omdb.Poster;
+
+}
+
+if(!result&&d?.tmdb?.id){
+
+result=await fanart(
+d.tmdb.id
+);
+
+}
+
+if(!result&&d?.omdb?.imdbID){
+
+result=await fanart(
+d.omdb.imdbID
+);
+
+}
+
+if(!result){
+
+result=await wiki(
+m.displayTitle
+);
+
+}
+
+posterCache.set(
+key,
+result||null
+);
+
+return result||null;
+}
+
+function savePoster(m,url){
+
+if(!m||!url)return;
+
+posterStore[m.id]=url;
+
+try{
+
+const keys=
+Object.keys(posterStore);
+
+if(keys.length>500){
+
+delete posterStore[
+keys[0]
+];
+
+}
+
+localStorage.bronflixPosterCache=
+JSON.stringify(posterStore);
+
+}catch(e){}
+}
+
+function rating(m){
+
+return(
+m.data?.omdb?.imdbRating&&
+m.data.omdb.imdbRating!=="N/A"
+)
+?m.data.omdb.imdbRating
+:m.data?.tmdb?.vote_average
+?.toFixed(1)||
+null;
+}
+
+function rated(m){
+
+const o=m.data?.omdb;
+
+if(
+o?.Rated&&
+o.Rated!=="N/A"
+){
+
+return o.Rated;
+
+}
+
+const us=
+m.data?.details
+?.release_dates
+?.results
+?.find(
+x=>x.iso_3166_1==="US"
+);
+
+return(
+us?.release_dates
+?.find(x=>x.certification)
+?.certification||
+"NR"
+);
+}
+
+function rclass(x){
+
+return"rating-"+
+String(x||"NR")
+.replace(
+/[^a-z0-9]/gi,
+""
+);
+}
+
+function plot(m){
+
+return(
+m.data?.omdb?.Plot&&
+m.data.omdb.Plot!=="N/A"
+)
+?m.data.omdb.Plot
+:m.data?.details?.overview||
+"Description not available.";
+}
+
+function card(m){
+
+const c=document.createElement("div");
+
+c.className="card";
+
+c.innerHTML=
+`<div class="poster-area">
+<div class="poster-loading"></div>
+</div>
+<div class="movie-info">
+<div class="movie-title"></div>
+<div class="movie-original"></div>
+<div class="movie-meta">
+<span class="star">★</span>
+<span class="rating-number">—</span>
+<span class="rating-badge rating-NR">NR</span>
+</div>
+</div>`;
+
+c.querySelector(
+".movie-title"
+).textContent=m.displayTitle;
+
+c.onclick=()=>{
+
+if(!m.loaded){
+queueMovie(m,999999);
+}
+
+openDetails(m);
+
+};
+
+m.card=c;
+c._movie=m;
+
+return c;
+}
+
+function metadataLimit(){
+
+const n=Number(
+settings.concurrentLoads
+);
+
+if(!n||n<1){
+return 25;
+}
+
+return Math.min(
+100,
+Math.max(
+5,
+n
+)
+);
+}
+
+function queueMovie(
+m,
+priority=0
+){
+
+if(
+!m||
+m.loaded||
+m.loading
+)return;
+
+const existing=
+metadataQueue.find(
+x=>x.m===m
+);
+
+if(existing){
+
+if(
+priority>
+existing.priority
+){
+
+existing.priority=
+priority;
+
+metadataQueue.sort(
+(a,b)=>
+b.priority-
+a.priority
+);
+
+}
+
+return;
+}
+
+if(metadataQueued.has(m.id)){
+return;
+}
+
+metadataQueued.add(m.id);
+
+metadataQueue.push({
+m,
+priority
+});
+
+metadataQueue.sort(
+(a,b)=>
+b.priority-
+a.priority
+);
+
+processMetadata();
+}
+
+function queueMovies(
+list,
+priority=0
+){
+
+list.forEach(
+(m,i)=>
+queueMovie(
+m,
+priority-i*.001
+)
+);
+
+}
+
+function processMetadata(){
+
+const limit=
+metadataLimit();
+
+while(
+activeMetadata<
+limit&&
+metadataQueue.length
+){
+
+const item=
+metadataQueue.shift();
+
+const m=item.m;
+
+metadataQueued.delete(
+m.id
+);
+
+if(
+!m||
+m.loaded||
+m.loading
+){
+continue;
+}
+
+activeMetadata++;
+
+loadMetadata(m)
+.catch(e=>{
+console.warn(
+"Metadata failed:",
+m.displayTitle,
+e
+);
+})
+.finally(()=>{
+
+activeMetadata--;
+
+if(metadataQueue.length){
+processMetadata();
+}
+
+});
+
+}
+
+}
+
+async function loadMetadata(m){
+
+if(
+m.loading||
+m.loaded
+)return;
+
+m.loading=true;
+
+try{
+
+const data=
+await movieData(m);
+
+m.data=data;
+
+const original=
+clean(m.file.name);
+
+m.displayTitle=
+overrides[norm(original)]||
+data?.tmdb?.title||
+data?.omdb?.Title||
+original;
+
+for(
+const[regex,value]
+of titleRules
+){
+
+if(regex.test(original)){
+
+m.displayTitle=value;
+
+break;
+
+}
+
+}
+
+m.rating=
+parseFloat(
+rating(m)
+)||0;
+
+m.rated=rated(m);
+
+if(m.card){
+
+m.card.querySelector(
+".movie-title"
+).textContent=
+m.displayTitle;
+
+const originalElement=
+m.card.querySelector(
+".movie-original"
+);
+
+const originalText=
+norm(original)!==
+norm(m.displayTitle)
+?original
+:"";
+
+originalElement.textContent=
+originalText;
+
+originalElement.style.display=
+originalText
+?"block"
+:"none";
+
+m.card.querySelector(
+".movie-meta"
+).innerHTML=
+`<span class=star>★</span>`+
+`<span>${m.rating||"—"}</span>`+
+`<span class="rating-badge ${rclass(m.rated)}">${m.rated}</span>`;
+}
+
+m.loaded=true;
+m.loading=false;
+
+loadedCount++;
+
+stats();
+
+scheduleApply();
+
+if(
+settings.featured&&
+!heroBuilt&&
+loadedCount>=3
+){
+
+buildHero();
+
+}
+
+}catch(e){
+
+m.loading=false;
+
+throw e;
+
+}
+
+}
+
+function posterLimit(){
+
+return 30;
+}
+
+function queuePoster(
+m,
+priority=0
+){
+
+if(
+!m||
+m.posterLoaded||
+m.posterLoading
+)return;
+
+const existing=
+posterQueue.find(
+x=>x.m===m
+);
+
+if(existing){
+
+if(
+priority>
+existing.priority
+){
+
+existing.priority=
+priority;
+
+posterQueue.sort(
+(a,b)=>
+b.priority-
+a.priority
+);
+
+}
+
+return;
+
+}
+
+posterQueue.push({
+m,
+priority
+});
+
+posterQueue.sort(
+(a,b)=>
+b.priority-
+a.priority
+);
+
+processPosters();
+}
+
+function processPosters(){
+
+const limit=
+Math.min(
+posterLimit(),
+12
+);
+
+while(
+activePosters<
+limit&&
+posterQueue.length
+){
+
+const item=
+posterQueue.shift();
+
+const m=item.m;
+
+if(
+!m||
+m.posterLoaded||
+m.posterLoading
+){
+
+continue;
+
+}
+
+activePosters++;
+
+loadPoster(m)
+.catch(()=>{})
+.finally(()=>{
+
+activePosters--;
+
+if(
+posterQueue.length
+){
+
+processPosters();
+
+}
+
+});
+
+}
+
+}
+
+async function loadPoster(m){
+
+if(
+m.posterLoaded||
+m.posterLoading
+)return;
+
+m.posterLoading=true;
+
+try{
+
+if(!m.loaded){
+
+queueMovie(
+m,
+1000000
+);
+
+await waitForMetadata(m);
+
+}
+
+if(!m.loaded){
+
+m.posterLoading=false;
+
+return;
+
+}
+
+const url=
+await getPoster(m);
+
+m.poster=url;
+
+if(!url){
+
+placeholder(m);
+
+m.posterLoaded=true;
+m.posterLoading=false;
+
+return;
+
+}
+
+savePoster(m,url);
+
+if(!m.card){
+
+m.posterLoaded=true;
+m.posterLoading=false;
+
+return;
+
+}
+
+const area=
+m.card.querySelector(
+".poster-area"
+);
+
+const img=
+new Image();
+
+img.className="poster";
+
+img.alt=
+m.displayTitle;
+
+img.decoding="async";
+
+img.loading="eager";
+
+img.onload=()=>{
+
+area.replaceChildren(
+img
+);
+
+m.posterLoaded=true;
+m.posterLoading=false;
+
+updateContinuePoster(m);
+
+};
+
+img.onerror=async()=>{
+
+const fallback=
+await wiki(
+m.displayTitle
+);
+
+if(
+fallback&&
+fallback!==url
+){
+
+savePoster(
+m,
+fallback
+);
+
+m.poster=fallback;
+
+const second=
+new Image();
+
+second.className="poster";
+second.alt=m.displayTitle;
+second.decoding="async";
+second.loading="eager";
+
+second.onload=()=>{
+
+area.replaceChildren(
+second
+);
+
+m.posterLoaded=true;
+m.posterLoading=false;
+
+updateContinuePoster(m);
+
+};
+
+second.onerror=()=>{
+
+placeholder(m);
+
+m.posterLoaded=true;
+m.posterLoading=false;
+
+};
+
+second.src=fallback;
+
+}else{
+
+placeholder(m);
+
+m.posterLoaded=true;
+m.posterLoading=false;
+
+}
+
+};
+
+img.src=url;
+
+}catch(e){
+
+m.posterLoading=false;
+
+}
+
+}
+
+function waitForMetadata(m){
+
+if(m.loaded){
+return Promise.resolve();
+}
+
+return new Promise(resolve=>{
+
+const check=()=>{
+
+if(m.loaded||!m.loading){
+
+resolve();
+
+}else{
+
+setTimeout(
+check,
+50
+);
+
+}
+
+};
+
+check();
+
+});
+
+}
+
+function placeholder(m){
+
+if(m.card){
+
+m.card.querySelector(
+".poster-area"
+).innerHTML=
+`<div class=placeholder>${m.displayTitle}</div>`;
+
+}
+
+}
+
+function setupPosterObserver(){
+
+if(posterObserver){
+posterObserver.disconnect();
+}
+
+posterObserver=
+new IntersectionObserver(
+entries=>{
+
+entries.forEach(
+entry=>{
+
+if(!entry.isIntersecting){
+return;
+}
+
+const m=
+entry.target._movie;
+
+if(!m){
+return;
+}
+
+const rect=
+entry.boundingClientRect;
+
+const distance=
+Math.abs(
+rect.top
+);
+
+const priority=
+1000000-
+Math.min(
+distance,
+900000
+);
+
+queuePoster(
+m,
+priority
+);
+
+}
+);
+
+},
+{
+root:null,
+rootMargin:"0px",
+threshold:.01
+}
+);
+
+movies.forEach(
+m=>{
+
+if(m.card){
+posterObserver.observe(
+m.card
+);
+}
+
+}
+);
+
+}
+
+function stats(){
+
+document.getElementById(
+"stats"
+).textContent=
+`${loadedCount} loaded • ${movies.length} total`;
+
+}
+
+function favorite(m){
+
+return JSON.parse(
+localStorage.favorites||"[]"
+).includes(m.id);
+
+}
+
+function toggleFavorite(m){
+
+let a=
+JSON.parse(
+localStorage.favorites||"[]"
+);
+
+a=
+favorite(m)
+?a.filter(
+x=>x!==m.id
+)
+:[
+...a,
+m.id
+];
+
+localStorage.favorites=
+JSON.stringify(a);
+
+favButton(m);
+
+apply();
+
+}
+
+function favButton(m){
+
+const b=
+document.getElementById(
+"favoriteBtn"
+);
+
+if(!b)return;
+
+b.textContent=
+favorite(m)
+?"♥ Remove from My List"
+:"♡ Add to My List";
+
+b.classList.toggle(
+"favorite",
+favorite(m)
+);
+
+}
+
+function openDetails(m){
+
+currentMovie=m;
+
+if(!m.loaded){
+
+queueMovie(
+m,
+9999999
+);
+
+}
+
+if(
+!m.posterLoaded
+){
+
+queuePoster(
+m,
+9999999
+);
+
+}
+
+const d=m.data||{};
+
+document.getElementById(
+"detailsTitle"
+).textContent=
+m.displayTitle;
+
+const poster=
+document.getElementById(
+"detailsPoster"
+);
+
+if(m.poster){
+
+poster.innerHTML=
+`<img class=details-poster src="${m.poster}" alt="">`;
+
+}else{
+
+poster.innerHTML=
+`<div class=placeholder>${m.displayTitle}</div>`;
+
+}
+
+const r=rating(m);
+
+const rt=
+d.omdb?.Ratings?.find(
+x=>x.Source===
+"Rotten Tomatoes"
+)?.Value;
+
+const y=
+d.tmdb?.release_date
+?.slice(0,4);
+
+document.getElementById(
+"detailsMeta"
+).innerHTML=
+`<span class="rating-badge ${rclass(rated(m))}">${rated(m)}</span>`+
+(
+r
+?`<span class=star>★</span><b>${r}/10</b>`
+:""
+)+
+(
+rt
+?`<span>🍅 ${rt}</span>`
+:""
+)+
+(
+y
+?`<span>${y}</span>`
+:""
+);
+
+document.getElementById(
+"detailsDescription"
+).textContent=
+plot(m);
+
+const actions=
+document.getElementById(
+"detailsActions"
+);
+
+actions.innerHTML="";
+
+const play=
+document.createElement(
+"button"
+);
+
+play.className=
+"action-btn";
+
+play.textContent=
+"▶ Play";
+
+play.onclick=()=>{
+
+closeDetails();
+
+openPlayer(m);
+
+};
+
+actions.appendChild(
+play
+);
+
+const fav=
+document.createElement(
+"button"
+);
+
+fav.id=
+"favoriteBtn";
+
+fav.className=
+"action-btn dark";
+
+fav.onclick=()=>{
+toggleFavorite(m);
+};
+
+actions.appendChild(
+fav
+);
+
+favButton(m);
+
+document.getElementById(
+"movieDetails"
+).style.display=
+"block";
+
+document.body.classList.add(
+"no-scroll"
+);
+
+}
+
+function closeDetails(){
+
+document.getElementById(
+"movieDetails"
+).style.display=
+"none";
+
+document.body.classList.remove(
+"no-scroll"
+);
+
+currentMovie=null;
+
+}
+
+function archiveURL(f){
+
+const name=
+String(f.name||"")
+.split("/")
+.map(
+encodeURIComponent
+)
+.join("/");
+
+return(
+`https://archive.org/download/`+
+`${encodeURIComponent(f.identifier)}/`+
+name
+);
+
+}
+
+function openPlayer(
+m,
+start=0
+){
+
+const video=
+document.getElementById(
+"videoPlayer"
+);
+
+playerMovie=m;
+
+video.pause();
+
+video.removeAttribute(
+"src"
+);
+
+video.load();
+
+video.controls=true;
+video.playsInline=true;
+
+document.getElementById(
+"playerOverlay"
+).style.display=
+"block";
+
+document.body.classList.add(
+"no-scroll"
+);
+
+const src=
+archiveURL(m.file);
+
+video.src=src;
+
+video.preload="auto";
+
+let started=false;
+
+const begin=()=>{
+
+if(started||playerMovie!==m){
+return;
+}
+
+started=true;
+
+if(
+start>0&&
+Number.isFinite(video.duration)
+){
+
+video.currentTime=
+Math.max(
+0,
+Math.min(
+start,
+Math.max(
+0,
+video.duration-.5
+)
+)
+);
+
+}
+
+if(settings.autoplay){
+
+video.play().catch(
+()=>{}
+);
+
+}
+
+};
+
+video.onloadedmetadata=
+begin;
+
+video.oncanplay=
+()=>{
+
+if(!started){
+begin();
+}
+
+};
+
+video.onerror=()=>{
+
+console.warn(
+"Archive video failed:",
+src,
+video.error
+);
+
+};
+
+let lastSave=0;
+
+video.ontimeupdate=()=>{
+
+if(
+!settings.progress||
+playerMovie!==m||
+!video.duration
+)return;
+
+const now=
+Date.now();
+
+if(
+now-lastSave>=5000
+){
+
+lastSave=now;
+
+saveContinue(
+m,
+video.currentTime,
+video.duration
+);
+
+}
+
+};
+
+}
+
+function closePlayer(){
+
+const video=
+document.getElementById(
+"videoPlayer"
+);
+
+if(
+settings.progress&&
+playerMovie&&
+video.duration
+){
+
+saveContinue(
+playerMovie,
+video.currentTime,
+video.duration
+);
+
+}
+
+video.pause();
+
+video.removeAttribute(
+"src"
+);
+
+video.load();
+
+video.onloadedmetadata=null;
+video.oncanplay=null;
+video.ontimeupdate=null;
+video.onerror=null;
+
+playerMovie=null;
+
+document.getElementById(
+"playerOverlay"
+).style.display=
+"none";
+
+document.body.classList.remove(
+"no-scroll"
+);
+
+}
+
+document.getElementById(
+"closePlayer"
+).onclick=
+closePlayer;
+
+function saveContinue(
+m,
+time,
+duration
+){
+
+if(
+!settings.progress||
+!duration||
+duration<10
+)return;
+
+let list=
+JSON.parse(
+localStorage.continueWatching||"[]"
+)
+.filter(
+x=>x.id!==m.id
+);
+
+if(
+time/duration<.95
+){
+
+list.unshift({
+id:m.id,
+time,
+duration
+});
+
+}
+
+localStorage.continueWatching=
+JSON.stringify(
+list.slice(
+0,
+Math.max(
+1,
+Number(
+settings.continueLimit
+)||12
+)
+)
+);
+
+renderContinue();
+
+}
+
+function updateContinuePoster(m){
+
+document
+.querySelectorAll(
+".continue-card"
+)
+.forEach(card=>{
+
+if(
+card.dataset.id!==m.id
+)return;
+
+const area=
+card.querySelector(
+".continue-poster"
+);
+
+if(
+!area||
+!m.poster||
+area.querySelector("img")
+)return;
+
+const img=
+new Image();
+
+img.src=m.poster;
+img.loading="lazy";
+img.decoding="async";
+
+img.onload=()=>{
+area.insertBefore(
+img,
+area.firstChild
+);
+};
+
+});
+
+}
+
+function moveContinue(m){
+
+let list=
+JSON.parse(
+localStorage.continueWatching||"[]"
+);
+
+const index=
+list.findIndex(
+x=>x.id===m.id
+);
+
+if(index<0)return;
+
+const item=
+list.splice(index,1)[0];
+
+list.unshift(item);
+
+localStorage.continueWatching=
+JSON.stringify(list);
+
+renderContinue();
+
+}
+
+function removeContinue(m){
+
+localStorage.continueWatching=
+JSON.stringify(
+JSON.parse(
+localStorage.continueWatching||"[]"
+)
+.filter(
+x=>x.id!==m.id
+)
+);
+
+renderContinue();
+
+}
+
+function renderContinue(){
+
+const row=
+document.getElementById(
+"continueRow"
+);
+
+row.innerHTML="";
+
+let count=0;
+
+JSON.parse(
+localStorage.continueWatching||"[]"
+)
+.forEach(item=>{
+
+const m=
+movies.find(
+x=>x.id===item.id
+);
+
+if(!m)return;
+
+count++;
+
+const cached=
+m.poster||
+posterStore[m.id];
+
+const c=
+document.createElement(
+"div"
+);
+
+c.className=
+"continue-card";
+
+c.dataset.id=
+m.id;
+
+c.innerHTML=
+`<div class=continue-poster>`+
+(
+cached
+?`<img src="${cached}" loading="lazy">`
+:""
+)+
+`<button class=continue-menu-btn>⋮</button>`+
+`<div class=continue-menu>`+
+`<button data-action=front>Move to front</button>`+
+`<button data-action=remove class=remove>Remove from Continue Watching</button>`+
+`</div>`+
+`</div>`+
+`<div class=progress>`+
+`<div class=progress-bar style="width:${Math.min(100,item.time/item.duration*100)}%"></div>`+
+`</div>`+
+`<div class=continue-name>${m.displayTitle}</div>`;
+
+const menu=
+c.querySelector(
+".continue-menu"
+);
+
+const button=
+c.querySelector(
+".continue-menu-btn"
+);
+
+button.onclick=e=>{
+
+e.stopPropagation();
+
+document
+.querySelectorAll(
+".continue-menu.open"
+)
+.forEach(
+x=>{
+if(x!==menu){
+x.classList.remove(
+"open"
+);
+}
+}
+);
+
+menu.classList.toggle(
+"open"
+);
+
+};
+
+menu.onclick=e=>{
+
+e.stopPropagation();
+
+const action=
+e.target.dataset.action;
+
+if(action==="front"){
+moveContinue(m);
+}
+
+if(action==="remove"){
+removeContinue(m);
+}
+
+};
+
+c.onclick=e=>{
+
+if(
+e.target.closest(
+".continue-menu-btn"
+)||
+e.target.closest(
+".continue-menu"
+)
+)return;
+
+const offset=
+Math.max(
+0,
+Number(
+settings.resumeOffset
+)||0
+);
+
+openPlayer(
+m,
+Math.max(
+0,
+item.time-offset
+)
+);
+
+};
+
+row.appendChild(c);
+
+});
+
+document.getElementById(
+"continueSection"
+).style.display=
+count
+?"block"
+:"none";
+
+setupContinueObserver();
+
+}
+
+function setupContinueObserver(){
+
+if(continueObserver){
+continueObserver.disconnect();
+}
+
+const row=
+document.getElementById(
+"continueRow"
+);
+
+continueObserver=
+new IntersectionObserver(
+entries=>{
+
+entries.forEach(
+entry=>{
+
+if(!entry.isIntersecting)
+return;
+
+const id=
+entry.target.dataset.id;
+
+const m=
+movies.find(
+x=>x.id===id
+);
+
+if(
+m&&
+!m.posterLoaded
+){
+
+queuePoster(
+m,
+500000
+);
+
+}
+
+}
+);
+
+},
+{
+root:row,
+rootMargin:"0px",
+threshold:.01
+}
+);
+
+document
+.querySelectorAll(
+".continue-card"
+)
+.forEach(
+c=>
+continueObserver.observe(c)
+);
+
+}
+
+document.addEventListener(
+"click",
+e=>{
+
+if(
+!e.target.closest(
+".continue-menu"
+)&&
+!e.target.closest(
+".continue-menu-btn"
+)
+){
+
+document
+.querySelectorAll(
+".continue-menu.open"
+)
+.forEach(
+x=>
+x.classList.remove(
+"open"
+)
+);
+
+}
+
+}
+);
+
+function searchVariants(s){
+
+s=String(s)
+.toLowerCase()
+.trim();
+
+const result=
+new Set([
+norm(s)
+]);
+
+const roman={
+i:1,
+v:5,
+x:10,
+l:50,
+c:100,
+d:500,
+m:1000
+};
+
+const romanNumber=x=>{
+
+let n=0;
+
+for(
+let i=0;
+i<x.length;
+i++
+){
+
+n+=
+roman[x[i]]<
+(roman[x[i+1]]||0)
+?-roman[x[i]]
+:roman[x[i]];
+
+}
+
+return n;
+};
+
+result.add(
+norm(
+s.replace(
+/\b[ivxlcdm]+\b/gi,
+x=>{
+
+const n=
+romanNumber(x);
+
+return(
+n>=1&&
+n<=3999
+)
+?String(n)
+:x;
+
+}
+)
+)
+);
+
+return[
+...result
+];
+
+}
+
+function score(m,q){
+
+if(!q)return 0;
+
+const queries=
+searchVariants(q);
+
+const titles=[
+m.displayTitle,
+m.title,
+basename(m.file.name)
+]
+.flatMap(searchVariants);
+
+if(
+!queries.some(
+x=>
+titles.some(
+y=>
+y===x||
+y.includes(x)||
+x.includes(y)
+)
+)
+){
+
+return 0;
+
+}
+
+if(
+norm(m.displayTitle)===
+norm(q)
+){
+
+return 10000;
+
+}
+
+if(
+queries.some(
+x=>titles.includes(x)
+)
+){
+
+return 9500;
+
+}
+
+if(
+queries.some(
+x=>
+titles.some(
+y=>y.startsWith(x)
+)
+)
+){
+
+return 9000;
+
+}
+
+return 7000;
+
+}
+
+function apply(){
+
+const q=
+document.getElementById(
+"search"
+).value.trim();
+
+const duplicates=
+new Set();
+
+if(settings.duplicates){
+
+const seen=new Map();
+
+movies.forEach(m=>{
+
+const title=
+norm(
+m.data?.tmdb?.title||
+m.data?.omdb?.Title||
+m.displayTitle||
+clean(m.file.name)
+);
+
+if(!title)return;
+
+if(seen.has(title)){
+
+const first=
+seen.get(title);
+
+const firstScore=
+first.data?.tmdb?.vote_count||
+first.data?.tmdb?.popularity||
+0;
+
+const thisScore=
+m.data?.tmdb?.vote_count||
+m.data?.tmdb?.popularity||
+0;
+
+if(thisScore>firstScore){
+
+duplicates.add(
+first.id
+);
+
+seen.set(
+title,
+m
+);
+
+}else{
+
+duplicates.add(
+m.id
+);
+
+}
+
+}else{
+
+seen.set(
+title,
+m
+);
+
+}
+
+});
+
+}
+
+let list=
+movies
+.filter(
+m=>
+!duplicates.has(m.id)&&
+(
+!filters.size||
+!m.data||
+filters.has(m.rated)
+)
+)
+.map(m=>{
+
+m.searchScore=
+score(m,q);
+
+return m;
+
+})
+.filter(
+m=>
+!q||
+m.searchScore
+);
+
+if(
+settings.favorites&&
+!q&&
+!filters.size
+){
+
+const favs=
+list.filter(favorite);
+
+const others=
+list.filter(
+m=>!favorite(m)
+);
+
+list=[
+...favs,
+...others
+];
+
+}
+
+if(q){
+
+list.sort(
+(a,b)=>
+b.searchScore-
+a.searchScore||
+a.displayTitle.localeCompare(
+b.displayTitle
+)
+);
+
+}
+
+const visible=
+new Set(list);
+
+movies.forEach(m=>{
+
+if(m.card){
+
+m.card.style.display=
+visible.has(m)
+?""
+:"none";
+
+}
+
+});
+
+if(q){
+
+list.forEach(
+(m,i)=>{
+
+if(!m.loaded){
+
+queueMovie(
+m,
+10000000-
+i
+);
+
+}
+
+}
+);
+
+processMetadata();
+
+}
+
+document.getElementById(
+"noResults"
+).style.display=
+!list.length&&movies.length
+?"block"
+:"none";
+
+document.getElementById(
+"moviesTitle"
+).textContent=
+q
+?"Search Results"
+:filters.size
+?`Filtered Movies (${[...filters].join(", ")})`
+:"Movies";
+
+}
+
+function scheduleApply(){
+
+if(applyFrame)return;
+
+applyFrame=
+requestAnimationFrame(()=>{
+
+applyFrame=0;
+
+if(
+document.getElementById(
+"search"
+).value.trim()
+){
+
+apply();
+
+}
+
+});
+
+}
+
+document
+.querySelectorAll(
+".filter-btn"
+)
+.forEach(button=>{
+
+button.onclick=()=>{
+
+const filter=
+button.dataset.filter;
+
+if(filters.has(filter)){
+
+filters.delete(filter);
+
+button.classList.remove(
+"active"
+);
+
+}else{
+
+filters.add(filter);
+
+button.classList.add(
+"active"
+);
+
+}
+
+apply();
+
+};
+
+});
+
+document.getElementById(
+"search"
+).oninput=apply;
+
+function clearSearch(){
+
+document.getElementById(
+"search"
+).value="";
+
+filters.clear();
+
+document
+.querySelectorAll(
+".filter-btn"
+)
+.forEach(
+x=>
+x.classList.remove(
+"active"
+)
+);
+
+apply();
+
+scrollTo(0,0);
+
+}
+
+function showFavorites(){
+
+document.getElementById(
+"search"
+).value="";
+
+filters.clear();
+
+document
+.querySelectorAll(
+".filter-btn"
+)
+.forEach(
+x=>
+x.classList.remove(
+"active"
+)
+);
+
+const favorites=
+movies.filter(favorite);
+
+movies.forEach(m=>{
+
+if(m.card){
+
+m.card.style.display=
+"none";
+
+}
+
+});
+
+favorites.forEach(m=>{
+
+if(!m.card){
+
+m.card=card(m);
+
+m.card._movie=m;
+
+}
+
+m.card.style.display="";
+
+document.getElementById(
+"files"
+).appendChild(m.card);
+
+if(!m.loaded){
+
+queueMovie(
+m,
+999999
+);
+
+}
+
+queuePoster(
+m,
+999999
+);
+
+});
+
+document.getElementById(
+"moviesTitle"
+).textContent=
+"My List";
+
+document.getElementById(
+"noResults"
+).textContent=
+"Your list is empty.";
+
+document.getElementById(
+"noResults"
+).style.display=
+favorites.length
+?"none"
+:"block";
+
+scrollTo(0,0);
+
+processMetadata();
+processPosters();
+
+}
+
+function buildHero(){
+
+if(!settings.featured){
+return;
+}
+
+const candidates=
+movies.filter(
+m=>
+m.data&&
+m.rating>=6
+);
+
+if(!candidates.length){
+return;
+}
+
+let seed=
++new Date()
+.toDateString()
+.replace(/\D/g,"");
+
+const random=()=>{
+
+seed=
+seed*9301+
+49297;
+
+return(
+seed%233280
+)/233280;
+
+};
+
+heroMovies=
+[...candidates]
+.sort(
+()=>random()-.5
+)
+.slice(0,5);
+
+if(!heroMovies.length){
+return;
+}
+
+heroBuilt=true;
+
+const hero=
+document.getElementById(
+"hero"
+);
+
+hero.innerHTML="";
+
+heroMovies.forEach(
+(m,index)=>{
+
+const slide=
+document.createElement(
+"div"
+);
+
+slide.className=
+"hero-slide"+
+(!index?" active":"");
+
+slide.style.backgroundImage=
+"none";
+
+slide.innerHTML=
+`<div class=hero-content>`+
+`<div class=hero-kicker>FEATURED MOVIE</div>`+
+`<div class=hero-title>${m.displayTitle}</div>`+
+`<div class=hero-meta>`+
+`<span class=star>★</span>`+
+`<b>${m.rating}/10</b>`+
+`<span class="rating-badge ${rclass(m.rated)}">${m.rated}</span>`+
+`</div>`+
+`<div class=hero-description>${plot(m)}</div>`+
+`<button class=hero-play>▶ Play</button>`+
+`</div>`;
+
+slide.querySelector(
+"button"
+).onclick=()=>{
+
+openPlayer(m);
+
+};
+
+hero.appendChild(
+slide
+);
+
+}
+);
+
+const dots=
+document.createElement(
+"div"
+);
+
+dots.className=
+"hero-dots";
+
+heroMovies.forEach(
+(m,index)=>{
+
+const dot=
+document.createElement(
+"div"
+);
+
+dot.className=
+"hero-dot"+
+(!index?" active":"");
+
+dot.onclick=()=>{
+showHero(index);
+};
+
+dots.appendChild(
+dot
+);
+
+}
+);
+
+hero.appendChild(
+dots
+);
+
+heroIndex=0;
+
+clearInterval(
+heroTimer
+);
+
+heroTimer=
+setInterval(
+()=>{
+
+if(heroMovies.length){
+
+showHero(
+(heroIndex+1)%
+heroMovies.length
+);
+
+}
+
+},
+6500
+);
+
+loadHeroPoster(0);
+
+}
+
+async function loadHeroPoster(index){
+
+const m=
+heroMovies[index];
+
+if(!m)return;
+
+if(!m.poster){
+
+const url=
+await getPoster(m);
+
+if(url){
+
+m.poster=url;
+
+savePoster(
+m,
+url
+);
+
+}
+
+}
+
+const slides=
+document.querySelectorAll(
+".hero-slide"
+);
+
+const slide=
+slides[index];
+
+if(
+slide&&
+m.poster
+){
+
+slide.style.backgroundImage=
+`url("${m.poster}")`;
+
+}
+
+}
+
+function showHero(index){
+
+heroIndex=index;
+
+document
+.querySelectorAll(
+".hero-slide"
+)
+.forEach(
+(slide,i)=>
+slide.classList.toggle(
+"active",
+i===index
+)
+);
+
+document
+.querySelectorAll(
+".hero-dot"
+)
+.forEach(
+(dot,i)=>
+dot.classList.toggle(
+"active",
+i===index
+)
+);
+
+loadHeroPoster(index);
+
+}
+
+function openSettings(){
+
+document.getElementById(
+"settingsOverlay"
+).style.display=
+"block";
+
+document.body.classList.add(
+"no-scroll"
+);
+
+updateSettings();
+
+}
+
+function closeSettings(){
+
+document.getElementById(
+"settingsOverlay"
+).style.display=
+"none";
+
+document.body.classList.remove(
+"no-scroll"
+);
+
+}
+
+function toggleSetting(n){
+
+settings[n]=!settings[n];
+
+saveSettings();
+
+updateSettings();
+
+if(n==="featured"){
+
+document.getElementById(
+"hero"
+).style.display=
+settings.featured
+?""
+:"none";
+
+if(settings.featured){
+
+heroBuilt=false;
+
+buildHero();
+
+}
+
+}
+
+if(
+n==="duplicates"||
+n==="favorites"
+){
+
+apply();
+
+}
+
+if(
+n==="progress"&&
+!settings.progress
+){
+
+localStorage.continueWatching=
+"[]";
+
+renderContinue();
+
+}
+
+}
+
+function updateNumberSetting(
+name,
+value
+){
+
+let v=
+parseInt(
+value,
+10
+);
+
+if(name==="resumeOffset"){
+
+v=Math.max(
+0,
+Math.min(
+120,
+isNaN(v)?10:v
+)
+);
+
+}
+
+if(name==="continueLimit"){
+
+v=Math.max(
+1,
+Math.min(
+50,
+isNaN(v)?12:v
+)
+);
+
+}
+
+settings[name]=v;
+
+saveSettings();
+
+if(name==="continueLimit"){
+
+renderContinue();
+
+}
+
+}
+
+function updateConcurrentLoads(
+value
+){
+
+let v=
+parseInt(
+value,
+10
+);
+
+if(isNaN(v)){
+v=25;
+}
+
+v=Math.max(
+5,
+Math.min(
+100,
+v
+)
+);
+
+settings.concurrentLoads=v;
+
+saveSettings();
+
+updateSettings();
+
+processMetadata();
+
+}
+
+function updateTheme(value){
+
+settings.theme=
+value||
+"#e50914";
+
+saveSettings();
+
+applyTheme();
+
+}
+
+function updateSettings(){
+
+[
+"autoplay",
+"featured",
+"favorites",
+"duplicates",
+"progress"
+]
+.forEach(
+x=>
+document
+.getElementById(
+x+"Switch"
+)
+.classList.toggle(
+"on",
+!!settings[x]
+)
+);
+
+document.getElementById(
+"resumeOffset"
+).value=
+Number(
+settings.resumeOffset
+)||10;
+
+document.getElementById(
+"continueLimit"
+).value=
+Number(
+settings.continueLimit
+)||12;
+
+document.getElementById(
+"themeColor"
+).value=
+settings.theme||
+"#e50914";
+
+document.getElementById(
+"concurrentLoads"
+).value=
+String(
+settings.concurrentLoads||
+25
+);
+
+}
+
+function openApiSetup(
+force=false
+){
+
+apiSetupOpen=true;
+
+document.getElementById(
+"tmdbKey"
+).value=
+TMDB_API_KEY;
+
+document.getElementById(
+"omdbKey"
+).value=
+OMDB_API_KEY;
+
+document.getElementById(
+"fanartKey"
+).value=
+FANART_API_KEY;
+
+document.getElementById(
+"apiSetup"
+).style.display=
+"flex";
+
+document.body.classList.add(
+"no-scroll"
+);
+
+document.getElementById(
+"apiSave"
+).textContent=
+force
+?"Save API Keys"
+:"Save & Continue";
+
+}
+
+function saveApiKeys(){
+
+const tmdb=
+document.getElementById(
+"tmdbKey"
+).value.trim();
+
+const omdb=
+document.getElementById(
+"omdbKey"
+).value.trim();
+
+const fanart=
+document.getElementById(
+"fanartKey"
+).value.trim();
+
+if(
+!tmdb||
+!omdb||
+!fanart
+)return;
+
+TMDB_API_KEY=tmdb;
+OMDB_API_KEY=omdb;
+FANART_API_KEY=fanart;
+
+localStorage.bronflixApiKeys=
+JSON.stringify({
+tmdb,
+omdb,
+fanart
+});
+
+cache.clear();
+posterCache.clear();
+
+document.getElementById(
+"apiSetup"
+).style.display=
+"none";
+
+document.body.classList.remove(
+"no-scroll"
+);
+
+apiSetupOpen=false;
+
+if(!movies.length){
+
+loadMovies();
+
+return;
+
+}
+
+movies.forEach(m=>{
+
+m.loaded=false;
+m.loading=false;
+m.data=null;
+m.poster=null;
+m.posterLoaded=false;
+m.posterLoading=false;
+
+});
+
+loadedCount=0;
+
+metadataQueue=[];
+metadataQueued.clear();
+
+posterQueue=[];
+posterQueued.clear();
+
+heroMovies=[];
+heroBuilt=false;
+
+document.getElementById(
+"files"
+).innerHTML="";
+
+stats();
+
+loadInitialMovies(true);
+
+}
+
+document.onkeydown=e=>{
+
+if(e.key!=="Escape"){
+return;
+}
+
+if(apiSetupOpen){
+return;
+}
+
+if(playerMovie){
+
+closePlayer();
+
+}else if(currentMovie){
+
+closeDetails();
+
+}else{
+
+closeSettings();
+
+}
+
+};
+
+async function archiveFiles(source){
+
+const data=
+await fetchJSON(
+`https://archive.org/metadata/${encodeURIComponent(source.identifier)}`,
+15000,
+1
+);
+
+if(!data){
+return[];
+}
+
+let files=
+Array.isArray(data.files)
+?data.files
+:Object.values(
+data.files||{}
+);
+
+return files
+.filter(file=>{
+
+if(!file){
+return false;
+}
+
+const name=
+String(file.name||"");
+
+if(!name){
+return false;
+}
+
+if(
+source.file&&
+basename(name)!==
+basename(source.file)&&
+name!==source.file
+){
+
+return false;
+
+}
+
+const format=
+String(
+file.format||""
+).toLowerCase();
+
+const video=
+/\.(mp4|m4v|webm|mov)$/i.test(name)||
+/mpeg-4|mpeg4|quicktime|webm/i.test(format);
+
+if(!video){
+return false;
+}
+
+return true;
+
+})
+.map(file=>({
+
+...file,
+
+identifier:
+source.identifier,
+
+bottom:
+source.bottom
+
+}));
+
+}
+
+async function loadInitialMovies(
+refresh=false
+){
+
+try{
+
+if(refresh){
+
+movies.length=0;
+
+metadataQueue=[];
+metadataQueued.clear();
+
+posterQueue=[];
+posterQueued.clear();
+
+loadedCount=0;
+
+}
+
+document.getElementById(
+"loading"
+).textContent=
+"Loading movie list...";
+
+const groups=
+await Promise.all(
+sources.map(
+archiveFiles
+)
+);
+
+const files=
+groups.flat();
+
+const seen=
+new Set();
+
+const unique=[];
+
+files.forEach(file=>{
+
+const key=
+String(file.identifier)+
+"|" +
+String(file.name);
+
+if(seen.has(key)){
+return;
+}
+
+seen.add(key);
+
+unique.push(file);
+
+});
+
+unique.sort(
+(a,b)=>
+(a.bottom?1:0)-
+(b.bottom?1:0)
+);
+
+unique.forEach(file=>{
+
+const filename=
+basename(file.name);
+
+const title=
+clean(filename);
+
+const movie={
+
+id:norm(
+String(file.identifier)+
+"|" +
+String(file.name)
+),
+
+file,
+
+title,
+
+displayTitle:title,
+
+data:null,
+
+rating:0,
+
+rated:"NR",
+
+loaded:false,
+
+loading:false,
+
+poster:null,
+
+posterLoaded:false,
+
+posterLoading:false
+
+};
+
+movies.push(movie);
+
+movie.card=
+card(movie);
+
+});
+
+const box=
+document.getElementById(
+"files"
+);
+
+box.innerHTML="";
+
+const fragment=
+document.createDocumentFragment();
+
+movies.forEach(
+movie=>
+fragment.appendChild(
+movie.card
+)
+);
+
+box.appendChild(
+fragment
+);
+
+stats();
+
+setupPosterObserver();
+
+renderContinue();
+
+document.getElementById(
+"loading"
+).textContent=
+"Loading movie information...";
+
+queueMovies(
+movies,
+100
+);
+
+processMetadata();
+
+document.getElementById(
+"loading"
+).textContent=
+"Movie library ready";
+
+}catch(e){
+
+console.error(e);
+
+document.getElementById(
+"loading"
+).textContent=
+"Unable to load the movie list.";
+
+}
+
+}
+
+function loadMovies(){
+
+loadInitialMovies();
+
+}
+
+if(
+TMDB_API_KEY&&
+OMDB_API_KEY&&
+FANART_API_KEY
+){
+
+document.getElementById(
+"apiSetup"
+).style.display=
+"none";
+
+loadMovies();
+
+}else{
+
+document.getElementById(
+"loading"
+).textContent=
+"API keys required";
+
+openApiSetup();
+
+}
+</script>
+</body>
+</html>
