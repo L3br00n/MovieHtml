@@ -18,7 +18,7 @@
 <div id="loading">Loading movie list...</div>
 <div id="stats">0 loaded • 0 total</div>
 <div class="filter-bar">
-<span class="filter-label">Filter:</span><button class="filter-btn" data-filter="R">R</button><button class="filter-btn" data-filter="PG-13">PG-13</button><button class="filter-btn" data-filter="PG">PG</button><button class="filter-btn" data-filter="G">G</button><button class="filter-btn" data-filter="NC-17">NC-17</button>
+<span class="filter-label">Filter:</span><button class="filter-btn" data-filter="R">R</button><button class="filter-btn" data-filter="PG-13">PG-13</button><button class="filter-btn" data-filter="PG">PG</button><button class="filter-btn" data-filter="G">G</button><button class="filter-btn" data-filter="NC-17">NC-17</button><button class="filter-btn" data-filter="NR">NR</button>
 </div>
 <section id="continueSection" class="section" style="display:none">
 <div class="section-title">Continue Watching</div>
@@ -2433,7 +2433,10 @@ m=>
 (
 !filters.size||
 !m.data||
-filters.has(m.rated)
+filters.has(m.rated)||(
+filters.has("NR")&&
+(!m.rated||m.rated==="NR"||m.rated==="N/A")
+)
 )
 )
 .map(m=>{
