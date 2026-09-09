@@ -3330,8 +3330,8 @@ async function archiveFiles(source){
 const data=
 await fetchJSON(
 `https://archive.org/metadata/${encodeURIComponent(source.identifier)}`,
-15000,
-1
+30000,
+3
 );
 
 if(!data){
@@ -3425,15 +3425,37 @@ document.getElementById(
 ).textContent=
 "Loading movie list...";
 
-const groups=
+const groups=[];
+const pending=[...sources];
+const workers=4;
+
+async function worker(){
+    while(pending.length){
+        const source=pending.shift();
+        let result=[];
+
+        for(let attempt=0;attempt<4;attempt++){
+            result=await archiveFiles(source);
+
+            if(result.length){
+                break;
+            }
+
+            await sleep(500*(attempt+1));
+        }
+
+        groups.push(result);
+    }
+}
+
 await Promise.all(
-sources.map(
-archiveFiles
-)
+    Array.from(
+        {length:Math.min(workers,sources.length)},
+        worker
+    )
 );
 
-const files=
-groups.flat();
+const files=groups.flat();
 
 const seen=
 new Set();
