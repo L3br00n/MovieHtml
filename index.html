@@ -6,14 +6,11 @@
 <title>BronFlix+</title>
 <style>
 *{box-sizing:border-box}
-:root{--theme:#e50914;--bg:#070708;--bg-2:#0c0c0f;--surface:#111114;--surface-2:#17171b;--surface-3:#1d1d22;--border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.14);--muted:#8f8f98;--muted-2:#62626b;--white:#fff;--shadow:0 25px 70px rgba(0,0,0,.55)}
+:root{--theme:#e50914;--bg:#030304;--bg-2:#070708;--surface:#0a0a0c;--surface-2:#101012;--surface-3:#16161a;--border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.14);--muted:#8f8f98;--muted-2:#62626b;--white:#fff;--shadow:0 25px 70px rgba(0,0,0,.55)}
 html{margin:0;padding:0;background:var(--bg);color:#fff;font:14px Arial,sans-serif;scroll-behavior:smooth}
-body{margin:0;min-height:100vh;overflow-x:hidden;background:
-  radial-gradient(circle at 15% -10%, rgba(120,0,10,.25), transparent 30%),
-  radial-gradient(circle at 90% 20%, rgba(80,0,5,.15), transparent 25%),
-  linear-gradient(180deg, #180306 0%, #100205 45%, #080102 100%);
-
+body{margin:0;min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 15% 30%,rgba(35,0,3,.32),transparent 100%),radial-gradient(circle at 90% 20%,rgba(20,0,2,.2),transparent 100%),linear-gradient(180deg,#090204 0%,#060102 45%,#030304 100%)}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.25;background-image:radial-gradient(rgba(255,255,255,.08) .5px,transparent .5px);background-size:4px 4px}
+body:after{content:"";position:fixed;left:0;right:0;top:10;height:58vh;pointer-events:none;z-index:-1;background:linear-gradient(180deg,rgba(229,9,20,.12) 0%,rgba(120,3,8,.09) 32%,rgba(40,1,4,.055) 58%,transparent 100%);opacity:.8}
 .no-scroll{overflow:hidden}
 button,input,select{font:inherit}
 button{-webkit-tap-highlight-color:transparent}
@@ -22,15 +19,13 @@ button{-webkit-tap-highlight-color:transparent}
 ::-webkit-scrollbar-track{background:#08080a}
 ::-webkit-scrollbar-thumb{background:#29292f;border-radius:99px}
 ::-webkit-scrollbar-thumb:hover{background:#3b3b43}
-header{height:76px;padding:0 clamp(20px,4vw,64px);display:flex;align-items:center;gap:28px;position:fixed;inset:0 0 auto;z-index:20;background:linear-gradient(180deg,rgba(4,4,5,.98) 0%,rgba(5,5,6,.88) 55%,rgba(5,5,6,0) 100%);transition:background .3s ease,backdrop-filter .3s ease}
+header{height:76px;padding:0 clamp(20px,4vw,64px);display:flex;align-items:center;gap:28px;position:fixed;inset:0 0 auto;z-index:20;background:linear-gradient(180deg,rgba(3,3,4,.98) 0%,rgba(4,4,5,.88) 55%,rgba(4,4,5,0) 100%);transition:background .3s ease,backdrop-filter .3s ease}
 header:after{content:"";position:absolute;left:4%;right:4%;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
-
-.logo{position:relative;color:#fff;font-size:25px;font-weight:950;letter-spacing:-1.6px;cursor:pointer;white-space:nowrap;text-shadow:0 0 25px rgba(229,9,20,.2);transition:transform .2s ease;width:500px;height:80px;display:flex;align-items:center;justify-content:flex-start;overflow:visible}
-.logo img{width:500px!important;height:70px!important;max-width:500px!important;max-height:70px!important;display:block;object-fit:contain}
-
-.logo:before{display:none}
-.logo:hover{transform:translateY(-1px)}
-.logo::first-letter{color:var(--theme)}
+.logo{position:relative;color:#fff;font-size:25px;font-weight:950;letter-spacing:-1.6px;cursor:pointer;white-space:nowrap;text-shadow:0 0 25px rgba(229,9,20,.2);transition:transform .25s cubic-bezier(.2,.8,.2,1),text-shadow .25s ease;display:flex;align-items:center;justify-content:flex-start;overflow:visible}
+.logo:hover{transform:translateY(-1px);text-shadow:0 0 30px rgba(229,9,20,.32)}
+.logo .logo-b{color:var(--theme);text-shadow:0 0 18px rgba(229,9,20,.3)}
+.logo .logo-plus{position:relative;color:#fff}
+.logo .logo-plus:before{content:"";position:absolute;width:5px;height:5px;border-radius:50%;background:var(--theme);box-shadow:0 0 9px rgba(229,9,20,.85),0 0 16px rgba(229,9,20,.4);top:-4px;right:-2px}
 #search{width:400px;max-width:40%;height:42px;padding:0 17px 0 43px;color:#fff;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);border-radius:999px;outline:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 8px 30px rgba(0,0,0,.12);transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,width .25s ease}
 #search{background-image:linear-gradient(90deg,transparent 38px,transparent 38px),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23898991' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:0 0,16px center}
 #search::placeholder{color:#777780}
@@ -40,6 +35,7 @@ header:after{content:"";position:absolute;left:4%;right:4%;bottom:0;height:1px;b
 .header-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.1);transform:translateY(-1px)}
 .header-btn:last-child{width:40px;padding:0;display:grid;place-items:center;font-size:17px}
 #hero{height:min(720px,82vh);min-height:560px;position:relative;overflow:hidden;margin-bottom:-10px;background:#080809}
+#hero:before{content:"";position:absolute;z-index:2;left:0;right:0;bottom:-10px;height:270px;pointer-events:none;background:linear-gradient(180deg,transparent 0%,rgba(8,0,2,.08) 18%,rgba(18,0,3,.2) 42%,rgba(55,2,7,.4) 67%,rgba(8,1,2,.72) 84%,#080809 100%);transition:opacity .8s ease}
 #hero:after{content:"";position:absolute;inset:auto 0 0;height:220px;pointer-events:none;background:linear-gradient(180deg,transparent,#080809);z-index:3}
 .hero-slide{position:absolute;inset:0;background:center/cover;opacity:0;transform:scale(1.025);transition:opacity .8s ease,transform 8s ease}
 .hero-slide.active{opacity:1;transform:scale(1)}
@@ -84,12 +80,7 @@ header:after{content:"";position:absolute;left:4%;right:4%;bottom:0;height:1px;b
 .movie-meta{margin-top:9px;color:#85858e;font-size:11px;gap:7px}
 .star{color:#ffd84d;filter:drop-shadow(0 0 4px rgba(255,216,77,.25))}
 .rating-badge{padding:4px 7px;border-radius:6px;font-size:9px;font-weight:900;letter-spacing:.3px}
-.rating-G{background:#217d37}
-.rating-PG{background:#24699d}
-.rating-PG13{background:#ad7012}
-.rating-R{background:#9d2028}
-.rating-NC17{background:#641414}
-.rating-NR,.rating-NA{background:#3b3b42}
+.rating-G{background:#217d37}.rating-PG{background:#24699d}.rating-PG13{background:#ad7012}.rating-R{background:#9d2028}.rating-NC17{background:#641414}.rating-NR,.rating-NA{background:#3b3b42}
 .hidden{display:none!important}
 #noResults{display:none;text-align:center;color:#696970;padding:80px 20px;font-size:14px}
 .continue-row{display:flex;gap:14px;overflow:auto;padding:3px 3px 16px;scrollbar-width:none;scroll-snap-type:x proximity}
@@ -185,14 +176,14 @@ header:after{content:"";position:absolute;left:4%;right:4%;bottom:0;height:1px;b
 footer{position:relative;text-align:center;color:#45454d;padding:48px 20px 55px;margin-top:20px;border-top:1px solid rgba(255,255,255,.055);font-size:11px;letter-spacing:1px}
 footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:80px;height:1px;background:var(--theme);box-shadow:0 0 20px var(--theme)}
 @media (max-width:1000px){#files{grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px}.hero-title{max-width:600px}.details-inner,.settings-box{margin:50px 20px}}
-@media (max-width:700px){header{height:auto;min-height:64px;padding:10px 17px 12px;flex-wrap:wrap;gap:10px;background:rgba(7,7,8,.95);backdrop-filter:blur(18px)}header:after{left:17px;right:17px}.logo{font-size:22px}.header-buttons{gap:5px}.header-btn{height:36px;padding:0 13px;font-size:12px}.header-btn:last-child{width:36px}#search{order:3;max-width:none;width:100%;height:40px}#search:focus{width:100%;max-width:none}#hero{height:500px;min-height:500px;margin-bottom:0}.hero-slide:after{background:linear-gradient(90deg,#080809 0%,rgba(8,8,9,.68) 55%,rgba(8,8,9,.35) 100%),linear-gradient(0deg,#080809 0%,rgba(8,8,9,.1) 55%,rgba(8,8,9,.2) 100%)}.hero-content{left:20px;right:20px;bottom:62px;max-width:none}.hero-kicker{font-size:9px;padding:6px 10px}.hero-title{font-size:38px;letter-spacing:-1.7px;max-width:95%}.hero-description{font-size:12px;line-height:1.55;margin:13px 0 19px;-webkit-line-clamp:3}.hero-play{padding:11px 20px;min-width:112px}.hero-dots{right:20px;bottom:23px}#loading,#stats,.section,.stats,.filter-bar{padding-left:17px;padding-right:17px}#loading{padding-top:14px}.filter-bar{padding-top:18px;gap:6px}.filter-label{width:100%;padding-left:1px}.filter-btn{padding:7px 11px;font-size:11px}.section{padding-top:12px;padding-bottom:23px}.section-title{font-size:18px;margin:14px 0 13px}.section-title:before{height:19px;width:3px}#files{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{border-radius:11px}.card:hover{transform:none;box-shadow:0 8px 25px rgba(0,0,0,.25)}.movie-info{padding:10px 10px 11px}.movie-title{font-size:11px}.movie-meta{font-size:10px}.rating-badge{padding:3px 5px;font-size:8px}.continue-row{gap:10px;margin-right:-17px;padding-right:17px}.continue-card{width:220px;min-width:220px;border-radius:11px}.continue-poster{height:124px}.details-inner,.settings-box{margin:0;min-height:100vh;border-radius:0;border:0}.details-top{grid-template-columns:1fr}.details-poster{height:430px;min-height:430px}.details-content{padding:26px 21px 35px}.details-title{font-size:31px}.details-description{font-size:13px;line-height:1.65}.details-close,#closePlayer{right:14px;top:13px;width:42px;height:42px}.settings-box{padding:27px 20px}.settings-box h2{font-size:27px}.setting-row{padding:17px 0}.setting-description{max-width:240px}.api-box{padding:25px 21px;border-radius:17px}.api-box h1{font-size:26px}.subtitle-grid{grid-template-columns:1fr}.subtitle-settings{width:calc(100% - 20px);padding:20px 17px;border-radius:15px}#playerContainer{height:56vh;min-height:240px;margin-top:50px}.cc-button{right:58px;bottom:48px}.subtitle-text{left:3%;right:3%;max-width:94%}footer{padding-bottom:40px}}
+@media (max-width:700px){header{height:auto;min-height:64px;padding:10px 17px 12px;flex-wrap:wrap;gap:10px;background:rgba(4,4,5,.95);backdrop-filter:blur(18px)}header:after{left:17px;right:17px}.logo{font-size:22px}.logo .logo-plus:before{width:4px;height:4px;top:-3px;right:-1px}.header-buttons{gap:5px}.header-btn{height:36px;padding:0 13px;font-size:12px}.header-btn:last-child{width:36px}#search{order:3;max-width:none;width:100%;height:40px}#search:focus{width:100%;max-width:none}#hero{height:500px;min-height:500px;margin-bottom:0}#hero:before{height:220px;bottom:-5px;background:linear-gradient(180deg,transparent 0%,rgba(8,0,2,.12) 20%,rgba(35,1,5,.28) 47%,rgba(65,2,8,.46) 70%,rgba(8,1,2,.78) 89%,#080809 100%)}.hero-slide:after{background:linear-gradient(90deg,#080809 0%,rgba(8,8,9,.68) 55%,rgba(8,8,9,.35) 100%),linear-gradient(0deg,#080809 0%,rgba(8,8,9,.1) 55%,rgba(8,8,9,.2) 100%)}.hero-content{left:20px;right:20px;bottom:62px;max-width:none}.hero-kicker{font-size:9px;padding:6px 10px}.hero-title{font-size:38px;letter-spacing:-1.7px;max-width:95%}.hero-description{font-size:12px;line-height:1.55;margin:13px 0 19px;-webkit-line-clamp:3}.hero-play{padding:11px 20px;min-width:112px}.hero-dots{right:20px;bottom:23px}#loading,#stats,.section,.stats,.filter-bar{padding-left:17px;padding-right:17px}#loading{padding-top:14px}.filter-bar{padding-top:18px;gap:6px}.filter-label{width:100%;padding-left:1px}.filter-btn{padding:7px 11px;font-size:11px}.section{padding-top:12px;padding-bottom:23px}.section-title{font-size:18px;margin:14px 0 13px}.section-title:before{height:19px;width:3px}#files{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{border-radius:11px}.card:hover{transform:none;box-shadow:0 8px 25px rgba(0,0,0,.25)}.movie-info{padding:10px 10px 11px}.movie-title{font-size:11px}.movie-meta{font-size:10px}.rating-badge{padding:3px 5px;font-size:8px}.continue-row{gap:10px;margin-right:-17px;padding-right:17px}.continue-card{width:220px;min-width:220px;border-radius:11px}.continue-poster{height:124px}.details-inner,.settings-box{margin:0;min-height:100vh;border-radius:0;border:0}.details-top{grid-template-columns:1fr}.details-poster{height:430px;min-height:430px}.details-content{padding:26px 21px 35px}.details-title{font-size:31px}.details-description{font-size:13px;line-height:1.65}.details-close,#closePlayer{right:14px;top:13px;width:42px;height:42px}.settings-box{padding:27px 20px}.settings-box h2{font-size:27px}.setting-row{padding:17px 0}.setting-description{max-width:240px}.api-box{padding:25px 21px;border-radius:17px}.api-box h1{font-size:26px}.subtitle-grid{grid-template-columns:1fr}.subtitle-settings{width:calc(100% - 20px);padding:20px 17px;border-radius:15px}#playerContainer{height:56vh;min-height:240px;margin-top:50px}.cc-button{right:58px;bottom:48px}.subtitle-text{left:3%;right:3%;max-width:94%}footer{padding-bottom:40px}}
 @media (max-width:400px){.logo{font-size:20px}.header-btn{padding:0 10px}#files{gap:7px}.hero-title{font-size:34px}.continue-card{width:205px;min-width:205px}}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
 <header>
-<div class="logo" onclick="clearSearch()"><img src="https://raw.githubusercontent.com/L3br00n/MovieHtml/main/bronflixicon.png" alt="BronFlix+"></div>
+<div class="logo" onclick="clearSearch"><span class="logo-b">B</span>RONFLIX<span class="logo-plus">+</span></div>
 <input id="search" placeholder="Search movies..." autocomplete="off" />
 <div class="header-buttons">
 <button class="header-btn" onclick="showFavorites()">My List</button>
@@ -387,870 +378,969 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
 </div>
 </div>
 <script>
-const sources=[
-"My-Favorite-Movies_202503",
-"28-days-later_202505",
-"the-village-2004_202606",
-"agent-cody-banks-2003",
-["are-you-alone-in-the-house","It.mp4"],
-"TR_Sub_Movies",
-"opener_202508",
-"AlansCC1",
-"the.-equalizer.-2014.1080p.-blu-ray.x-264.-yify_202402",
-"the-basketball-diaries",
-"the-hateful-eight-extended-version",
-"21.-jump.-street.-2012",
-"training-day_202608",
-"ferris-buellers-day-off-1986_202511",
-"the-detective",
-"disney-channel-original-movies",
-"1-frosty-the-snowman",
-["comedy-collection",null,1],
-["superbad-fullscreen-240p","Superbad (Fullscreen) 480p.mp4"],
-"office.-space.-1999.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx_202606",
-"law.-abiding.-citizen.-720p.-br-rip.-450-mb.-yify_202606",
-"django-unchained-2012_tarantino",
-"r-73_20251103",
-"the-patriot-2000",
-"escape-from-new-york-1981-john-carpenter-1080p",
-"mash.-1970.1080p.-blu-ray.-10-bit.-hevc.-eac-3-sartre",
-"se-7en_202609",
-"guardians-of-the-galaxy-2_202609"
-].map(x=>typeof x==="string"?{identifier:x}:{identifier:x[0],file:x[1],bottom:x[2]});
-const savedApiKeys=JSON.parse(localStorage.bronflixApiKeys||"{}");
-let OMDB_API_KEY=savedApiKeys.omdb||"";
-let TMDB_API_KEY=savedApiKeys.tmdb||"";
-let FANART_API_KEY=savedApiKeys.fanart||"";
-let SUBTITLE_API_KEY=savedApiKeys.subtitle||localStorage.getItem("wyzieApiKey")||"";
-const movies=[];
-const cache=new Map();
-const posterCache=new Map();
-const filters=new Set();
-const defaultSettings={
-autoplay:true,
-featured:true,
-favorites:true,
-duplicates:false,
-progress:true,
-resumeOffset:10,
-continueLimit:12,
-theme:"#e50914",
-concurrentLoads:25
-};
-const settings={
-...defaultSettings,
-...JSON.parse(localStorage.movieSettings||"{}")
-};
-delete settings.loadAll;
-delete settings.preloadCount;
-let heroMovies=[];
-let heroIndex=0;
-let heroTimer=null;
-let currentMovie=null;
-let playerMovie=null;
-let loadedCount=0;
-let apiSetupOpen=false;
-let metadataQueue=[];
-let metadataQueued=new Set();
-let activeMetadata=0;
-let posterQueue=[];
-let posterQueued=new Set();
-let activePosters=0;
-let posterObserver=null;
-let continueObserver=null;
-let applyFrame=0;
-let heroBuilt=false;
-let posterStore={};
-try{
-posterStore=JSON.parse(localStorage.bronflixPosterCache||"{}");
-}catch(e){
-posterStore={};
-}
-const defaultSubtitleSettings={
-size:24,
-position:8,
-offset:0,
-color:"#ffffff",
-opacity:45,
-font:"Arial",
-align:"center",
-outline:"heavy"
-};
-let subtitleSettings={
-...defaultSubtitleSettings,
-...JSON.parse(localStorage.subtitleSettings||"{}")
-};
-let subtitleCues=[];
-let subtitleLoaded=false;
-let subtitleLoading=false;
-let subtitlesOn=true;
-let subtitleMovieId=null;
-let subtitleMouseTimer=null;
-let subtitleNotificationTimer=null;
-function saveSettings(){
-localStorage.movieSettings=JSON.stringify(settings);
-}
-function saveSubtitleSettings(){
-localStorage.subtitleSettings=JSON.stringify(subtitleSettings);
-}
-function applyTheme(){
-document.documentElement.style.setProperty("--theme",settings.theme||"#e50914");
-const x=document.getElementById("themeColor");
-if(x){
-x.value=settings.theme||"#e50914";
-}
-}
-applyTheme();
-const overrides={
-spiderman6homecoming:"Spider-Man Homecoming",
-jurassicpark3:"Jurassic Park III",
-spidermanhomecoming:"Spider-Man Homecoming",
-spidermanhomecoming2017:"Spider-Man Homecoming",
-spidermanhomecoming202506:"Spider-Man Homecoming",
-spiderman5theamazingspiderman2:"The Amazing Spider-Man 2",
-spiderman7farfromhome:"Spider-Man Far From Home",
-spiderman6theamazingspiderman2:"The Amazing Spider-Man 2",
-spiderman4theamazingspiderman:"The Amazing Spider-Man",
-scarfaceremastereddpp5110bit:"Scarface",
-itytsag:"It (2017)",
-guardiansofthegalaxy:"Guardians of the Galaxy",
-guardiansofthegalaxy1:"Guardians of the Galaxy",
-guardiansofthegalaxy2:"Guardians of the Galaxy Vol. 2",
-guardiansofthegalaxyvol1:"Guardians of the Galaxy",
-guardiansofthegalaxyvol2:"Guardians of the Galaxy Vol. 2",
-guardiansofthegalaxyvol3:"Guardians of the Galaxy Vol. 3"
-};
-const titleRules=[
-[/^guardians?\s+of\s+the\s+galaxy\s*$/i,"Guardians of the Galaxy"],
-[/^guardians?\s+of\s+the\s+galaxy\s*(?:vol\.?\s*)?1$/i,"Guardians of the Galaxy"],
-[/^guardians?\s+of\s+the\s+galaxy\s*(?:vol\.?\s*)?2$/i,"Guardians of the Galaxy Vol. 2"],
-[/^guardians?\s+of\s+the\s+galaxy\s*(?:vol\.?\s*)?3$/i,"Guardians of the Galaxy Vol. 3"],
-[/^guardians?\s+of\s+the\s+galaxy\s*ii$/i,"Guardians of the Galaxy Vol. 2"],
-[/^guardians?\s+of\s+the\s+galaxy\s*iii$/i,"Guardians of the Galaxy Vol. 3"],
-[/^spider\s*man\s*homecoming$/i,"Spider-Man: Homecoming"],
-[/^the\s+amazing\s+spider\s*man\s*2$/i,"The Amazing Spider-Man 2"],
-[/^the\s+amazing\s+spider\s*man$/i,"The Amazing Spider-Man"]
-];
-const sleep=t=>new Promise(r=>setTimeout(r,t));
-async function fetchJSON(url,timeout=8000,retries=1){
-for(let i=0;i<=retries;i++){
-const controller=new AbortController();
-const timer=setTimeout(()=>controller.abort(),timeout);
-try{
-const response=await fetch(url,{signal:controller.signal});
-clearTimeout(timer);
-if(response.ok){
-return await response.json();
-}
-}catch(e){
-clearTimeout(timer);
-}
-if(i<retries){
-await sleep(150);
-}
-}
-return null;
-}
-function norm(s){
-return String(s||"").toLowerCase().replace(/[^a-z0-9]/g,"");
-}
-function basename(s){
-return String(s||"").split("/").pop().split("\\").pop();
-}
-function clean(s){
-let n=basename(s);
-n=n.replace(/\.[^/.]+$/,"").replace(/[+_.]/g," ").replace(/[\u{1F000}-\u{1FFFF}\u2600-\u27BF]/gu,"");
-n=n.replace(/\[[^\]]*\]/g," ").replace(/\([^)]*(?:1080p|720p|2160p|4k|bluray|blu-ray|web|webrip|x264|x265|hevc|yify|yts)[^)]*\)/gi," ").replace(/\b(?:19|20)\d{2}\b/g," ").replace(/\b(?:1080p|720p|2160p|4k|uhd|fhd|hd|bluray|blu-ray|web-dl|webrip|web|hdtv|x264|x265|hevc|avc|hdr|dvdrip|brrip|br-rip|cam|proper|repack|aac|ac3|ddp|ddp5[\s.]?1|10bit|rarbg|yify|yts|extended|remastered|uncut|complete|fullscreen)\b/gi," ").replace(/\b(?:part|pt)\s*[0-9]+\b/gi," ").replace(/[-]+/g," ").replace(/\s+/g," ").trim();
-for(const[regex,value]of titleRules){
-if(regex.test(n)){
-return value;
-}
-}
-const override=overrides[norm(n)];
-if(override){
-return override;
-}
-return n;
-}
-function titleCandidates(file){
-const cleaned=clean(file);
-const original=basename(file).replace(/\.[^/.]+$/,"");
-const list=[cleaned,original];
-if(/^the /i.test(cleaned)){
-list.push(cleaned.slice(4));
-}
-if(/^spiderman/i.test(cleaned)){
-list.push(cleaned.replace(/^spiderman/i,"spider-man"));
-}
-if(/^spider man/i.test(cleaned)){
-list.push(cleaned.replace(/^spider man/i,"spider-man"));
-}
-if(/amazing spiderman/i.test(cleaned)){
-list.push(cleaned.replace(/amazing\s*spiderman/i,"the amazing spider-man"));
-}
-if(/ironman/i.test(cleaned)){
-list.push(cleaned.replace(/ironman/i,"iron man"));
-}
-return[...new Map(list.filter(Boolean).map(x=>[norm(x),x])).values()];
-}
-function match(a,b){
-a=norm(a);
-b=norm(b);
-return a===b||a.includes(b)||b.includes(a);
-}
-async function tmdb(title){
-if(!TMDB_API_KEY)return null;
-const key="tmdb:"+norm(title);
-if(cache.has(key)){
-return cache.get(key);
-}
-const data=await fetchJSON(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(title)}&include_adult=false`,7000,0);
-const result=data?.results?.find(x=>norm(x.title)===norm(title))||data?.results?.find(x=>match(title,x.title))||data?.results?.[0]||null;
-cache.set(key,result);
-return result;
-}
-async function details(id){
-if(!id||!TMDB_API_KEY)return null;
-const key="details:"+id;
-if(cache.has(key)){
-return cache.get(key);
-}
-const result=await fetchJSON(`https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_API_KEY}&append_to_response=release_dates`,7000,0);
-cache.set(key,result);
-return result;
-}
-async function omdb(title){
-if(!OMDB_API_KEY)return null;
-const key="omdb:"+norm(title);
-if(cache.has(key)){
-return cache.get(key);
-}
-const result=await fetchJSON(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${encodeURIComponent(title)}&type=movie&plot=full`,6500,0);
-const data=result?.Response==="True"?result:null;
-cache.set(key,data);
-return data;
-}
-async function movieData(m){
-const key="movie:"+m.id;
-if(cache.has(key)){
-return cache.get(key);
-}
-let tmdbData=null;
-let omdbData=null;
-for(const title of titleCandidates(m.file.name)){
-const[tmdbResult,omdbResult]=await Promise.all([tmdb(title),omdb(title)]);
-tmdbData=tmdbData||tmdbResult;
-omdbData=omdbData||omdbResult;
-if(tmdbData&&omdbData){
-break;
-}
-}
-const result={
-tmdb:tmdbData,
-details:await details(tmdbData?.id),
-omdb:omdbData
-};
-cache.set(key,result);
-return result;
-}
-async function wiki(title){
-const key="wiki:"+norm(title);
-if(posterCache.has(key)){
-return posterCache.get(key);
-}
-const data=await fetchJSON(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(title+" film")}&gsrlimit=5&prop=pageimages&piprop=original&format=json&origin=*`,8000,0);
-const result=Object.values(data?.query?.pages||{}).find(x=>match(title,x.title)&&x.original?.source)?.original?.source||null;
-posterCache.set(key,result);
-return result;
-}
-async function fanart(id){
-if(!FANART_API_KEY||!id){
-return null;
-}
-const key="fanart:"+id;
-if(posterCache.has(key)){
-return posterCache.get(key);
-}
-const data=await fetchJSON(`https://webservice.fanart.tv/v3/movies/${id}?api_key=${FANART_API_KEY}`,8000,0);
-const result=data?.movieposter?.slice().sort((a,b)=>(+b.likes||0)-(+a.likes||0))[0]?.url||null;
-posterCache.set(key,result);
-return result;
-}
-async function getPoster(m){
-const key="poster:"+m.id;
-if(posterCache.has(key)){
-return posterCache.get(key);
-}
-if(posterStore[m.id]){
-posterCache.set(key,posterStore[m.id]);
-return posterStore[m.id];
-}
-const d=m.data;
-let result=null;
-if(d?.tmdb?.poster_path){
-result=`https://image.tmdb.org/t/p/w500${d.tmdb.poster_path}`;
-}
-if(!result&&d?.omdb?.Poster&&d.omdb.Poster!=="N/A"){
-result=d.omdb.Poster;
-}
-if(!result&&d?.tmdb?.id){
-result=await fanart(d.tmdb.id);
-}
-if(!result&&d?.omdb?.imdbID){
-result=await fanart(d.omdb.imdbID);
-}
-if(!result){
-result=await wiki(m.displayTitle);
-}
-posterCache.set(key,result||null);
-return result||null;
-}
-function savePoster(m,url){
-if(!m||!url)return;
-posterStore[m.id]=url;
-try{
-const keys=Object.keys(posterStore);
-if(keys.length>500){
-delete posterStore[keys[0]];
-}
-localStorage.bronflixPosterCache=JSON.stringify(posterStore);
-}catch(e){}
-}
-function rating(m){
-return(m.data?.omdb?.imdbRating&&m.data.omdb.imdbRating!=="N/A")?m.data.omdb.imdbRating:m.data?.tmdb?.vote_average?.toFixed(1)||null;
-}
-function rated(m){
-const o=m.data?.omdb;
-if(o?.Rated&&o.Rated!=="N/A"){
-return o.Rated;
-}
-const us=m.data?.details?.release_dates?.results?.find(x=>x.iso_3166_1==="US");
-return us?.release_dates?.find(x=>x.certification)?.certification||"NR";
-}
-function rclass(x){
-return"rating-"+String(x||"NR").replace(/[^a-z0-9]/gi,"");
-}
-function plot(m){
-return(m.data?.omdb?.Plot&&m.data.omdb.Plot!=="N/A")?m.data.omdb.Plot:m.data?.details?.overview||"Description not available.";
-}
-function card(m){
-const c=document.createElement("div");
-c.className="card";
-c.innerHTML=`<div class="poster-area"><div class="poster-loading"></div></div><div class="movie-info"><div class="movie-title"></div><div class="movie-original"></div><div class="movie-meta"><span class="star">★</span><span class="rating-number">—</span><span class="rating-badge rating-NR">NR</span></div></div>`;
-c.querySelector(".movie-title").textContent=m.displayTitle;
-c.onclick=()=>{
-if(!m.loaded){
-queueMovie(m,999999);
-}
-openDetails(m);
-};
-m.card=c;
-c._movie=m;
-return c;
-}
-function metadataLimit(){
-const n=Number(settings.concurrentLoads);
-if(!n||n<1){
-return 25;
-}
-return Math.min(100,Math.max(5,n));
-}
-function queueMovie(m,priority=0){
-if(!m||m.loaded||m.loading)return;
-const existing=metadataQueue.find(x=>x.m===m);
-if(existing){
-if(priority>existing.priority){
-existing.priority=priority;
-metadataQueue.sort((a,b)=>b.priority-a.priority);
-}
-return;
-}
-if(metadataQueued.has(m.id)){
-return;
-}
-metadataQueued.add(m.id);
-metadataQueue.push({m,priority});
-metadataQueue.sort((a,b)=>b.priority-a.priority);
-processMetadata();
-}
-function queueMovies(list,priority=0){
-list.forEach((m,i)=>queueMovie(m,priority-i*.001));
-}
-function processMetadata(){
-const limit=metadataLimit();
-while(activeMetadata<limit&&metadataQueue.length){
-const item=metadataQueue.shift();
-const m=item.m;
-metadataQueued.delete(m.id);
-if(!m||m.loaded||m.loading){
-continue;
-}
-activeMetadata++;
-loadMetadata(m).catch(e=>{console.warn("Metadata failed:",m.displayTitle,e)}).finally(()=>{
-activeMetadata--;
-if(metadataQueue.length){
-processMetadata();
-}
-});
-}
-}
-async function loadMetadata(m){
-if(m.loading||m.loaded)return;
-m.loading=true;
-try{
-const data=await movieData(m);
-m.data=data;
-const original=clean(m.file.name);
-m.displayTitle=overrides[norm(original)]||data?.tmdb?.title||data?.omdb?.Title||original;
-for(const[regex,value]of titleRules){
-if(regex.test(original)){
-m.displayTitle=value;
-break;
-}
-}
-m.rating=parseFloat(rating(m))||0;
-m.rated=rated(m);
-if(m.card){
-m.card.querySelector(".movie-title").textContent=m.displayTitle;
-const originalElement=m.card.querySelector(".movie-original");
-const originalText=norm(original)!==norm(m.displayTitle)?original:"";
-originalElement.textContent=originalText;
-originalElement.style.display=originalText?"block":"none";
-m.card.querySelector(".movie-meta").innerHTML=`<span class=star>★</span><span>${m.rating||"—"}</span><span class="rating-badge ${rclass(m.rated)}">${m.rated}</span>`;
-}
-m.loaded=true;
-m.loading=false;
-loadedCount++;
-stats();
-scheduleApply();
-if(settings.featured&&!heroBuilt&&loadedCount>=3){
-buildHero();
-}
-}catch(e){
-m.loading=false;
-throw e;
-}
-}
-function posterLimit(){
-return 30;
-}
-function queuePoster(m,priority=0){
-if(!m||m.posterLoaded||m.posterLoading)return;
-const existing=posterQueue.find(x=>x.m===m);
-if(existing){
-if(priority>existing.priority){
-existing.priority=priority;
-posterQueue.sort((a,b)=>b.priority-a.priority);
-}
-return;
-}
-posterQueue.push({m,priority});
-posterQueue.sort((a,b)=>b.priority-a.priority);
-processPosters();
-}
-function processPosters(){
-const limit=Math.min(posterLimit(),12);
-while(activePosters<limit&&posterQueue.length){
-const item=posterQueue.shift();
-const m=item.m;
-if(!m||m.posterLoaded||m.posterLoading){
-continue;
-}
-activePosters++;
-loadPoster(m).catch(()=>{}).finally(()=>{
-activePosters--;
-if(posterQueue.length){
-processPosters();
-}
-});
-}
-}
-async function loadPoster(m){
-if(m.posterLoaded||m.posterLoading)return;
-m.posterLoading=true;
-try{
-if(!m.loaded){
-queueMovie(m,1000000);
-await waitForMetadata(m);
-}
-if(!m.loaded){
-m.posterLoading=false;
-return;
-}
-const url=await getPoster(m);
-m.poster=url;
-if(!url){
-placeholder(m);
-m.posterLoaded=true;
-m.posterLoading=false;
-return;
-}
-savePoster(m,url);
-if(!m.card){
-m.posterLoaded=true;
-m.posterLoading=false;
-return;
-}
-const area=m.card.querySelector(".poster-area");
-const img=new Image();
-img.className="poster";
-img.alt=m.displayTitle;
-img.decoding="async";
-img.loading="eager";
-img.onload=()=>{
-area.replaceChildren(img);
-m.posterLoaded=true;
-m.posterLoading=false;
-updateContinuePoster(m);
-};
-img.onerror=async()=>{
-const fallback=await wiki(m.displayTitle);
-if(fallback&&fallback!==url){
-savePoster(m,fallback);
-m.poster=fallback;
-const second=new Image();
-second.className="poster";
-second.alt=m.displayTitle;
-second.decoding="async";
-second.loading="eager";
-second.onload=()=>{
-area.replaceChildren(second);
-m.posterLoaded=true;
-m.posterLoading=false;
-updateContinuePoster(m);
-};
-second.onerror=()=>{
-placeholder(m);
-m.posterLoaded=true;
-m.posterLoading=false;
-};
-second.src=fallback;
-}else{
-placeholder(m);
-m.posterLoaded=true;
-m.posterLoading=false;
-}
-};
-img.src=url;
-}catch(e){
-m.posterLoading=false;
-}
-}
-function waitForMetadata(m){
-if(m.loaded){
-return Promise.resolve();
-}
-return new Promise(resolve=>{
-const check=()=>{
-if(m.loaded||!m.loading){
-resolve();
-}else{
-setTimeout(check,50);
-}
-};
-check();
-});
-}
-function placeholder(m){
-if(m.card){
-m.card.querySelector(".poster-area").innerHTML=`<div class=placeholder>${m.displayTitle}</div>`;
-}
-}
-function setupPosterObserver(){
-if(posterObserver){
-posterObserver.disconnect();
-}
-posterObserver=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(!entry.isIntersecting){
-return;
-}
-const m=entry.target._movie;
-if(!m){
-return;
-}
-const rect=entry.boundingClientRect;
-const distance=Math.abs(rect.top);
-const priority=1000000-Math.min(distance,900000);
-queuePoster(m,priority);
-});
-},{root:null,rootMargin:"0px",threshold:.01});
-movies.forEach(m=>{
-if(m.card){
-posterObserver.observe(m.card);
-}
-});
-}
-function stats(){
-document.getElementById("stats").textContent=`${loadedCount} loaded • ${movies.length} total`;
-}
-function favorite(m){
-return JSON.parse(localStorage.favorites||"[]").includes(m.id);
-}
-function toggleFavorite(m){
-let a=JSON.parse(localStorage.favorites||"[]");
-a=favorite(m)?a.filter(x=>x!==m.id):[...a,m.id];
-localStorage.favorites=JSON.stringify(a);
-favButton(m);
-apply();
-}
-function favButton(m){
-const b=document.getElementById("favoriteBtn");
-if(!b)return;
-b.textContent=favorite(m)?"♥ Remove from My List":"♡ Add to My List";
-b.classList.toggle("favorite",favorite(m));
-}
-function openDetails(m){
-currentMovie=m;
-if(!m.loaded){
-queueMovie(m,9999999);
-}
-if(!m.posterLoaded){
-queuePoster(m,9999999);
-}
-const d=m.data||{};
-document.getElementById("detailsTitle").textContent=m.displayTitle;
-const poster=document.getElementById("detailsPoster");
-if(m.poster){
-poster.innerHTML=`<img class=details-poster src="${m.poster}" alt="">`;
-}else{
-poster.innerHTML=`<div class=placeholder>${m.displayTitle}</div>`;
-}
-const r=rating(m);
-const rt=d.omdb?.Ratings?.find(x=>x.Source==="Rotten Tomatoes")?.Value;
-const y=d.tmdb?.release_date?.slice(0,4);
-document.getElementById("detailsMeta").innerHTML=`<span class="rating-badge ${rclass(rated(m))}">${rated(m)}</span>`+(r?`<span class=star>★</span><b>${r}/10</b>`:"")+(rt?`<span>🍅 ${rt}</span>`:"")+(y?`<span>${y}</span>`:"");
-document.getElementById("detailsDescription").textContent=plot(m);
-const actions=document.getElementById("detailsActions");
-actions.innerHTML="";
-const play=document.createElement("button");
-play.className="action-btn";
-play.textContent="▶ Play";
-play.onclick=()=>{
-closeDetails();
-openPlayer(m);
-};
-actions.appendChild(play);
-const fav=document.createElement("button");
-fav.id="favoriteBtn";
-fav.className="action-btn dark";
-fav.onclick=()=>{toggleFavorite(m)};
-actions.appendChild(fav);
-favButton(m);
-document.getElementById("movieDetails").style.display="block";
-document.body.classList.add("no-scroll");
-}
-function closeDetails(){
-document.getElementById("movieDetails").style.display="none";
-document.body.classList.remove("no-scroll");
-currentMovie=null;
-}
-function archiveURL(f){
-const name=String(f.name||"").split("/").map(encodeURIComponent).join("/");
-return`https://archive.org/download/${encodeURIComponent(f.identifier)}/${name}`;
-}
-function resetSubtitleState(){
-subtitleCues=[];
-subtitleLoaded=false;
-subtitleLoading=false;
-subtitleMovieId=null;
-subtitlesOn=true;
-const text=document.getElementById("subtitleText");
-if(text){
-text.textContent="";
-text.style.display="none";
-}
-const button=document.getElementById("ccButton");
-if(button){
-button.classList.remove("on");
-}
-const status=document.getElementById("subtitleStatus");
-if(status){
-status.textContent=SUBTITLE_API_KEY?"Loading subtitles when available...":"Add a subtitle API key in Settings > API Keys.";
-}
-}
-function parseTime(value){
-const v=String(value||"").trim().replace(",",".");
-const p=v.split(":");
-if(p.length===3){
-return Number(p[0])*3600+Number(p[1])*60+Number(p[2]);
-}
-if(p.length===2){
-return Number(p[0])*60+Number(p[1]);
-}
-return Number(p[0])||0;
-}
-function cleanSubtitleText(text){
-return String(text||"").replace(/<font[^>]*>/gi,"").replace(/<\/font>/gi,"").replace(/<i>/gi,"").replace(/<\/i>/gi,"").replace(/<b>/gi,"").replace(/<\/b>/gi,"").replace(/<u>/gi,"").replace(/<\/u>/gi,"").replace(/<br\s*\/?>/gi,"\n").replace(/<[^>]+>/g,"").replace(/\{[^}]*\}/g,"").replace(/\r/g,"").trim();
-}
-function parseSRT(data){
-const blocks=String(data||"").replace(/\r/g,"").split(/\n\s*\n/);
-const cues=[];
-for(const block of blocks){
-const lines=block.split("\n").map(x=>x.trim()).filter(Boolean);
-if(lines.length<2)continue;
-let timeLine=lines.find(x=>x.includes("-->"));
-if(!timeLine)continue;
-const parts=timeLine.split(/\s+-->\s+/);
-if(parts.length<2)continue;
-const start=parseTime(parts[0]);
-const end=parseTime(parts[1].split(/\s+/)[0]);
-const index=lines.indexOf(timeLine);
-const text=cleanSubtitleText(lines.slice(index+1).join("\n"));
-if(Number.isFinite(start)&&Number.isFinite(end)&&text){
-cues.push({start,end,text});
-}
-}
-return cues.sort((a,b)=>a.start-b.start);
-}
-function parseVTT(data){
-const lines=String(data||"").replace(/\r/g,"").split("\n");
-const cues=[];
-for(let i=0;i<lines.length;i++){
-const line=lines[i].trim();
-if(!line.includes("-->"))continue;
-const parts=line.split(/\s+-->\s+/);
-if(parts.length<2)continue;
-const start=parseTime(parts[0]);
-const end=parseTime(parts[1].split(/\s+/)[0]);
-const text=[];
-i++;
-while(i<lines.length&&lines[i].trim()!==""){
-text.push(lines[i]);
-i++;
-}
-const cleanText=cleanSubtitleText(text.join("\n"));
-if(Number.isFinite(start)&&Number.isFinite(end)&&cleanText){
-cues.push({start,end,text:cleanText});
-}
-}
-return cues.sort((a,b)=>a.start-b.start);
-}
-function findCueIndex(time){
-let low=0;
-let high=subtitleCues.length-1;
-let answer=-1;
-while(low<=high){
-const mid=(low+high)>>1;
-const cue=subtitleCues[mid];
-if(time<cue.start){
-high=mid-1;
-}else{
-if(time<=cue.end){
-return mid;
-}
-answer=mid;
-low=mid+1;
-}
-}
-return-1;
-}
-function updateSubtitle(){
-const video=document.getElementById("videoPlayer");
-const text=document.getElementById("subtitleText");
-if(!video||!text||!subtitlesOn||!subtitleLoaded||!subtitleCues.length){
-text.style.display="none";
-return;
-}
-const index=findCueIndex(video.currentTime+Number(subtitleSettings.offset||0));
-if(index<0){
-text.style.display="none";
-return;
-}
-text.textContent=subtitleCues[index].text;
-text.style.display="block";
-}
-function subtitleOutlineValue(){
-if(subtitleSettings.outline==="light"){
-return"1px 1px 2px #000";
-}
-if(subtitleSettings.outline==="heavy"){
-return"2px 2px 4px #000,-2px -2px 4px #000,2px -2px 4px #000,-2px 2px 4px #000";
-}
-return"none";
-}
-function applySubtitleStyle(){
-const text=document.getElementById("subtitleText");
-const preview=document.getElementById("subtitlePreviewText");
-const elements=[text,preview];
-elements.forEach(el=>{
-if(!el)return;
-el.style.fontSize=`${subtitleSettings.size}px`;
-el.style.bottom=`${subtitleSettings.position}%`;
-el.style.color=subtitleSettings.color;
-el.style.background=`rgba(0,0,0,${Number(subtitleSettings.opacity||0)/100})`;
-el.style.fontFamily=subtitleSettings.font;
-el.style.textAlign=subtitleSettings.align;
-el.style.textShadow=subtitleOutlineValue();
-});
-const size=document.getElementById("subtitleSize");
-const position=document.getElementById("subtitlePosition");
-const offset=document.getElementById("subtitleOffset");
-const color=document.getElementById("subtitleColor");
-const opacity=document.getElementById("subtitleOpacity");
-const font=document.getElementById("subtitleFont");
-const align=document.getElementById("subtitleAlign");
-const outline=document.getElementById("subtitleOutline");
-if(size)size.value=subtitleSettings.size;
-if(position)position.value=subtitleSettings.position;
-if(offset)offset.value=subtitleSettings.offset;
-if(color)color.value=subtitleSettings.color;
-if(opacity)opacity.value=subtitleSettings.opacity;
-if(font)font.value=subtitleSettings.font;
-if(align)align.value=subtitleSettings.align;
-if(outline)outline.value=subtitleSettings.outline;
-const sizeValue=document.getElementById("subtitleSizeValue");
-const positionValue=document.getElementById("subtitlePositionValue");
-const offsetValue=document.getElementById("subtitleOffsetValue");
-const opacityValue=document.getElementById("subtitleOpacityValue");
-if(sizeValue)sizeValue.textContent=`${subtitleSettings.size}px`;
-if(positionValue)positionValue.textContent=`${subtitleSettings.position}%`;
-if(offsetValue)offsetValue.textContent=`${Number(subtitleSettings.offset)>0?"+":""}${Number(subtitleSettings.offset).toFixed(1).replace(".0","")}s`;
-if(opacityValue)opacityValue.textContent=`${subtitleSettings.opacity}%`;
-}
-function setupSubtitleControls(){
-const map={
-subtitleSize:["size",Number],
-subtitlePosition:["position",Number],
-subtitleOffset:["offset",Number],
-subtitleColor:["color",String],
-subtitleOpacity:["opacity",Number],
-subtitleFont:["font",String],
-subtitleAlign:["align",String],
-subtitleOutline:["outline",String]
-};
-Object.entries(map).forEach(([id,info])=>{
-const el=document.getElementById(id);
-if(!el)return;
-el.addEventListener("input",()=>{
-subtitleSettings[info[0]]=info[1](el.value);
-saveSubtitleSettings();
-applySubtitleStyle();
-updateSubtitle();
-});
-el.addEventListener("change",()=>{
-subtitleSettings[info[0]]=info[1](el.value);
-saveSubtitleSettings();
-applySubtitleStyle();
-updateSubtitle();
-});
-});
-applySubtitleStyle();
-}
-function resetSubtitleSettings(){
-subtitleSettings={...defaultSubtitleSettings};
-saveSubtitleSettings();
-applySubtitleStyle();
-updateSubtitle();
-}
-function showCCNotification(message){
-const n=document.getElementById("ccNotification");
-if(!n)return;
-n.textContent=message;
-n.classList.add("show");
-clearTimeout(subtitleNotificationTimer);
-subtitleNotificationTimer=setTimeout(()=>n.classList.remove("show"),1200);
-}
+
+            const sources = [
+                "My-Favorite-Movies_202503",
+                "28-days-later_202505",
+                "the-village-2004_202606",
+                "agent-cody-banks-2003",
+                ["are-you-alone-in-the-house", "It.mp4"],
+                "TR_Sub_Movies",
+                "opener_202508",
+                "AlansCC1",
+                "the.-equalizer.-2014.1080p.-blu-ray.x-264.-yify_202402",
+                "the-basketball-diaries",
+                "the-hateful-eight-extended-version",
+                "21.-jump.-street.-2012",
+                "training-day_202608",
+                "ferris-buellers-day-off-1986_202511",
+                "the-detective",
+                "disney-channel-original-movies",
+                "1-frosty-the-snowman",
+                ["comedy-collection", null, 1],
+                ["superbad-fullscreen-240p", "Superbad (Fullscreen) 480p.mp4"],
+                "office.-space.-1999.1080p.-blu-ray.x-264.-aac-5.1-yts.-mx_202606",
+                "law.-abiding.-citizen.-720p.-br-rip.-450-mb.-yify_202606",
+                "django-unchained-2012_tarantino",
+                "r-73_20251103",
+                "the-patriot-2000",
+                "escape-from-new-york-1981-john-carpenter-1080p",
+                "mash.-1970.1080p.-blu-ray.-10-bit.-hevc.-eac-3-sartre",
+                "se-7en_202609",
+                "guardians-of-the-galaxy-2_202609",
+            ].map((x) => (typeof x === "string" ? { identifier: x } : { identifier: x[0], file: x[1], bottom: x[2] }));
+            const savedApiKeys = JSON.parse(localStorage.bronflixApiKeys || "{}");
+            let OMDB_API_KEY = savedApiKeys.omdb || "";
+            let TMDB_API_KEY = savedApiKeys.tmdb || "";
+            let FANART_API_KEY = savedApiKeys.fanart || "";
+            let SUBTITLE_API_KEY = savedApiKeys.subtitle || localStorage.getItem("wyzieApiKey") || "";
+            const movies = [];
+            const cache = new Map();
+            const posterCache = new Map();
+            const filters = new Set();
+            const defaultSettings = {
+                autoplay: true,
+                featured: true,
+                favorites: true,
+                duplicates: false,
+                progress: true,
+                resumeOffset: 10,
+                continueLimit: 12,
+                theme: "#e50914",
+                concurrentLoads: 25,
+            };
+            const settings = {
+                ...defaultSettings,
+                ...JSON.parse(localStorage.movieSettings || "{}"),
+            };
+            delete settings.loadAll;
+            delete settings.preloadCount;
+            let heroMovies = [];
+            let heroIndex = 0;
+            let heroTimer = null;
+            let currentMovie = null;
+            let playerMovie = null;
+            let loadedCount = 0;
+            let apiSetupOpen = false;
+            let metadataQueue = [];
+            let metadataQueued = new Set();
+            let activeMetadata = 0;
+            let posterQueue = [];
+            let posterQueued = new Set();
+            let activePosters = 0;
+            let posterObserver = null;
+            let continueObserver = null;
+            let applyFrame = 0;
+            let heroBuilt = false;
+            let posterStore = {};
+            try {
+                posterStore = JSON.parse(localStorage.bronflixPosterCache || "{}");
+            } catch (e) {
+                posterStore = {};
+            }
+            const defaultSubtitleSettings = {
+                size: 24,
+                position: 8,
+                offset: 0,
+                color: "#ffffff",
+                opacity: 45,
+                font: "Arial",
+                align: "center",
+                outline: "heavy",
+            };
+            let subtitleSettings = {
+                ...defaultSubtitleSettings,
+                ...JSON.parse(localStorage.subtitleSettings || "{}"),
+            };
+            let subtitleCues = [];
+            let subtitleLoaded = false;
+            let subtitleLoading = false;
+            let subtitlesOn = true;
+            let subtitleMovieId = null;
+            let subtitleMouseTimer = null;
+            let subtitleNotificationTimer = null;
+            function saveSettings() {
+                localStorage.movieSettings = JSON.stringify(settings);
+            }
+            function saveSubtitleSettings() {
+                localStorage.subtitleSettings = JSON.stringify(subtitleSettings);
+            }
+            function applyTheme() {
+                document.documentElement.style.setProperty("--theme", settings.theme || "#e50914");
+                const x = document.getElementById("themeColor");
+                if (x) {
+                    x.value = settings.theme || "#e50914";
+                }
+            }
+            applyTheme();
+            const overrides = {
+                spiderman6homecoming: "Spider-Man Homecoming",
+                jurassicpark3: "Jurassic Park III",
+                spidermanhomecoming: "Spider-Man Homecoming",
+                spidermanhomecoming2017: "Spider-Man Homecoming",
+                spidermanhomecoming202506: "Spider-Man Homecoming",
+                spiderman5theamazingspiderman2: "The Amazing Spider-Man 2",
+                spiderman7farfromhome: "Spider-Man Far From Home",
+                spiderman6theamazingspiderman2: "The Amazing Spider-Man 2",
+                spiderman4theamazingspiderman: "The Amazing Spider-Man",
+                scarfaceremastereddpp5110bit: "Scarface",
+                itytsag: "It (2017)",
+                guardiansofthegalaxy: "Guardians of the Galaxy",
+                guardiansofthegalaxy1: "Guardians of the Galaxy",
+                guardiansofthegalaxy2: "Guardians of the Galaxy Vol. 2",
+                guardiansofthegalaxyvol1: "Guardians of the Galaxy",
+                guardiansofthegalaxyvol2: "Guardians of the Galaxy Vol. 2",
+                guardiansofthegalaxyvol3: "Guardians of the Galaxy Vol. 3",
+            };
+            const titleRules = [
+                [/^guardians?\s+of\s+the\s+galaxy\s*$/i, "Guardians of the Galaxy"],
+                [/^guardians?\s+of\s+the\s+galaxy\s*(?:vol\.?\s*)?1$/i, "Guardians of the Galaxy"],
+                [/^guardians?\s+of\s+the\s+galaxy\s*(?:vol\.?\s*)?2$/i, "Guardians of the Galaxy Vol. 2"],
+                [/^guardians?\s+of\s+the\s+galaxy\s*(?:vol\.?\s*)?3$/i, "Guardians of the Galaxy Vol. 3"],
+                [/^guardians?\s+of\s+the\s+galaxy\s*ii$/i, "Guardians of the Galaxy Vol. 2"],
+                [/^guardians?\s+of\s+the\s+galaxy\s*iii$/i, "Guardians of the Galaxy Vol. 3"],
+                [/^spider\s*man\s*homecoming$/i, "Spider-Man: Homecoming"],
+                [/^the\s+amazing\s+spider\s*man\s*2$/i, "The Amazing Spider-Man 2"],
+                [/^the\s+amazing\s+spider\s*man$/i, "The Amazing Spider-Man"],
+            ];
+            const sleep = (t) => new Promise((r) => setTimeout(r, t));
+            async function fetchJSON(url, timeout = 8000, retries = 1) {
+                for (let i = 0; i <= retries; i++) {
+                    const controller = new AbortController();
+                    const timer = setTimeout(() => controller.abort(), timeout);
+                    try {
+                        const response = await fetch(url, { signal: controller.signal });
+                        clearTimeout(timer);
+                        if (response.ok) {
+                            return await response.json();
+                        }
+                    } catch (e) {
+                        clearTimeout(timer);
+                    }
+                    if (i < retries) {
+                        await sleep(150);
+                    }
+                }
+                return null;
+            }
+            function norm(s) {
+                return String(s || "")
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]/g, "");
+            }
+            function basename(s) {
+                return String(s || "")
+                    .split("/")
+                    .pop()
+                    .split("\\")
+                    .pop();
+            }
+            function clean(s) {
+                let n = basename(s);
+                n = n
+                    .replace(/\.[^/.]+$/, "")
+                    .replace(/[+_.]/g, " ")
+                    .replace(/[\u{1F000}-\u{1FFFF}\u2600-\u27BF]/gu, "");
+                n = n
+                    .replace(/\[[^\]]*\]/g, " ")
+                    .replace(
+                        /\([^)]*(?:1080p|720p|2160p|4k|bluray|blu-ray|web|webrip|x264|x265|hevc|yify|yts)[^)]*\)/gi,
+                        " "
+                    )
+                    .replace(/\b(?:19|20)\d{2}\b/g, " ")
+                    .replace(
+                        /\b(?:1080p|720p|2160p|4k|uhd|fhd|hd|bluray|blu-ray|web-dl|webrip|web|hdtv|x264|x265|hevc|avc|hdr|dvdrip|brrip|br-rip|cam|proper|repack|aac|ac3|ddp|ddp5[\s.]?1|10bit|rarbg|yify|yts|extended|remastered|uncut|complete|fullscreen)\b/gi,
+                        " "
+                    )
+                    .replace(/\b(?:part|pt)\s*[0-9]+\b/gi, " ")
+                    .replace(/[-]+/g, " ")
+                    .replace(/\s+/g, " ")
+                    .trim();
+                for (const [regex, value] of titleRules) {
+                    if (regex.test(n)) {
+                        return value;
+                    }
+                }
+                const override = overrides[norm(n)];
+                if (override) {
+                    return override;
+                }
+                return n;
+            }
+            function titleCandidates(file) {
+                const cleaned = clean(file);
+                const original = basename(file).replace(/\.[^/.]+$/, "");
+                const list = [cleaned, original];
+                if (/^the /i.test(cleaned)) {
+                    list.push(cleaned.slice(4));
+                }
+                if (/^spiderman/i.test(cleaned)) {
+                    list.push(cleaned.replace(/^spiderman/i, "spider-man"));
+                }
+                if (/^spider man/i.test(cleaned)) {
+                    list.push(cleaned.replace(/^spider man/i, "spider-man"));
+                }
+                if (/amazing spiderman/i.test(cleaned)) {
+                    list.push(cleaned.replace(/amazing\s*spiderman/i, "the amazing spider-man"));
+                }
+                if (/ironman/i.test(cleaned)) {
+                    list.push(cleaned.replace(/ironman/i, "iron man"));
+                }
+                return [...new Map(list.filter(Boolean).map((x) => [norm(x), x])).values()];
+            }
+            function match(a, b) {
+                a = norm(a);
+                b = norm(b);
+                return a === b || a.includes(b) || b.includes(a);
+            }
+            async function tmdb(title) {
+                if (!TMDB_API_KEY) return null;
+                const key = "tmdb:" + norm(title);
+                if (cache.has(key)) {
+                    return cache.get(key);
+                }
+                const data = await fetchJSON(
+                    `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(title)}&include_adult=false`,
+                    7000,
+                    0
+                );
+                const result =
+                    data?.results?.find((x) => norm(x.title) === norm(title)) ||
+                    data?.results?.find((x) => match(title, x.title)) ||
+                    data?.results?.[0] ||
+                    null;
+                cache.set(key, result);
+                return result;
+            }
+            async function details(id) {
+                if (!id || !TMDB_API_KEY) return null;
+                const key = "details:" + id;
+                if (cache.has(key)) {
+                    return cache.get(key);
+                }
+                const result = await fetchJSON(
+                    `https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_API_KEY}&append_to_response=release_dates`,
+                    7000,
+                    0
+                );
+                cache.set(key, result);
+                return result;
+            }
+            async function omdb(title) {
+                if (!OMDB_API_KEY) return null;
+                const key = "omdb:" + norm(title);
+                if (cache.has(key)) {
+                    return cache.get(key);
+                }
+                const result = await fetchJSON(
+                    `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${encodeURIComponent(title)}&type=movie&plot=full`,
+                    6500,
+                    0
+                );
+                const data = result?.Response === "True" ? result : null;
+                cache.set(key, data);
+                return data;
+            }
+            async function movieData(m) {
+                const key = "movie:" + m.id;
+                if (cache.has(key)) {
+                    return cache.get(key);
+                }
+                let tmdbData = null;
+                let omdbData = null;
+                for (const title of titleCandidates(m.file.name)) {
+                    const [tmdbResult, omdbResult] = await Promise.all([tmdb(title), omdb(title)]);
+                    tmdbData = tmdbData || tmdbResult;
+                    omdbData = omdbData || omdbResult;
+                    if (tmdbData && omdbData) {
+                        break;
+                    }
+                }
+                const result = {
+                    tmdb: tmdbData,
+                    details: await details(tmdbData?.id),
+                    omdb: omdbData,
+                };
+                cache.set(key, result);
+                return result;
+            }
+            async function wiki(title) {
+                const key = "wiki:" + norm(title);
+                if (posterCache.has(key)) {
+                    return posterCache.get(key);
+                }
+                const data = await fetchJSON(
+                    `https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(title + " film")}&gsrlimit=5&prop=pageimages&piprop=original&format=json&origin=*`,
+                    8000,
+                    0
+                );
+                const result =
+                    Object.values(data?.query?.pages || {}).find((x) => match(title, x.title) && x.original?.source)
+                        ?.original?.source || null;
+                posterCache.set(key, result);
+                return result;
+            }
+            async function fanart(id) {
+                if (!FANART_API_KEY || !id) {
+                    return null;
+                }
+                const key = "fanart:" + id;
+                if (posterCache.has(key)) {
+                    return posterCache.get(key);
+                }
+                const data = await fetchJSON(
+                    `https://webservice.fanart.tv/v3/movies/${id}?api_key=${FANART_API_KEY}`,
+                    8000,
+                    0
+                );
+                const result =
+                    data?.movieposter?.slice().sort((a, b) => (+b.likes || 0) - (+a.likes || 0))[0]?.url || null;
+                posterCache.set(key, result);
+                return result;
+            }
+            async function getPoster(m) {
+                const key = "poster:" + m.id;
+                if (posterCache.has(key)) {
+                    return posterCache.get(key);
+                }
+                if (posterStore[m.id]) {
+                    posterCache.set(key, posterStore[m.id]);
+                    return posterStore[m.id];
+                }
+                const d = m.data;
+                let result = null;
+                if (d?.tmdb?.poster_path) {
+                    result = `https://image.tmdb.org/t/p/w500${d.tmdb.poster_path}`;
+                }
+                if (!result && d?.omdb?.Poster && d.omdb.Poster !== "N/A") {
+                    result = d.omdb.Poster;
+                }
+                if (!result && d?.tmdb?.id) {
+                    result = await fanart(d.tmdb.id);
+                }
+                if (!result && d?.omdb?.imdbID) {
+                    result = await fanart(d.omdb.imdbID);
+                }
+                if (!result) {
+                    result = await wiki(m.displayTitle);
+                }
+                posterCache.set(key, result || null);
+                return result || null;
+            }
+            function savePoster(m, url) {
+                if (!m || !url) return;
+                posterStore[m.id] = url;
+                try {
+                    const keys = Object.keys(posterStore);
+                    if (keys.length > 500) {
+                        delete posterStore[keys[0]];
+                    }
+                    localStorage.bronflixPosterCache = JSON.stringify(posterStore);
+                } catch (e) {}
+            }
+            function rating(m) {
+                return m.data?.omdb?.imdbRating && m.data.omdb.imdbRating !== "N/A"
+                    ? m.data.omdb.imdbRating
+                    : m.data?.tmdb?.vote_average?.toFixed(1) || null;
+            }
+            function rated(m) {
+                const o = m.data?.omdb;
+                if (o?.Rated && o.Rated !== "N/A") {
+                    return o.Rated;
+                }
+                const us = m.data?.details?.release_dates?.results?.find((x) => x.iso_3166_1 === "US");
+                return us?.release_dates?.find((x) => x.certification)?.certification || "NR";
+            }
+            function rclass(x) {
+                return "rating-" + String(x || "NR").replace(/[^a-z0-9]/gi, "");
+            }
+            function plot(m) {
+                return m.data?.omdb?.Plot && m.data.omdb.Plot !== "N/A"
+                    ? m.data.omdb.Plot
+                    : m.data?.details?.overview || "Description not available.";
+            }
+            function card(m) {
+                const c = document.createElement("div");
+                c.className = "card";
+                c.innerHTML = `<div class="poster-area"><div class="poster-loading"></div></div><div class="movie-info"><div class="movie-title"></div><div class="movie-original"></div><div class="movie-meta"><span class="star">★</span><span class="rating-number">—</span><span class="rating-badge rating-NR">NR</span></div></div>`;
+                c.querySelector(".movie-title").textContent = m.displayTitle;
+                c.onclick = () => {
+                    if (!m.loaded) {
+                        queueMovie(m, 999999);
+                    }
+                    openDetails(m);
+                };
+                m.card = c;
+                c._movie = m;
+                return c;
+            }
+            function metadataLimit() {
+                const n = Number(settings.concurrentLoads);
+                if (!n || n < 1) {
+                    return 25;
+                }
+                return Math.min(100, Math.max(5, n));
+            }
+            function queueMovie(m, priority = 0) {
+                if (!m || m.loaded || m.loading) return;
+                const existing = metadataQueue.find((x) => x.m === m);
+                if (existing) {
+                    if (priority > existing.priority) {
+                        existing.priority = priority;
+                        metadataQueue.sort((a, b) => b.priority - a.priority);
+                    }
+                    return;
+                }
+                if (metadataQueued.has(m.id)) {
+                    return;
+                }
+                metadataQueued.add(m.id);
+                metadataQueue.push({ m, priority });
+                metadataQueue.sort((a, b) => b.priority - a.priority);
+                processMetadata();
+            }
+            function queueMovies(list, priority = 0) {
+                list.forEach((m, i) => queueMovie(m, priority - i * 0.001));
+            }
+            function processMetadata() {
+                const limit = metadataLimit();
+                while (activeMetadata < limit && metadataQueue.length) {
+                    const item = metadataQueue.shift();
+                    const m = item.m;
+                    metadataQueued.delete(m.id);
+                    if (!m || m.loaded || m.loading) {
+                        continue;
+                    }
+                    activeMetadata++;
+                    loadMetadata(m)
+                        .catch((e) => {
+                            console.warn("Metadata failed:", m.displayTitle, e);
+                        })
+                        .finally(() => {
+                            activeMetadata--;
+                            if (metadataQueue.length) {
+                                processMetadata();
+                            }
+                        });
+                }
+            }
+            async function loadMetadata(m) {
+                if (m.loading || m.loaded) return;
+                m.loading = true;
+                try {
+                    const data = await movieData(m);
+                    m.data = data;
+                    const original = clean(m.file.name);
+                    m.displayTitle = overrides[norm(original)] || data?.tmdb?.title || data?.omdb?.Title || original;
+                    for (const [regex, value] of titleRules) {
+                        if (regex.test(original)) {
+                            m.displayTitle = value;
+                            break;
+                        }
+                    }
+                    m.rating = parseFloat(rating(m)) || 0;
+                    m.rated = rated(m);
+                    if (m.card) {
+                        m.card.querySelector(".movie-title").textContent = m.displayTitle;
+                        const originalElement = m.card.querySelector(".movie-original");
+                        const originalText = norm(original) !== norm(m.displayTitle) ? original : "";
+                        originalElement.textContent = originalText;
+                        originalElement.style.display = originalText ? "block" : "none";
+                        m.card.querySelector(".movie-meta").innerHTML =
+                            `<span class=star>★</span><span>${m.rating || "—"}</span><span class="rating-badge ${rclass(m.rated)}">${m.rated}</span>`;
+                    }
+                    m.loaded = true;
+                    m.loading = false;
+                    loadedCount++;
+                    stats();
+                    scheduleApply();
+                    if (settings.featured && !heroBuilt && loadedCount >= 3) {
+                        buildHero();
+                    }
+                } catch (e) {
+                    m.loading = false;
+                    throw e;
+                }
+            }
+            function posterLimit() {
+                return 30;
+            }
+            function queuePoster(m, priority = 0) {
+                if (!m || m.posterLoaded || m.posterLoading) return;
+                const existing = posterQueue.find((x) => x.m === m);
+                if (existing) {
+                    if (priority > existing.priority) {
+                        existing.priority = priority;
+                        posterQueue.sort((a, b) => b.priority - a.priority);
+                    }
+                    return;
+                }
+                posterQueue.push({ m, priority });
+                posterQueue.sort((a, b) => b.priority - a.priority);
+                processPosters();
+            }
+            function processPosters() {
+                const limit = Math.min(posterLimit(), 12);
+                while (activePosters < limit && posterQueue.length) {
+                    const item = posterQueue.shift();
+                    const m = item.m;
+                    if (!m || m.posterLoaded || m.posterLoading) {
+                        continue;
+                    }
+                    activePosters++;
+                    loadPoster(m)
+                        .catch(() => {})
+                        .finally(() => {
+                            activePosters--;
+                            if (posterQueue.length) {
+                                processPosters();
+                            }
+                        });
+                }
+            }
+            async function loadPoster(m) {
+                if (m.posterLoaded || m.posterLoading) return;
+                m.posterLoading = true;
+                try {
+                    if (!m.loaded) {
+                        queueMovie(m, 1000000);
+                        await waitForMetadata(m);
+                    }
+                    if (!m.loaded) {
+                        m.posterLoading = false;
+                        return;
+                    }
+                    const url = await getPoster(m);
+                    m.poster = url;
+                    if (!url) {
+                        placeholder(m);
+                        m.posterLoaded = true;
+                        m.posterLoading = false;
+                        return;
+                    }
+                    savePoster(m, url);
+                    if (!m.card) {
+                        m.posterLoaded = true;
+                        m.posterLoading = false;
+                        return;
+                    }
+                    const area = m.card.querySelector(".poster-area");
+                    const img = new Image();
+                    img.className = "poster";
+                    img.alt = m.displayTitle;
+                    img.decoding = "async";
+                    img.loading = "eager";
+                    img.onload = () => {
+                        area.replaceChildren(img);
+                        m.posterLoaded = true;
+                        m.posterLoading = false;
+                        updateContinuePoster(m);
+                    };
+                    img.onerror = async () => {
+                        const fallback = await wiki(m.displayTitle);
+                        if (fallback && fallback !== url) {
+                            savePoster(m, fallback);
+                            m.poster = fallback;
+                            const second = new Image();
+                            second.className = "poster";
+                            second.alt = m.displayTitle;
+                            second.decoding = "async";
+                            second.loading = "eager";
+                            second.onload = () => {
+                                area.replaceChildren(second);
+                                m.posterLoaded = true;
+                                m.posterLoading = false;
+                                updateContinuePoster(m);
+                            };
+                            second.onerror = () => {
+                                placeholder(m);
+                                m.posterLoaded = true;
+                                m.posterLoading = false;
+                            };
+                            second.src = fallback;
+                        } else {
+                            placeholder(m);
+                            m.posterLoaded = true;
+                            m.posterLoading = false;
+                        }
+                    };
+                    img.src = url;
+                } catch (e) {
+                    m.posterLoading = false;
+                }
+            }
+            function waitForMetadata(m) {
+                if (m.loaded) {
+                    return Promise.resolve();
+                }
+                return new Promise((resolve) => {
+                    const check = () => {
+                        if (m.loaded || !m.loading) {
+                            resolve();
+                        } else {
+                            setTimeout(check, 50);
+                        }
+                    };
+                    check();
+                });
+            }
+            function placeholder(m) {
+                if (m.card) {
+                    m.card.querySelector(".poster-area").innerHTML = `<div class=placeholder>${m.displayTitle}</div>`;
+                }
+            }
+            function setupPosterObserver() {
+                if (posterObserver) {
+                    posterObserver.disconnect();
+                }
+                posterObserver = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (!entry.isIntersecting) {
+                                return;
+                            }
+                            const m = entry.target._movie;
+                            if (!m) {
+                                return;
+                            }
+                            const rect = entry.boundingClientRect;
+                            const distance = Math.abs(rect.top);
+                            const priority = 1000000 - Math.min(distance, 900000);
+                            queuePoster(m, priority);
+                        });
+                    },
+                    { root: null, rootMargin: "0px", threshold: 0.01 }
+                );
+                movies.forEach((m) => {
+                    if (m.card) {
+                        posterObserver.observe(m.card);
+                    }
+                });
+            }
+            function stats() {
+                document.getElementById("stats").textContent = `${loadedCount} loaded • ${movies.length} total`;
+            }
+            function favorite(m) {
+                return JSON.parse(localStorage.favorites || "[]").includes(m.id);
+            }
+            function toggleFavorite(m) {
+                let a = JSON.parse(localStorage.favorites || "[]");
+                a = favorite(m) ? a.filter((x) => x !== m.id) : [...a, m.id];
+                localStorage.favorites = JSON.stringify(a);
+                favButton(m);
+                apply();
+            }
+            function favButton(m) {
+                const b = document.getElementById("favoriteBtn");
+                if (!b) return;
+                b.textContent = favorite(m) ? "♥ Remove from My List" : "♡ Add to My List";
+                b.classList.toggle("favorite", favorite(m));
+            }
+            function openDetails(m) {
+                currentMovie = m;
+                if (!m.loaded) {
+                    queueMovie(m, 9999999);
+                }
+                if (!m.posterLoaded) {
+                    queuePoster(m, 9999999);
+                }
+                const d = m.data || {};
+                document.getElementById("detailsTitle").textContent = m.displayTitle;
+                const poster = document.getElementById("detailsPoster");
+                if (m.poster) {
+                    poster.innerHTML = `<img class=details-poster src="${m.poster}" alt="">`;
+                } else {
+                    poster.innerHTML = `<div class=placeholder>${m.displayTitle}</div>`;
+                }
+                const r = rating(m);
+                const rt = d.omdb?.Ratings?.find((x) => x.Source === "Rotten Tomatoes")?.Value;
+                const y = d.tmdb?.release_date?.slice(0, 4);
+                document.getElementById("detailsMeta").innerHTML =
+                    `<span class="rating-badge ${rclass(rated(m))}">${rated(m)}</span>` +
+                    (r ? `<span class=star>★</span><b>${r}/10</b>` : "") +
+                    (rt ? `<span>🍅 ${rt}</span>` : "") +
+                    (y ? `<span>${y}</span>` : "");
+                document.getElementById("detailsDescription").textContent = plot(m);
+                const actions = document.getElementById("detailsActions");
+                actions.innerHTML = "";
+                const play = document.createElement("button");
+                play.className = "action-btn";
+                play.textContent = "▶ Play";
+                play.onclick = () => {
+                    closeDetails();
+                    openPlayer(m);
+                };
+                actions.appendChild(play);
+                const fav = document.createElement("button");
+                fav.id = "favoriteBtn";
+                fav.className = "action-btn dark";
+                fav.onclick = () => {
+                    toggleFavorite(m);
+                };
+                actions.appendChild(fav);
+                favButton(m);
+                document.getElementById("movieDetails").style.display = "block";
+                document.body.classList.add("no-scroll");
+            }
+            function closeDetails() {
+                document.getElementById("movieDetails").style.display = "none";
+                document.body.classList.remove("no-scroll");
+                currentMovie = null;
+            }
+            function archiveURL(f) {
+                const name = String(f.name || "")
+                    .split("/")
+                    .map(encodeURIComponent)
+                    .join("/");
+                return `https://archive.org/download/${encodeURIComponent(f.identifier)}/${name}`;
+            }
+            function resetSubtitleState() {
+                subtitleCues = [];
+                subtitleLoaded = false;
+                subtitleLoading = false;
+                subtitleMovieId = null;
+                subtitlesOn = true;
+                const text = document.getElementById("subtitleText");
+                if (text) {
+                    text.textContent = "";
+                    text.style.display = "none";
+                }
+                const button = document.getElementById("ccButton");
+                if (button) {
+                    button.classList.remove("on");
+                }
+                const status = document.getElementById("subtitleStatus");
+                if (status) {
+                    status.textContent = SUBTITLE_API_KEY
+                        ? "Loading subtitles when available..."
+                        : "Add a subtitle API key in Settings > API Keys.";
+                }
+            }
+            function parseTime(value) {
+                const v = String(value || "")
+                    .trim()
+                    .replace(",", ".");
+                const p = v.split(":");
+                if (p.length === 3) {
+                    return Number(p[0]) * 3600 + Number(p[1]) * 60 + Number(p[2]);
+                }
+                if (p.length === 2) {
+                    return Number(p[0]) * 60 + Number(p[1]);
+                }
+                return Number(p[0]) || 0;
+            }
+            function cleanSubtitleText(text) {
+                return String(text || "")
+                    .replace(/<font[^>]*>/gi, "")
+                    .replace(/<\/font>/gi, "")
+                    .replace(/<i>/gi, "")
+                    .replace(/<\/i>/gi, "")
+                    .replace(/<b>/gi, "")
+                    .replace(/<\/b>/gi, "")
+                    .replace(/<u>/gi, "")
+                    .replace(/<\/u>/gi, "")
+                    .replace(/<br\s*\/?>/gi, "\n")
+                    .replace(/<[^>]+>/g, "")
+                    .replace(/\{[^}]*\}/g, "")
+                    .replace(/\r/g, "")
+                    .trim();
+            }
+            function parseSRT(data) {
+                const blocks = String(data || "")
+                    .replace(/\r/g, "")
+                    .split(/\n\s*\n/);
+                const cues = [];
+                for (const block of blocks) {
+                    const lines = block
+                        .split("\n")
+                        .map((x) => x.trim())
+                        .filter(Boolean);
+                    if (lines.length < 2) continue;
+                    let timeLine = lines.find((x) => x.includes("-->"));
+                    if (!timeLine) continue;
+                    const parts = timeLine.split(/\s+-->\s+/);
+                    if (parts.length < 2) continue;
+                    const start = parseTime(parts[0]);
+                    const end = parseTime(parts[1].split(/\s+/)[0]);
+                    const index = lines.indexOf(timeLine);
+                    const text = cleanSubtitleText(lines.slice(index + 1).join("\n"));
+                    if (Number.isFinite(start) && Number.isFinite(end) && text) {
+                        cues.push({ start, end, text });
+                    }
+                }
+                return cues.sort((a, b) => a.start - b.start);
+            }
+            function parseVTT(data) {
+                const lines = String(data || "")
+                    .replace(/\r/g, "")
+                    .split("\n");
+                const cues = [];
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line.includes("-->")) continue;
+                    const parts = line.split(/\s+-->\s+/);
+                    if (parts.length < 2) continue;
+                    const start = parseTime(parts[0]);
+                    const end = parseTime(parts[1].split(/\s+/)[0]);
+                    const text = [];
+                    i++;
+                    while (i < lines.length && lines[i].trim() !== "") {
+                        text.push(lines[i]);
+                        i++;
+                    }
+                    const cleanText = cleanSubtitleText(text.join("\n"));
+                    if (Number.isFinite(start) && Number.isFinite(end) && cleanText) {
+                        cues.push({ start, end, text: cleanText });
+                    }
+                }
+                return cues.sort((a, b) => a.start - b.start);
+            }
+            function findCueIndex(time) {
+                let low = 0;
+                let high = subtitleCues.length - 1;
+                let answer = -1;
+                while (low <= high) {
+                    const mid = (low + high) >> 1;
+                    const cue = subtitleCues[mid];
+                    if (time < cue.start) {
+                        high = mid - 1;
+                    } else {
+                        if (time <= cue.end) {
+                            return mid;
+                        }
+                        answer = mid;
+                        low = mid + 1;
+                    }
+                }
+                return -1;
+            }
+            function updateSubtitle() {
+                const video = document.getElementById("videoPlayer");
+                const text = document.getElementById("subtitleText");
+                if (!video || !text || !subtitlesOn || !subtitleLoaded || !subtitleCues.length) {
+                    text.style.display = "none";
+                    return;
+                }
+                const index = findCueIndex(video.currentTime + Number(subtitleSettings.offset || 0));
+                if (index < 0) {
+                    text.style.display = "none";
+                    return;
+                }
+                text.textContent = subtitleCues[index].text;
+                text.style.display = "block";
+            }
+            function subtitleOutlineValue() {
+                if (subtitleSettings.outline === "light") {
+                    return "1px 1px 2px #000";
+                }
+                if (subtitleSettings.outline === "heavy") {
+                    return "2px 2px 4px #000,-2px -2px 4px #000,2px -2px 4px #000,-2px 2px 4px #000";
+                }
+                return "none";
+            }
+            function applySubtitleStyle() {
+                const text = document.getElementById("subtitleText");
+                const preview = document.getElementById("subtitlePreviewText");
+                const elements = [text, preview];
+                elements.forEach((el) => {
+                    if (!el) return;
+                    el.style.fontSize = `${subtitleSettings.size}px`;
+                    el.style.bottom = `${subtitleSettings.position}%`;
+                    el.style.color = subtitleSettings.color;
+                    el.style.background = `rgba(0,0,0,${Number(subtitleSettings.opacity || 0) / 100})`;
+                    el.style.fontFamily = subtitleSettings.font;
+                    el.style.textAlign = subtitleSettings.align;
+                    el.style.textShadow = subtitleOutlineValue();
+                });
+                const size = document.getElementById("subtitleSize");
+                const position = document.getElementById("subtitlePosition");
+                const offset = document.getElementById("subtitleOffset");
+                const color = document.getElementById("subtitleColor");
+                const opacity = document.getElementById("subtitleOpacity");
+                const font = document.getElementById("subtitleFont");
+                const align = document.getElementById("subtitleAlign");
+                const outline = document.getElementById("subtitleOutline");
+                if (size) size.value = subtitleSettings.size;
+                if (position) position.value = subtitleSettings.position;
+                if (offset) offset.value = subtitleSettings.offset;
+                if (color) color.value = subtitleSettings.color;
+                if (opacity) opacity.value = subtitleSettings.opacity;
+                if (font) font.value = subtitleSettings.font;
+                if (align) align.value = subtitleSettings.align;
+                if (outline) outline.value = subtitleSettings.outline;
+                const sizeValue = document.getElementById("subtitleSizeValue");
+                const positionValue = document.getElementById("subtitlePositionValue");
+                const offsetValue = document.getElementById("subtitleOffsetValue");
+                const opacityValue = document.getElementById("subtitleOpacityValue");
+                if (sizeValue) sizeValue.textContent = `${subtitleSettings.size}px`;
+                if (positionValue) positionValue.textContent = `${subtitleSettings.position}%`;
+                if (offsetValue)
+                    offsetValue.textContent = `${Number(subtitleSettings.offset) > 0 ? "+" : ""}${Number(subtitleSettings.offset).toFixed(1).replace(".0", "")}s`;
+                if (opacityValue) opacityValue.textContent = `${subtitleSettings.opacity}%`;
+            }
+            function setupSubtitleControls() {
+                const map = {
+                    subtitleSize: ["size", Number],
+                    subtitlePosition: ["position", Number],
+                    subtitleOffset: ["offset", Number],
+                    subtitleColor: ["color", String],
+                    subtitleOpacity: ["opacity", Number],
+                    subtitleFont: ["font", String],
+                    subtitleAlign: ["align", String],
+                    subtitleOutline: ["outline", String],
+                };
+                Object.entries(map).forEach(([id, info]) => {
+                    const el = document.getElementById(id);
+                    if (!el) return;
+                    el.addEventListener("input", () => {
+                        subtitleSettings[info[0]] = info[1](el.value);
+                        saveSubtitleSettings();
+                        applySubtitleStyle();
+                        updateSubtitle();
+                    });
+                    el.addEventListener("change", () => {
+                        subtitleSettings[info[0]] = info[1](el.value);
+                        saveSubtitleSettings();
+                        applySubtitleStyle();
+                        updateSubtitle();
+                    });
+                });
+                applySubtitleStyle();
+            }
+            function resetSubtitleSettings() {
+                subtitleSettings = { ...defaultSubtitleSettings };
+                saveSubtitleSettings();
+                applySubtitleStyle();
+                updateSubtitle();
+            }
+            function showCCNotification(message) {
+                const n = document.getElementById("ccNotification");
+                if (!n) return;
+                n.textContent = message;
+                n.classList.add("show");
+                clearTimeout(subtitleNotificationTimer);
+                subtitleNotificationTimer = setTimeout(() => n.classList.remove("show"), 1200);
+            }
 async function loadSubtitles(m){
 if(!m||subtitleLoading||subtitleLoaded&&subtitleMovieId===m.id)return;
 if(subtitleMovieId!==m.id){
@@ -1385,653 +1475,741 @@ document.getElementById("subtitleStatus").textContent="No English subtitles foun
 subtitleLoading=false;
 }
 }
-function openPlayer(m,start=0){
-const video=document.getElementById("videoPlayer");
-playerMovie=m;
-resetSubtitleState();
-applySubtitleStyle();
-video.pause();
-video.removeAttribute("src");
-video.load();
-video.controls=true;
-video.playsInline=true;
-document.getElementById("playerOverlay").style.display="block";
-document.body.classList.add("no-scroll");
-const src=archiveURL(m.file);
-video.src=src;
-video.preload="auto";
-let started=false;
-const begin=()=>{
-if(started||playerMovie!==m){
-return;
-}
-started=true;
-if(start>0&&Number.isFinite(video.duration)){
-video.currentTime=Math.max(0,Math.min(start,Math.max(0,video.duration-.5)));
-}
-if(settings.autoplay){
-video.play().catch(()=>{});
-}
-};
-video.onloadedmetadata=begin;
-video.oncanplay=()=>{
-if(!started){
-begin();
-}
-};
-video.onerror=()=>{
-console.warn("Archive video failed:",src,video.error);
-};
-video.ontimeupdate=()=>{
-updateSubtitle();
-if(!settings.progress||playerMovie!==m||!video.duration)return;
-const now=Date.now();
-if(!video._lastSave||now-video._lastSave>=5000){
-video._lastSave=now;
-saveContinue(m,video.currentTime,video.duration);
-}
-};
-video.onseeked=updateSubtitle;
-video.onplay=()=>{
-updateSubtitle();
-loadSubtitles(m);
-};
-video.onpause=updateSubtitle;
-loadSubtitles(m);
-showPlayerControls();
-}
-function closePlayer(){
-const video=document.getElementById("videoPlayer");
-if(settings.progress&&playerMovie&&video.duration){
-saveContinue(playerMovie,video.currentTime,video.duration);
-}
-video.pause();
-video.removeAttribute("src");
-video.load();
-video.onloadedmetadata=null;
-video.oncanplay=null;
-video.ontimeupdate=null;
-video.onerror=null;
-video.onseeked=null;
-video.onplay=null;
-video.onpause=null;
-playerMovie=null;
-resetSubtitleState();
-document.getElementById("playerOverlay").style.display="none";
-document.body.classList.remove("no-scroll");
-}
-document.getElementById("closePlayer").onclick=closePlayer;
-function saveContinue(m,time,duration){
-if(!settings.progress||!duration||duration<10)return;
-let list=JSON.parse(localStorage.continueWatching||"[]").filter(x=>x.id!==m.id);
-if(time/duration<.95){
-list.unshift({id:m.id,time,duration});
-}
-localStorage.continueWatching=JSON.stringify(list.slice(0,Math.max(1,Number(settings.continueLimit)||12)));
-renderContinue();
-}
-function updateContinuePoster(m){
-document.querySelectorAll(".continue-card").forEach(card=>{
-if(card.dataset.id!==m.id)return;
-const area=card.querySelector(".continue-poster");
-if(!area||!m.poster||area.querySelector("img"))return;
-const img=new Image();
-img.src=m.poster;
-img.loading="lazy";
-img.decoding="async";
-img.onload=()=>{
-area.insertBefore(img,area.firstChild);
-};
-});
-}
-function moveContinue(m){
-let list=JSON.parse(localStorage.continueWatching||"[]");
-const index=list.findIndex(x=>x.id===m.id);
-if(index<0)return;
-const item=list.splice(index,1)[0];
-list.unshift(item);
-localStorage.continueWatching=JSON.stringify(list);
-renderContinue();
-}
-function removeContinue(m){
-localStorage.continueWatching=JSON.stringify(JSON.parse(localStorage.continueWatching||"[]").filter(x=>x.id!==m.id));
-renderContinue();
-}
-function renderContinue(){
-const row=document.getElementById("continueRow");
-row.innerHTML="";
-let count=0;
-JSON.parse(localStorage.continueWatching||"[]").forEach(item=>{
-const m=movies.find(x=>x.id===item.id);
-if(!m)return;
-count++;
-const cached=m.poster||posterStore[m.id];
-const c=document.createElement("div");
-c.className="continue-card";
-c.dataset.id=m.id;
-c.innerHTML=`<div class=continue-poster>${cached?`<img src="${cached}" loading="lazy">`:""}<button class=continue-menu-btn>⋮</button><div class=continue-menu><button data-action=front>Move to front</button><button data-action=remove class=remove>Remove from Continue Watching</button></div></div><div class=progress><div class=progress-bar style="width:${Math.min(100,item.time/item.duration*100)}%"></div></div><div class=continue-name>${m.displayTitle}</div>`;
-const menu=c.querySelector(".continue-menu");
-const button=c.querySelector(".continue-menu-btn");
-button.onclick=e=>{
-e.stopPropagation();
-document.querySelectorAll(".continue-menu.open").forEach(x=>{
-if(x!==menu)x.classList.remove("open");
-});
-menu.classList.toggle("open");
-};
-menu.onclick=e=>{
-e.stopPropagation();
-const action=e.target.dataset.action;
-if(action==="front")moveContinue(m);
-if(action==="remove")removeContinue(m);
-};
-c.onclick=e=>{
-if(e.target.closest(".continue-menu-btn")||e.target.closest(".continue-menu"))return;
-const offset=Math.max(0,Number(settings.resumeOffset)||0);
-openPlayer(m,Math.max(0,item.time-offset));
-};
-row.appendChild(c);
-});
-document.getElementById("continueSection").style.display=count?"block":"none";
-setupContinueObserver();
-}
-function setupContinueObserver(){
-if(continueObserver){
-continueObserver.disconnect();
-}
-const row=document.getElementById("continueRow");
-continueObserver=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(!entry.isIntersecting)return;
-const id=entry.target.dataset.id;
-const m=movies.find(x=>x.id===id);
-if(m&&!m.posterLoaded){
-queuePoster(m,500000);
-}
-});
-},{root:row,rootMargin:"0px",threshold:.01});
-document.querySelectorAll(".continue-card").forEach(c=>continueObserver.observe(c));
-}
-document.addEventListener("click",e=>{
-if(!e.target.closest(".continue-menu")&&!e.target.closest(".continue-menu-btn")){
-document.querySelectorAll(".continue-menu.open").forEach(x=>x.classList.remove("open"));
-}
-});
-function searchVariants(s){
-s=String(s).toLowerCase().trim();
-const result=new Set([norm(s)]);
-const roman={i:1,v:5,x:10,l:50,c:100,d:500,m:1000};
-const romanNumber=x=>{
-let n=0;
-for(let i=0;i<x.length;i++){
-n+=roman[x[i]]<(roman[x[i+1]]||0)?-roman[x[i]]:roman[x[i]];
-}
-return n;
-};
-result.add(norm(s.replace(/\b[ivxlcdm]+\b/gi,x=>{
-const n=romanNumber(x);
-return n>=1&&n<=3999?String(n):x;
-})));
-return[...result];
-}
-function score(m,q){
-if(!q)return 0;
-const queries=searchVariants(q);
-const titles=[m.displayTitle,m.title,basename(m.file.name)].flatMap(searchVariants);
-if(!queries.some(x=>titles.some(y=>y===x||y.includes(x)||x.includes(y)))){
-return 0;
-}
-if(norm(m.displayTitle)===norm(q)){
-return 10000;
-}
-if(queries.some(x=>titles.includes(x))){
-return 9500;
-}
-if(queries.some(x=>titles.some(y=>y.startsWith(x)))){
-return 9000;
-}
-return 7000;
-}
-function apply(){
-const q=document.getElementById("search").value.trim();
-const duplicates=new Set();
-if(settings.duplicates){
-const seen=new Map();
-movies.forEach(m=>{
-const title=norm(m.data?.tmdb?.title||m.data?.omdb?.Title||m.displayTitle||clean(m.file.name));
-if(!title)return;
-if(seen.has(title)){
-const first=seen.get(title);
-const firstScore=first.data?.tmdb?.vote_count||first.data?.tmdb?.popularity||0;
-const thisScore=m.data?.tmdb?.vote_count||m.data?.tmdb?.popularity||0;
-if(thisScore>firstScore){
-duplicates.add(first.id);
-seen.set(title,m);
-}else{
-duplicates.add(m.id);
-}
-}else{
-seen.set(title,m);
-}
-});
-}
-let list=movies.filter(m=>!duplicates.has(m.id)&&(!filters.size||!m.data||filters.has(m.rated)||(filters.has("NR")&&(!m.rated||m.rated==="NR"||m.rated==="N/A")))).map(m=>{
-m.searchScore=score(m,q);
-return m;
-}).filter(m=>!q||m.searchScore);
-if(settings.favorites&&!q&&!filters.size){
-const favs=list.filter(favorite);
-const others=list.filter(m=>!favorite(m));
-list=[...favs,...others];
-}
-if(q){
-list.sort((a,b)=>b.searchScore-a.searchScore||a.displayTitle.localeCompare(b.displayTitle));
-}
-const visible=new Set(list);
-movies.forEach(m=>{
-if(m.card){
-m.card.style.display=visible.has(m)?"none"===m.card.style.display?"":m.card.style.display:"";
-}
-});
-movies.forEach(m=>{
-if(m.card){
-m.card.style.display=visible.has(m)?"":"none";
-}
-});
-if(q){
-list.forEach((m,i)=>{
-if(!m.loaded){
-queueMovie(m,10000000-i);
-}
-});
-processMetadata();
-}
-document.getElementById("noResults").style.display=!list.length&&movies.length?"block":"none";
-document.getElementById("moviesTitle").textContent=q?"Search Results":filters.size?`Filtered Movies (${[...filters].join(", ")})`:"Movies";
-}
-function scheduleApply(){
-if(applyFrame)return;
-applyFrame=requestAnimationFrame(()=>{
-applyFrame=0;
-if(document.getElementById("search").value.trim()){
-apply();
-}
-});
-}
-document.querySelectorAll(".filter-btn").forEach(button=>{
-button.onclick=()=>{
-const filter=button.dataset.filter;
-if(filters.has(filter)){
-filters.delete(filter);
-button.classList.remove("active");
-}else{
-filters.add(filter);
-button.classList.add("active");
-}
-apply();
-};
-});
-document.getElementById("search").oninput=apply;
-function clearSearch(){
-document.getElementById("search").value="";
-filters.clear();
-document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));
-apply();
-scrollTo(0,0);
-}
-function showFavorites(){
-document.getElementById("search").value="";
-filters.clear();
-document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));
-const favorites=movies.filter(favorite);
-movies.forEach(m=>{
-if(m.card){
-m.card.style.display="none";
-}
-});
-favorites.forEach(m=>{
-if(!m.card){
-m.card=card(m);
-m.card._movie=m;
-}
-m.card.style.display="";
-document.getElementById("files").appendChild(m.card);
-if(!m.loaded){
-queueMovie(m,999999);
-}
-queuePoster(m,999999);
-});
-document.getElementById("moviesTitle").textContent="My List";
-document.getElementById("noResults").textContent="Your list is empty.";
-document.getElementById("noResults").style.display=favorites.length?"none":"block";
-scrollTo(0,0);
-processMetadata();
-processPosters();
-}
-function buildHero(){
-if(!settings.featured){
-return;
-}
-const candidates=movies.filter(m=>m.data&&m.rating>=6);
-if(!candidates.length){
-return;
-}
-let seed=+new Date().toDateString().replace(/\D/g,"");
-const random=()=>{
-seed=seed*9301+49297;
-return(seed%233280)/233280;
-};
-heroMovies=[...candidates].sort(()=>random()-.5).slice(0,5);
-if(!heroMovies.length){
-return;
-}
-heroBuilt=true;
-const hero=document.getElementById("hero");
-hero.innerHTML="";
-heroMovies.forEach((m,index)=>{
-const slide=document.createElement("div");
-slide.className="hero-slide"+(!index?" active":"");
-slide.style.backgroundImage="none";
-slide.innerHTML=`<div class=hero-content><div class=hero-kicker>FEATURED MOVIE</div><div class=hero-title>${m.displayTitle}</div><div class=hero-meta><span class=star>★</span><b>${m.rating}/10</b><span class="rating-badge ${rclass(m.rated)}">${m.rated}</span></div><div class=hero-description>${plot(m)}</div><button class=hero-play>▶ Play</button></div>`;
-slide.querySelector("button").onclick=()=>{openPlayer(m)};
-hero.appendChild(slide);
-});
-const dots=document.createElement("div");
-dots.className="hero-dots";
-heroMovies.forEach((m,index)=>{
-const dot=document.createElement("div");
-dot.className="hero-dot"+(!index?" active":"");
-dot.onclick=()=>{showHero(index)};
-dots.appendChild(dot);
-});
-hero.appendChild(dots);
-heroIndex=0;
-clearInterval(heroTimer);
-heroTimer=setInterval(()=>{
-if(heroMovies.length){
-showHero((heroIndex+1)%heroMovies.length);
-}
-},6500);
-loadHeroPoster(0);
-}
-async function loadHeroPoster(index){
-const m=heroMovies[index];
-if(!m)return;
-if(!m.poster){
-const url=await getPoster(m);
-if(url){
-m.poster=url;
-savePoster(m,url);
-}
-}
-const slides=document.querySelectorAll(".hero-slide");
-const slide=slides[index];
-if(slide&&m.poster){
-slide.style.backgroundImage=`url("${m.poster}")`;
-}
-}
-function showHero(index){
-heroIndex=index;
-document.querySelectorAll(".hero-slide").forEach((slide,i)=>slide.classList.toggle("active",i===index));
-document.querySelectorAll(".hero-dot").forEach((dot,i)=>dot.classList.toggle("active",i===index));
-loadHeroPoster(index);
-}
-function openSettings(){
-document.getElementById("settingsOverlay").style.display="block";
-document.body.classList.add("no-scroll");
-updateSettings();
-}
-function closeSettings(){
-document.getElementById("settingsOverlay").style.display="none";
-document.body.classList.remove("no-scroll");
-}
-function toggleSetting(n){
-settings[n]=!settings[n];
-saveSettings();
-updateSettings();
-if(n==="featured"){
-document.getElementById("hero").style.display=settings.featured?"":"none";
-if(settings.featured){
-heroBuilt=false;
-buildHero();
-}
-}
-if(n==="duplicates"||n==="favorites"){
-apply();
-}
-if(n==="progress"&&!settings.progress){
-localStorage.continueWatching="[]";
-renderContinue();
-}
-}
-function updateNumberSetting(name,value){
-let v=parseInt(value,10);
-if(name==="resumeOffset"){
-v=Math.max(0,Math.min(120,isNaN(v)?10:v));
-}
-if(name==="continueLimit"){
-v=Math.max(1,Math.min(50,isNaN(v)?12:v));
-}
-settings[name]=v;
-saveSettings();
-if(name==="continueLimit"){
-renderContinue();
-}
-}
-function updateConcurrentLoads(value){
-let v=parseInt(value,10);
-if(isNaN(v)){
-v=25;
-}
-v=Math.max(5,Math.min(100,v));
-settings.concurrentLoads=v;
-saveSettings();
-updateSettings();
-processMetadata();
-}
-function updateTheme(value){
-settings.theme=value||"#e50914";
-saveSettings();
-applyTheme();
-}
-function updateSettings(){
-["autoplay","featured","favorites","duplicates","progress"].forEach(x=>document.getElementById(x+"Switch").classList.toggle("on",!!settings[x]));
-document.getElementById("resumeOffset").value=Number(settings.resumeOffset)||10;
-document.getElementById("continueLimit").value=Number(settings.continueLimit)||12;
-document.getElementById("themeColor").value=settings.theme||"#e50914";
-document.getElementById("concurrentLoads").value=String(settings.concurrentLoads||25);
-}
-function openApiSetup(force=false){
-apiSetupOpen=true;
-document.getElementById("tmdbKey").value=TMDB_API_KEY;
-document.getElementById("omdbKey").value=OMDB_API_KEY;
-document.getElementById("fanartKey").value=FANART_API_KEY;
-document.getElementById("subtitleKey").value=SUBTITLE_API_KEY;
-document.getElementById("apiSetup").style.display="flex";
-document.body.classList.add("no-scroll");
-document.getElementById("apiSave").textContent=force?"Save API Keys":"Save & Continue";
-}
-function saveApiKeys(){
-const tmdb=document.getElementById("tmdbKey").value.trim();
-const omdb=document.getElementById("omdbKey").value.trim();
-const fanart=document.getElementById("fanartKey").value.trim();
-const subtitle=document.getElementById("subtitleKey").value.trim();
-if(!tmdb||!omdb||!fanart)return;
-TMDB_API_KEY=tmdb;
-OMDB_API_KEY=omdb;
-FANART_API_KEY=fanart;
-SUBTITLE_API_KEY=subtitle;
-localStorage.bronflixApiKeys=JSON.stringify({tmdb,omdb,fanart,subtitle});
-cache.clear();
-posterCache.clear();
-document.getElementById("apiSetup").style.display="none";
-document.body.classList.remove("no-scroll");
-apiSetupOpen=false;
-if(!movies.length){
-loadMovies();
-return;
-}
-movies.forEach(m=>{
-m.loaded=false;
-m.loading=false;
-m.data=null;
-m.poster=null;
-m.posterLoaded=false;
-m.posterLoading=false;
-});
-loadedCount=0;
-metadataQueue=[];
-metadataQueued.clear();
-posterQueue=[];
-posterQueued.clear();
-heroMovies=[];
-heroBuilt=false;
-document.getElementById("files").innerHTML="";
-stats();
-loadInitialMovies(true);
-}
-document.onkeydown=e=>{
-if(e.key==="c"&&!["INPUT","SELECT","TEXTAREA"].includes(document.activeElement?.tagName)){
-if(playerMovie){
-toggleCC();
-}
-return;
-}
-if(e.key==="f"&&!["INPUT","SELECT","TEXTAREA"].includes(document.activeElement?.tagName)){
-if(playerMovie){
-fullscreenPlayer();
-}
-return;
-}
-if(e.key!=="Escape"){
-return;
-}
-if(apiSetupOpen){
-return;
-}
-if(playerMovie){
-closePlayer();
-}else if(currentMovie){
-closeDetails();
-}else{
-closeSettings();
-}
-};
-async function archiveFiles(source){
-const data=await fetchJSON(`https://archive.org/metadata/${encodeURIComponent(source.identifier)}`,30000,3);
-if(!data){
-return[];
-}
-let files=Array.isArray(data.files)?data.files:Object.values(data.files||{});
-return files.filter(file=>{
-if(!file){
-return false;
-}
-const name=String(file.name||"");
-if(!name){
-return false;
-}
-if(source.file&&basename(name)!==basename(source.file)&&name!==source.file){
-return false;
-}
-const format=String(file.format||"").toLowerCase();
-const video=/\.(mp4|m4v|webm|mov)$/i.test(name)||/mpeg-4|mpeg4|quicktime|webm/i.test(format);
-if(!video){
-return false;
-}
-return true;
-}).map(file=>({...file,identifier:source.identifier,bottom:source.bottom}));
-}
-async function loadInitialMovies(refresh=false){
-try{
-if(refresh){
-movies.length=0;
-metadataQueue=[];
-metadataQueued.clear();
-posterQueue=[];
-posterQueued.clear();
-loadedCount=0;
-}
-document.getElementById("loading").textContent="Loading movie list...";
-const groups=[];
-const pending=[...sources];
-const workers=4;
-async function worker(){
-while(pending.length){
-const source=pending.shift();
-let result=[];
-for(let attempt=0;attempt<4;attempt++){
-result=await archiveFiles(source);
-if(result.length){
-break;
-}
-await sleep(500*(attempt+1));
-}
-groups.push(result);
-}
-}
-await Promise.all(Array.from({length:Math.min(workers,sources.length)},worker));
-const files=groups.flat();
-const seen=new Set();
-const unique=[];
-files.forEach(file=>{
-const key=String(file.identifier)+"|"+String(file.name);
-if(seen.has(key)){
-return;
-}
-seen.add(key);
-unique.push(file);
-});
-unique.sort((a,b)=>(a.bottom?1:0)-(b.bottom?1:0));
-unique.forEach(file=>{
-const filename=basename(file.name);
-const title=clean(filename);
-const movie={
-id:norm(String(file.identifier)+"|"+String(file.name)),
-file,
-title,
-displayTitle:title,
-data:null,
-rating:0,
-rated:"NR",
-loaded:false,
-loading:false,
-poster:null,
-posterLoaded:false,
-posterLoading:false
-};
-movies.push(movie);
-movie.card=card(movie);
-});
-const box=document.getElementById("files");
-box.innerHTML="";
-const fragment=document.createDocumentFragment();
-movies.forEach(movie=>fragment.appendChild(movie.card));
-box.appendChild(fragment);
-stats();
-setupPosterObserver();
-renderContinue();
-document.getElementById("loading").textContent="Loading movie information...";
-queueMovies(movies,100);
-processMetadata();
-document.getElementById("loading").textContent="Movie library ready";
-}catch(e){
-console.error(e);
-document.getElementById("loading").textContent="Unable to load the movie list.";
-}
-}
-function loadMovies(){
-loadInitialMovies();
-}
-setupSubtitleControls();
-setupPlayerMouse();
-if(TMDB_API_KEY&&OMDB_API_KEY&&FANART_API_KEY){
-document.getElementById("apiSetup").style.display="none";
-loadMovies();
-}else{
-document.getElementById("loading").textContent="API keys required";
-openApiSetup();
-}
-</script>
-</body>
+            function toggleCC() {
+                if (!playerMovie) return;
+                if (!subtitleLoaded) {
+                    subtitlesOn = true;
+                    document.getElementById("ccButton").classList.add("on");
+                    showCCNotification("CC ON");
+                    loadSubtitles(playerMovie);
+                    return;
+                }
+                subtitlesOn = !subtitlesOn;
+                document.getElementById("ccButton").classList.toggle("on", subtitlesOn);
+                showCCNotification(subtitlesOn ? "CC ON" : "CC OFF");
+                updateSubtitle();
+            }
+            function showPlayerControls() {
+                const container = document.getElementById("playerContainer");
+                const button = document.getElementById("ccButton");
+                if (!container || !button) return;
+                button.classList.add("visible");
+                clearTimeout(subtitleMouseTimer);
+                subtitleMouseTimer = setTimeout(() => button.classList.remove("visible"), 1800);
+            }
+            function setupPlayerMouse() {
+                const container = document.getElementById("playerContainer");
+                if (!container) return;
+                container.addEventListener("mousemove", showPlayerControls);
+                container.addEventListener("mouseenter", showPlayerControls);
+                container.addEventListener("mouseleave", () =>
+                    document.getElementById("ccButton").classList.remove("visible")
+                );
+            }
+            function fullscreenPlayer() {
+                const container = document.getElementById("playerContainer");
+                if (!container) return;
+                if (document.fullscreenElement) {
+                    document.exitFullscreen().catch(() => {});
+                    return;
+                }
+                if (container.requestFullscreen) {
+                    container.requestFullscreen().catch(() => {});
+                }
+            }
+            function openPlayer(m, start = 0) {
+                const video = document.getElementById("videoPlayer");
+                playerMovie = m;
+                resetSubtitleState();
+                applySubtitleStyle();
+                video.pause();
+                video.removeAttribute("src");
+                video.load();
+                video.controls = true;
+                video.playsInline = true;
+                document.getElementById("playerOverlay").style.display = "block";
+                document.body.classList.add("no-scroll");
+                const src = archiveURL(m.file);
+                video.src = src;
+                video.preload = "auto";
+                let started = false;
+                const begin = () => {
+                    if (started || playerMovie !== m) {
+                        return;
+                    }
+                    started = true;
+                    if (start > 0 && Number.isFinite(video.duration)) {
+                        video.currentTime = Math.max(0, Math.min(start, Math.max(0, video.duration - 0.5)));
+                    }
+                    if (settings.autoplay) {
+                        video.play().catch(() => {});
+                    }
+                };
+                video.onloadedmetadata = begin;
+                video.oncanplay = () => {
+                    if (!started) {
+                        begin();
+                    }
+                };
+                video.onerror = () => {
+                    console.warn("Archive video failed:", src, video.error);
+                };
+                video.ontimeupdate = () => {
+                    updateSubtitle();
+                    if (!settings.progress || playerMovie !== m || !video.duration) return;
+                    const now = Date.now();
+                    if (!video._lastSave || now - video._lastSave >= 5000) {
+                        video._lastSave = now;
+                        saveContinue(m, video.currentTime, video.duration);
+                    }
+                };
+                video.onseeked = updateSubtitle;
+                video.onplay = () => {
+                    updateSubtitle();
+                    loadSubtitles(m);
+                };
+                video.onpause = updateSubtitle;
+                loadSubtitles(m);
+                showPlayerControls();
+            }
+            function closePlayer() {
+                const video = document.getElementById("videoPlayer");
+                if (settings.progress && playerMovie && video.duration) {
+                    saveContinue(playerMovie, video.currentTime, video.duration);
+                }
+                video.pause();
+                video.removeAttribute("src");
+                video.load();
+                video.onloadedmetadata = null;
+                video.oncanplay = null;
+                video.ontimeupdate = null;
+                video.onerror = null;
+                video.onseeked = null;
+                video.onplay = null;
+                video.onpause = null;
+                playerMovie = null;
+                resetSubtitleState();
+                document.getElementById("playerOverlay").style.display = "none";
+                document.body.classList.remove("no-scroll");
+            }
+            document.getElementById("closePlayer").onclick = closePlayer;
+            function saveContinue(m, time, duration) {
+                if (!settings.progress || !duration || duration < 10) return;
+                let list = JSON.parse(localStorage.continueWatching || "[]").filter((x) => x.id !== m.id);
+                if (time / duration < 0.95) {
+                    list.unshift({ id: m.id, time, duration });
+                }
+                localStorage.continueWatching = JSON.stringify(
+                    list.slice(0, Math.max(1, Number(settings.continueLimit) || 12))
+                );
+                renderContinue();
+            }
+            function updateContinuePoster(m) {
+                document.querySelectorAll(".continue-card").forEach((card) => {
+                    if (card.dataset.id !== m.id) return;
+                    const area = card.querySelector(".continue-poster");
+                    if (!area || !m.poster || area.querySelector("img")) return;
+                    const img = new Image();
+                    img.src = m.poster;
+                    img.loading = "lazy";
+                    img.decoding = "async";
+                    img.onload = () => {
+                        area.insertBefore(img, area.firstChild);
+                    };
+                });
+            }
+            function moveContinue(m) {
+                let list = JSON.parse(localStorage.continueWatching || "[]");
+                const index = list.findIndex((x) => x.id === m.id);
+                if (index < 0) return;
+                const item = list.splice(index, 1)[0];
+                list.unshift(item);
+                localStorage.continueWatching = JSON.stringify(list);
+                renderContinue();
+            }
+            function removeContinue(m) {
+                localStorage.continueWatching = JSON.stringify(
+                    JSON.parse(localStorage.continueWatching || "[]").filter((x) => x.id !== m.id)
+                );
+                renderContinue();
+            }
+            function renderContinue() {
+                const row = document.getElementById("continueRow");
+                row.innerHTML = "";
+                let count = 0;
+                JSON.parse(localStorage.continueWatching || "[]").forEach((item) => {
+                    const m = movies.find((x) => x.id === item.id);
+                    if (!m) return;
+                    count++;
+                    const cached = m.poster || posterStore[m.id];
+                    const c = document.createElement("div");
+                    c.className = "continue-card";
+                    c.dataset.id = m.id;
+                    c.innerHTML = `<div class=continue-poster>${cached ? `<img src="${cached}" loading="lazy">` : ""}<button class=continue-menu-btn>⋮</button><div class=continue-menu><button data-action=front>Move to front</button><button data-action=remove class=remove>Remove from Continue Watching</button></div></div><div class=progress><div class=progress-bar style="width:${Math.min(100, (item.time / item.duration) * 100)}%"></div></div><div class=continue-name>${m.displayTitle}</div>`;
+                    const menu = c.querySelector(".continue-menu");
+                    const button = c.querySelector(".continue-menu-btn");
+                    button.onclick = (e) => {
+                        e.stopPropagation();
+                        document.querySelectorAll(".continue-menu.open").forEach((x) => {
+                            if (x !== menu) x.classList.remove("open");
+                        });
+                        menu.classList.toggle("open");
+                    };
+                    menu.onclick = (e) => {
+                        e.stopPropagation();
+                        const action = e.target.dataset.action;
+                        if (action === "front") moveContinue(m);
+                        if (action === "remove") removeContinue(m);
+                    };
+                    c.onclick = (e) => {
+                        if (e.target.closest(".continue-menu-btn") || e.target.closest(".continue-menu")) return;
+                        const offset = Math.max(0, Number(settings.resumeOffset) || 0);
+                        openPlayer(m, Math.max(0, item.time - offset));
+                    };
+                    row.appendChild(c);
+                });
+                document.getElementById("continueSection").style.display = count ? "block" : "none";
+                setupContinueObserver();
+            }
+            function setupContinueObserver() {
+                if (continueObserver) {
+                    continueObserver.disconnect();
+                }
+                const row = document.getElementById("continueRow");
+                continueObserver = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (!entry.isIntersecting) return;
+                            const id = entry.target.dataset.id;
+                            const m = movies.find((x) => x.id === id);
+                            if (m && !m.posterLoaded) {
+                                queuePoster(m, 500000);
+                            }
+                        });
+                    },
+                    { root: row, rootMargin: "0px", threshold: 0.01 }
+                );
+                document.querySelectorAll(".continue-card").forEach((c) => continueObserver.observe(c));
+            }
+            document.addEventListener("click", (e) => {
+                if (!e.target.closest(".continue-menu") && !e.target.closest(".continue-menu-btn")) {
+                    document.querySelectorAll(".continue-menu.open").forEach((x) => x.classList.remove("open"));
+                }
+            });
+            function searchVariants(s) {
+                s = String(s).toLowerCase().trim();
+                const result = new Set([norm(s)]);
+                const roman = { i: 1, v: 5, x: 10, l: 50, c: 100, d: 500, m: 1000 };
+                const romanNumber = (x) => {
+                    let n = 0;
+                    for (let i = 0; i < x.length; i++) {
+                        n += roman[x[i]] < (roman[x[i + 1]] || 0) ? -roman[x[i]] : roman[x[i]];
+                    }
+                    return n;
+                };
+                result.add(
+                    norm(
+                        s.replace(/\b[ivxlcdm]+\b/gi, (x) => {
+                            const n = romanNumber(x);
+                            return n >= 1 && n <= 3999 ? String(n) : x;
+                        })
+                    )
+                );
+                return [...result];
+            }
+            function score(m, q) {
+                if (!q) return 0;
+                const queries = searchVariants(q);
+                const titles = [m.displayTitle, m.title, basename(m.file.name)].flatMap(searchVariants);
+                if (!queries.some((x) => titles.some((y) => y === x || y.includes(x) || x.includes(y)))) {
+                    return 0;
+                }
+                if (norm(m.displayTitle) === norm(q)) {
+                    return 10000;
+                }
+                if (queries.some((x) => titles.includes(x))) {
+                    return 9500;
+                }
+                if (queries.some((x) => titles.some((y) => y.startsWith(x)))) {
+                    return 9000;
+                }
+                return 7000;
+            }
+            function apply() {
+                const q = document.getElementById("search").value.trim();
+                const duplicates = new Set();
+                if (settings.duplicates) {
+                    const seen = new Map();
+                    movies.forEach((m) => {
+                        const title = norm(
+                            m.data?.tmdb?.title || m.data?.omdb?.Title || m.displayTitle || clean(m.file.name)
+                        );
+                        if (!title) return;
+                        if (seen.has(title)) {
+                            const first = seen.get(title);
+                            const firstScore = first.data?.tmdb?.vote_count || first.data?.tmdb?.popularity || 0;
+                            const thisScore = m.data?.tmdb?.vote_count || m.data?.tmdb?.popularity || 0;
+                            if (thisScore > firstScore) {
+                                duplicates.add(first.id);
+                                seen.set(title, m);
+                            } else {
+                                duplicates.add(m.id);
+                            }
+                        } else {
+                            seen.set(title, m);
+                        }
+                    });
+                }
+                let list = movies
+                    .filter(
+                        (m) =>
+                            !duplicates.has(m.id) &&
+                            (!filters.size ||
+                                !m.data ||
+                                filters.has(m.rated) ||
+                                (filters.has("NR") && (!m.rated || m.rated === "NR" || m.rated === "N/A")))
+                    )
+                    .map((m) => {
+                        m.searchScore = score(m, q);
+                        return m;
+                    })
+                    .filter((m) => !q || m.searchScore);
+                if (settings.favorites && !q && !filters.size) {
+                    const favs = list.filter(favorite);
+                    const others = list.filter((m) => !favorite(m));
+                    list = [...favs, ...others];
+                }
+                if (q) {
+                    list.sort((a, b) => b.searchScore - a.searchScore || a.displayTitle.localeCompare(b.displayTitle));
+                }
+                const visible = new Set(list);
+                movies.forEach((m) => {
+                    if (m.card) {
+                        m.card.style.display = visible.has(m)
+                            ? "none" === m.card.style.display
+                                ? ""
+                                : m.card.style.display
+                            : "";
+                    }
+                });
+                movies.forEach((m) => {
+                    if (m.card) {
+                        m.card.style.display = visible.has(m) ? "" : "none";
+                    }
+                });
+                if (q) {
+                    list.forEach((m, i) => {
+                        if (!m.loaded) {
+                            queueMovie(m, 10000000 - i);
+                        }
+                    });
+                    processMetadata();
+                }
+                document.getElementById("noResults").style.display = !list.length && movies.length ? "block" : "none";
+                document.getElementById("moviesTitle").textContent = q
+                    ? "Search Results"
+                    : filters.size
+                      ? `Filtered Movies (${[...filters].join(", ")})`
+                      : "Movies";
+            }
+            function scheduleApply() {
+                if (applyFrame) return;
+                applyFrame = requestAnimationFrame(() => {
+                    applyFrame = 0;
+                    if (document.getElementById("search").value.trim()) {
+                        apply();
+                    }
+                });
+            }
+            document.querySelectorAll(".filter-btn").forEach((button) => {
+                button.onclick = () => {
+                    const filter = button.dataset.filter;
+                    if (filters.has(filter)) {
+                        filters.delete(filter);
+                        button.classList.remove("active");
+                    } else {
+                        filters.add(filter);
+                        button.classList.add("active");
+                    }
+                    apply();
+                };
+            });
+            document.getElementById("search").oninput = apply;
+            function clearSearch() {
+                document.getElementById("search").value = "";
+                filters.clear();
+                document.querySelectorAll(".filter-btn").forEach((x) => x.classList.remove("active"));
+                apply();
+                scrollTo(0, 0);
+            }
+            function showFavorites() {
+                document.getElementById("search").value = "";
+                filters.clear();
+                document.querySelectorAll(".filter-btn").forEach((x) => x.classList.remove("active"));
+                const favorites = movies.filter(favorite);
+                movies.forEach((m) => {
+                    if (m.card) {
+                        m.card.style.display = "none";
+                    }
+                });
+                favorites.forEach((m) => {
+                    if (!m.card) {
+                        m.card = card(m);
+                        m.card._movie = m;
+                    }
+                    m.card.style.display = "";
+                    document.getElementById("files").appendChild(m.card);
+                    if (!m.loaded) {
+                        queueMovie(m, 999999);
+                    }
+                    queuePoster(m, 999999);
+                });
+                document.getElementById("moviesTitle").textContent = "My List";
+                document.getElementById("noResults").textContent = "Your list is empty.";
+                document.getElementById("noResults").style.display = favorites.length ? "none" : "block";
+                scrollTo(0, 0);
+                processMetadata();
+                processPosters();
+            }
+            function buildHero() {
+                if (!settings.featured) {
+                    return;
+                }
+                const candidates = movies.filter((m) => m.data && m.rating >= 6);
+                if (!candidates.length) {
+                    return;
+                }
+                let seed = +new Date().toDateString().replace(/\D/g, "");
+                const random = () => {
+                    seed = seed * 9301 + 49297;
+                    return (seed % 233280) / 233280;
+                };
+                heroMovies = [...candidates].sort(() => random() - 0.5).slice(0, 5);
+                if (!heroMovies.length) {
+                    return;
+                }
+                heroBuilt = true;
+                const hero = document.getElementById("hero");
+                hero.innerHTML = "";
+                heroMovies.forEach((m, index) => {
+                    const slide = document.createElement("div");
+                    slide.className = "hero-slide" + (!index ? " active" : "");
+                    slide.style.backgroundImage = "none";
+                    slide.innerHTML = `<div class=hero-content><div class=hero-kicker>FEATURED MOVIE</div><div class=hero-title>${m.displayTitle}</div><div class=hero-meta><span class=star>★</span><b>${m.rating}/10</b><span class="rating-badge ${rclass(m.rated)}">${m.rated}</span></div><div class=hero-description>${plot(m)}</div><button class=hero-play>▶ Play</button></div>`;
+                    slide.querySelector("button").onclick = () => {
+                        openPlayer(m);
+                    };
+                    hero.appendChild(slide);
+                });
+                const dots = document.createElement("div");
+                dots.className = "hero-dots";
+                heroMovies.forEach((m, index) => {
+                    const dot = document.createElement("div");
+                    dot.className = "hero-dot" + (!index ? " active" : "");
+                    dot.onclick = () => {
+                        showHero(index);
+                    };
+                    dots.appendChild(dot);
+                });
+                hero.appendChild(dots);
+                heroIndex = 0;
+                clearInterval(heroTimer);
+                heroTimer = setInterval(() => {
+                    if (heroMovies.length) {
+                        showHero((heroIndex + 1) % heroMovies.length);
+                    }
+                }, 6500);
+                loadHeroPoster(0);
+            }
+            async function loadHeroPoster(index) {
+                const m = heroMovies[index];
+                if (!m) return;
+                if (!m.poster) {
+                    const url = await getPoster(m);
+                    if (url) {
+                        m.poster = url;
+                        savePoster(m, url);
+                    }
+                }
+                const slides = document.querySelectorAll(".hero-slide");
+                const slide = slides[index];
+                if (slide && m.poster) {
+                    slide.style.backgroundImage = `url("${m.poster}")`;
+                }
+            }
+            function showHero(index) {
+                heroIndex = index;
+                document
+                    .querySelectorAll(".hero-slide")
+                    .forEach((slide, i) => slide.classList.toggle("active", i === index));
+                document.querySelectorAll(".hero-dot").forEach((dot, i) => dot.classList.toggle("active", i === index));
+                loadHeroPoster(index);
+            }
+            function openSettings() {
+                document.getElementById("settingsOverlay").style.display = "block";
+                document.body.classList.add("no-scroll");
+                updateSettings();
+            }
+            function closeSettings() {
+                document.getElementById("settingsOverlay").style.display = "none";
+                document.body.classList.remove("no-scroll");
+            }
+            function toggleSetting(n) {
+                settings[n] = !settings[n];
+                saveSettings();
+                updateSettings();
+                if (n === "featured") {
+                    document.getElementById("hero").style.display = settings.featured ? "" : "none";
+                    if (settings.featured) {
+                        heroBuilt = false;
+                        buildHero();
+                    }
+                }
+                if (n === "duplicates" || n === "favorites") {
+                    apply();
+                }
+                if (n === "progress" && !settings.progress) {
+                    localStorage.continueWatching = "[]";
+                    renderContinue();
+                }
+            }
+            function updateNumberSetting(name, value) {
+                let v = parseInt(value, 10);
+                if (name === "resumeOffset") {
+                    v = Math.max(0, Math.min(120, isNaN(v) ? 10 : v));
+                }
+                if (name === "continueLimit") {
+                    v = Math.max(1, Math.min(50, isNaN(v) ? 12 : v));
+                }
+                settings[name] = v;
+                saveSettings();
+                if (name === "continueLimit") {
+                    renderContinue();
+                }
+            }
+            function updateConcurrentLoads(value) {
+                let v = parseInt(value, 10);
+                if (isNaN(v)) {
+                    v = 25;
+                }
+                v = Math.max(5, Math.min(100, v));
+                settings.concurrentLoads = v;
+                saveSettings();
+                updateSettings();
+                processMetadata();
+            }
+            function updateTheme(value) {
+                settings.theme = value || "#e50914";
+                saveSettings();
+                applyTheme();
+            }
+            function updateSettings() {
+                ["autoplay", "featured", "favorites", "duplicates", "progress"].forEach((x) =>
+                    document.getElementById(x + "Switch").classList.toggle("on", !!settings[x])
+                );
+                document.getElementById("resumeOffset").value = Number(settings.resumeOffset) || 10;
+                document.getElementById("continueLimit").value = Number(settings.continueLimit) || 12;
+                document.getElementById("themeColor").value = settings.theme || "#e50914";
+                document.getElementById("concurrentLoads").value = String(settings.concurrentLoads || 25);
+            }
+            function openApiSetup(force = false) {
+                apiSetupOpen = true;
+                document.getElementById("tmdbKey").value = TMDB_API_KEY;
+                document.getElementById("omdbKey").value = OMDB_API_KEY;
+                document.getElementById("fanartKey").value = FANART_API_KEY;
+                document.getElementById("subtitleKey").value = SUBTITLE_API_KEY;
+                document.getElementById("apiSetup").style.display = "flex";
+                document.body.classList.add("no-scroll");
+                document.getElementById("apiSave").textContent = force ? "Save API Keys" : "Save & Continue";
+            }
+            function saveApiKeys() {
+                const tmdb = document.getElementById("tmdbKey").value.trim();
+                const omdb = document.getElementById("omdbKey").value.trim();
+                const fanart = document.getElementById("fanartKey").value.trim();
+                const subtitle = document.getElementById("subtitleKey").value.trim();
+                if (!tmdb || !omdb || !fanart) return;
+                TMDB_API_KEY = tmdb;
+                OMDB_API_KEY = omdb;
+                FANART_API_KEY = fanart;
+                SUBTITLE_API_KEY = subtitle;
+                localStorage.bronflixApiKeys = JSON.stringify({ tmdb, omdb, fanart, subtitle });
+                cache.clear();
+                posterCache.clear();
+                document.getElementById("apiSetup").style.display = "none";
+                document.body.classList.remove("no-scroll");
+                apiSetupOpen = false;
+                if (!movies.length) {
+                    loadMovies();
+                    return;
+                }
+                movies.forEach((m) => {
+                    m.loaded = false;
+                    m.loading = false;
+                    m.data = null;
+                    m.poster = null;
+                    m.posterLoaded = false;
+                    m.posterLoading = false;
+                });
+                loadedCount = 0;
+                metadataQueue = [];
+                metadataQueued.clear();
+                posterQueue = [];
+                posterQueued.clear();
+                heroMovies = [];
+                heroBuilt = false;
+                document.getElementById("files").innerHTML = "";
+                stats();
+                loadInitialMovies(true);
+            }
+            document.onkeydown = (e) => {
+                if (e.key === "c" && !["INPUT", "SELECT", "TEXTAREA"].includes(document.activeElement?.tagName)) {
+                    if (playerMovie) {
+                        toggleCC();
+                    }
+                    return;
+                }
+                if (e.key === "f" && !["INPUT", "SELECT", "TEXTAREA"].includes(document.activeElement?.tagName)) {
+                    if (playerMovie) {
+                        fullscreenPlayer();
+                    }
+                    return;
+                }
+                if (e.key !== "Escape") {
+                    return;
+                }
+                if (apiSetupOpen) {
+                    return;
+                }
+                if (playerMovie) {
+                    closePlayer();
+                } else if (currentMovie) {
+                    closeDetails();
+                } else {
+                    closeSettings();
+                }
+            };
+            async function archiveFiles(source) {
+                const data = await fetchJSON(
+                    `https://archive.org/metadata/${encodeURIComponent(source.identifier)}`,
+                    30000,
+                    3
+                );
+                if (!data) {
+                    return [];
+                }
+                let files = Array.isArray(data.files) ? data.files : Object.values(data.files || {});
+                return files
+                    .filter((file) => {
+                        if (!file) {
+                            return false;
+                        }
+                        const name = String(file.name || "");
+                        if (!name) {
+                            return false;
+                        }
+                        if (source.file && basename(name) !== basename(source.file) && name !== source.file) {
+                            return false;
+                        }
+                        const format = String(file.format || "").toLowerCase();
+                        const video =
+                            /\.(mp4|m4v|webm|mov)$/i.test(name) || /mpeg-4|mpeg4|quicktime|webm/i.test(format);
+                        if (!video) {
+                            return false;
+                        }
+                        return true;
+                    })
+                    .map((file) => ({ ...file, identifier: source.identifier, bottom: source.bottom }));
+            }
+            async function loadInitialMovies(refresh = false) {
+                try {
+                    if (refresh) {
+                        movies.length = 0;
+                        metadataQueue = [];
+                        metadataQueued.clear();
+                        posterQueue = [];
+                        posterQueued.clear();
+                        loadedCount = 0;
+                    }
+                    document.getElementById("loading").textContent = "Loading movie list...";
+                    const groups = [];
+                    const pending = [...sources];
+                    const workers = 4;
+                    async function worker() {
+                        while (pending.length) {
+                            const source = pending.shift();
+                            let result = [];
+                            for (let attempt = 0; attempt < 4; attempt++) {
+                                result = await archiveFiles(source);
+                                if (result.length) {
+                                    break;
+                                }
+                                await sleep(500 * (attempt + 1));
+                            }
+                            groups.push(result);
+                        }
+                    }
+                    await Promise.all(Array.from({ length: Math.min(workers, sources.length) }, worker));
+                    const files = groups.flat();
+                    const seen = new Set();
+                    const unique = [];
+                    files.forEach((file) => {
+                        const key = String(file.identifier) + "|" + String(file.name);
+                        if (seen.has(key)) {
+                            return;
+                        }
+                        seen.add(key);
+                        unique.push(file);
+                    });
+                    unique.sort((a, b) => (a.bottom ? 1 : 0) - (b.bottom ? 1 : 0));
+                    unique.forEach((file) => {
+                        const filename = basename(file.name);
+                        const title = clean(filename);
+                        const movie = {
+                            id: norm(String(file.identifier) + "|" + String(file.name)),
+                            file,
+                            title,
+                            displayTitle: title,
+                            data: null,
+                            rating: 0,
+                            rated: "NR",
+                            loaded: false,
+                            loading: false,
+                            poster: null,
+                            posterLoaded: false,
+                            posterLoading: false,
+                        };
+                        movies.push(movie);
+                        movie.card = card(movie);
+                    });
+                    const box = document.getElementById("files");
+                    box.innerHTML = "";
+                    const fragment = document.createDocumentFragment();
+                    movies.forEach((movie) => fragment.appendChild(movie.card));
+                    box.appendChild(fragment);
+                    stats();
+                    setupPosterObserver();
+                    renderContinue();
+                    document.getElementById("loading").textContent = "Loading movie information...";
+                    queueMovies(movies, 100);
+                    processMetadata();
+                    document.getElementById("loading").textContent = "Movie library ready";
+                } catch (e) {
+                    console.error(e);
+                    document.getElementById("loading").textContent = "Unable to load the movie list.";
+                }
+            }
+            function loadMovies() {
+                loadInitialMovies();
+            }
+            setupSubtitleControls();
+            setupPlayerMouse();
+            if (TMDB_API_KEY && OMDB_API_KEY && FANART_API_KEY) {
+                document.getElementById("apiSetup").style.display = "none";
+                loadMovies();
+            } else {
+                document.getElementById("loading").textContent = "API keys required";
+                openApiSetup();
+            }
+        </script>
+    </body>
 </html>
