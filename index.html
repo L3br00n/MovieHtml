@@ -92,6 +92,11 @@ header:after{content:"";position:absolute;left:4%;right:4%;bottom:0;height:1px;b
 .card:hover .card-hover,.card-hover.active{opacity:1;pointer-events:auto}
 .card-hover-btn{width:52px;height:52px;margin:auto;border:0;border-radius:50%;background:rgba(229,9,20,.94);color:#fff;font-size:19px;cursor:pointer;display:grid;place-items:center;box-shadow:0 10px 30px rgba(229,9,20,.5);transition:transform .18s ease,background .2s ease;outline:0}
 .card-hover-btn:hover{transform:scale(1.13);background:#e50914}
+.play-ico{width:16px;height:16px;object-fit:contain;display:inline-block;vertical-align:-2px;margin-right:6px}
+.play-ico.big{width:18px;height:18px}
+.hero-play .play-ico,.action-btn .play-ico{filter:invert(1)}
+.card-hover-btn .play-ico{width:22px;height:22px;margin:0}
+.gear-ico{width:18px;height:18px;object-fit:contain;display:block}
 .card-hover-meta{position:absolute;left:12px;right:12px;bottom:12px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;pointer-events:none}
 .card-match{color:#46d369;font-weight:900;font-size:12px;letter-spacing:.2px}
 .card-hover-year{color:#c8c8cf;font-weight:800;font-size:11px}
@@ -222,7 +227,7 @@ footer{position:relative;text-align:center;color:#45454d;padding:48px 20px 55px;
 footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:80px;height:1px;background:var(--theme);box-shadow:0 0 20px var(--theme)}
 @media (max-width:1000px){#files{grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px}.hero-title{max-width:600px}.details-inner,.settings-box{margin:50px 20px}}
 @media (max-width:700px){header{height:auto;min-height:64px;padding:10px 17px 12px;flex-wrap:wrap;gap:10px;background:rgba(4,4,5,.95);backdrop-filter:blur(18px)}header:after{left:17px;right:17px}.logo{font-size:22px}.logo .logo-plus:before{width:4px;height:4px;top:-3px;right:-1px}.header-buttons{gap:5px}.header-btn{height:36px;padding:0 13px;font-size:12px}.header-btn:last-child{width:36px}.nav-links{gap:10px;margin-left:0;flex-wrap:wrap}.nav-link{font-size:12px;padding:4px 0}.nav-link.active:after{bottom:-1px}#search{order:3;max-width:none;width:100%;height:40px}#search:focus{width:100%;max-width:none}#hero{height:500px;min-height:500px;margin-bottom:0}#hero:before{height:220px;bottom:-5px;background:linear-gradient(180deg,transparent 0%,rgba(8,0,2,.12) 20%,rgba(35,1,5,.28) 47%,rgba(65,2,8,.46) 70%,rgba(8,1,2,.78) 89%,#080809 100%)}.hero-slide:after{background:linear-gradient(90deg,#080809 0%,rgba(8,8,9,.68) 55%,rgba(8,8,9,.35) 100%),linear-gradient(0deg,#080809 0%,rgba(8,8,9,.1) 55%,rgba(8,8,9,.2) 100%)}.hero-content{left:20px;right:20px;bottom:62px;max-width:none}.hero-kicker{font-size:9px;padding:6px 10px}.hero-title{font-size:38px;letter-spacing:-1.7px;max-width:95%}.hero-description{font-size:12px;line-height:1.55;margin:13px 0 19px;-webkit-line-clamp:3}.hero-play{padding:11px 20px;min-width:112px}.hero-dots{right:20px;bottom:23px}#loading,#stats,.section,.stats,.filter-bar{padding-left:17px;padding-right:17px}#loading{padding-top:14px}.filter-bar{padding-top:18px;gap:6px}.filter-label{width:100%;padding-left:1px}.filter-btn{padding:7px 11px;font-size:11px}.section{padding-top:12px;padding-bottom:23px}.section-title{font-size:18px;margin:14px 0 13px}.section-title:before{height:19px;width:3px}#files{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.filter-group{width:100%}.filter-controls{width:100%;margin-left:0}.filter-controls .sort-select{flex:1;min-width:0;font-size:16px;height:40px}#search{font-size:16px}.details-inner{margin:56px 12px;border-radius:16px}.details-top{grid-template-columns:1fr}.details-poster{min-height:0;height:56vw}.details-content{padding:24px 20px 30px}.details-title{font-size:30px}.details-description{margin:16px 0 20px}.cast-chip{min-width:80px;width:80px}#playerPage{margin-top:0;padding-bottom:0}#playerContainer{width:100%!important;height:min(60vh,420px)!important;min-width:0!important;margin-top:12px}.card{border-radius:11px}.card:hover{transform:none;box-shadow:0 8px 25px rgba(0,0,0,.25)}.movie-info{padding:10px 10px 11px}.movie-title{font-size:11px}.movie-meta{font-size:10px}.rating-badge{padding:3px 5px;font-size:8px}.continue-row{gap:10px;margin-right:-17px;padding-right:17px}.continue-card{width:220px;min-width:220px;border-radius:11px}.continue-poster{height:124px}.details-inner,.settings-box{margin:0;min-height:100vh;border-radius:0;border:0}.details-top{grid-template-columns:1fr}.details-poster{height:430px;min-height:430px}.details-content{padding:26px 21px 35px}.details-title{font-size:31px}.details-description{font-size:13px;line-height:1.65}.details-close,#closePlayer{right:14px;top:13px;width:42px;height:42px}.settings-box{padding:27px 20px}.settings-box h2{font-size:27px}.setting-row{padding:17px 0}.setting-description{max-width:240px}.api-box{padding:25px 21px;border-radius:17px}.api-box h1{font-size:26px}.subtitle-grid{grid-template-columns:1fr}.subtitle-settings{width:calc(100% - 20px);padding:20px 17px;border-radius:15px}.embed-settings{width:calc(100% - 20px);padding:20px 17px;border-radius:15px}#playerContainer{height:56vh;min-height:240px;margin-top:50px}.cc-button{right:58px;bottom:48px}.player-tool{bottom:48px;right:112px}#fsBtn{right:168px}.subtitle-text{left:3%;right:3%;max-width:94%}footer{padding-bottom:40px}}
-@media (max-width:700px){body{-webkit-tap-highlight-color:transparent;padding-bottom:env(safe-area-inset-bottom)}header{position:fixed;z-index:60;background:rgba(4,4,5,.92);backdrop-filter:blur(22px) saturate(140%)}.logo{font-size:21px}.nav-links{flex-wrap:nowrap;overflow-x:auto;gap:4px;padding-bottom:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.nav-links::-webkit-scrollbar{display:none}.nav-link{white-space:nowrap;flex:none;padding:9px 12px;font-size:12.5px}#search{margin-top:2px;height:42px;-webkit-appearance:none}#hero{height:min(500px,88vw)}.hero-title{font-size:clamp(30px,9vw,40px)}.filter-group{flex-wrap:nowrap;overflow-x:auto;margin:0 -17px;padding:0 17px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.filter-group::-webkit-scrollbar{display:none}.filter-btn{flex:none;white-space:nowrap;min-height:38px;padding:8px 15px;font-size:12px}.filter-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}.filter-controls .sort-select{width:100%;flex:none;height:44px;background:#111114}#files{gap:10px}.card{border-radius:12px}.card:active{transform:scale(.97)}.card:hover{transform:none}.card-hover{opacity:1;pointer-events:none;justify-content:flex-end;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.52) 100%)}.card-hover-btn{display:none}.card-hover-meta{position:static;padding:0 0 10px;justify-content:center}.poster-area:after{background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.42))}.movie-info{padding:9px 9px 10px}.movie-title{font-size:11.5px}.movie-meta{margin-top:7px}.continue-card{width:225px;min-width:225px}.continue-poster{height:127px}.continue-menu-btn{width:38px;height:38px}.continue-menu{width:190px;right:8px;top:50px}.section-title{font-size:19px}#playerContainer{margin-top:46px;border-radius:0}#playerPage{padding-bottom:50px}.cc-button,.player-tool{height:42px;min-width:52px;padding:0 13px;font-size:12px;border-radius:10px}.cc-button{right:72px;bottom:62px}.player-tool{bottom:62px}#theaterBtn{right:136px}#fsBtn{right:196px}#ccNotification{bottom:88px}.subtitle-text{font-size:20px;bottom:11%}.details-inner,.settings-box{margin:0;min-height:100vh;border-radius:0;border:0;width:100%;max-width:none;box-shadow:none}.details-content{padding:24px 20px 44px}.details-poster{height:clamp(300px,62vw,380px)}.details-close,#closePlayer{right:14px;top:12px;width:44px;height:44px;font-size:24px}.details-actions{gap:8px}.action-btn{flex:1;justify-content:center;display:inline-flex;align-items:center;min-height:48px}.settings-box{padding:26px 18px 40px}.subtitle-settings,.embed-settings{width:100%;border-radius:0;border:0;border-top:1px solid var(--border);margin-top:0}.embed-settings{margin-top:14px}.cast-chip{min-width:84px;width:84px}footer{padding:22px 20px calc(20px + env(safe-area-inset-bottom))}}
+@media (max-width:700px){body{-webkit-tap-highlight-color:transparent;padding-bottom:env(safe-area-inset-bottom)}header{position:fixed;z-index:60;background:rgba(4,4,5,.94);backdrop-filter:blur(8px)}.logo{font-size:21px}.nav-links{flex-wrap:nowrap;overflow-x:auto;gap:4px;padding-bottom:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.nav-links::-webkit-scrollbar{display:none}.nav-link{white-space:nowrap;flex:none;padding:9px 12px;font-size:12.5px}#search{margin-top:2px;height:42px;-webkit-appearance:none}#hero{height:min(500px,88vw)}.hero-title{font-size:clamp(30px,9vw,40px)}.filter-group{flex-wrap:nowrap;overflow-x:auto;margin:0 -17px;padding:0 17px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.filter-group::-webkit-scrollbar{display:none}.filter-btn{flex:none;white-space:nowrap;min-height:38px;padding:8px 15px;font-size:12px}.filter-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}.filter-controls .sort-select{width:100%;flex:none;height:44px;background:#111114}#files{gap:10px}.card{border-radius:12px;content-visibility:auto;contain-intrinsic-size:auto 280px}.card:active{transform:scale(.97)}.card:hover{transform:none}.card-hover{opacity:1;pointer-events:none;justify-content:flex-end;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.52) 100%)}.card-hover-btn{display:none}.card-hover-meta{position:static;padding:0 0 10px;justify-content:center}.poster-area:after{background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.42))}.movie-info{padding:9px 9px 10px}.movie-title{font-size:11.5px}.movie-meta{margin-top:7px}.continue-card{width:225px;min-width:225px;content-visibility:auto;contain-intrinsic-size:auto 205px}.continue-poster{height:127px}.continue-menu-btn{width:38px;height:38px}.continue-menu{width:190px;right:8px;top:50px}.section-title{font-size:19px}#playerContainer{margin-top:46px;border-radius:0}#playerPage{padding-bottom:50px}.cc-button,.player-tool{height:42px;min-width:52px;padding:0 13px;font-size:12px;border-radius:10px}.cc-button{right:72px;bottom:62px}.player-tool{bottom:62px}#theaterBtn{right:136px}#fsBtn{right:196px}#ccNotification{bottom:88px}.subtitle-text{font-size:20px;bottom:11%}.details-inner,.settings-box{margin:0;min-height:100vh;border-radius:0;border:0;width:100%;max-width:none;box-shadow:none}.details-content{padding:24px 20px 44px}.details-poster{height:clamp(300px,62vw,380px)}.details-close,#closePlayer{right:14px;top:12px;width:44px;height:44px;font-size:24px}.details-actions{gap:8px}.action-btn{flex:1;justify-content:center;display:inline-flex;align-items:center;min-height:48px}.settings-box{padding:26px 18px 40px}.subtitle-settings,.embed-settings{width:100%;border-radius:0;border:0;border-top:1px solid var(--border);margin-top:0}.embed-settings{margin-top:14px}.cast-chip{min-width:84px;width:84px}.hero-kicker,.hero-dots,.continue-menu-btn,.continue-menu,.rec-match,.details-close,#closePlayer,.cc-button,.player-tool,#ccNotification,.subtitle-options{backdrop-filter:none!important}.hero-slide{transform:none!important;transition:opacity .4s ease}footer{padding:22px 20px calc(20px + env(safe-area-inset-bottom))}}
 @media (max-width:400px){.logo{font-size:20px}.header-btn{padding:0 10px}#files{gap:7px}.hero-title{font-size:34px}.continue-card{width:205px;min-width:205px}}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
@@ -239,7 +244,7 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
 <input id="search" placeholder="Search movies..." autocomplete="off" />
 <div class="header-buttons">
 <button class="header-btn" onclick="goList()">My List</button>
-<button class="header-btn" onclick="openSettings()">⚙</button>
+<button class="header-btn" onclick="openSettings()"><img class="gear-ico" src="https://static.vecteezy.com/system/resources/thumbnails/073/194/431/small/white-gear-icon-3d-rendering-isolated-on-transparent-background-symbolizing-settings-machinery-or-engineering-concepts-with-clean-and-modern-design-for-technology-or-industry-use-png.png" alt="Settings"></button>
 </div>
 </header>
 <div id="hero"></div>
@@ -560,6 +565,8 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
             let genreFilter = "";
             let genreFrame = 0;
             let viewMode = "all";
+            const MOBILE = window.matchMedia("(max-width:820px)").matches;
+            let lastGenresAt = 0;
             let posterStore = {};
             try {
                 posterStore = JSON.parse(localStorage.bronflixPosterCache || "{}");
@@ -987,10 +994,12 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                     ? m.data.omdb.Plot
                     : m.data?.details?.overview || "Description not available.";
             }
+            const ICON_PLAY = "https://www.friidesigns.com/wp-content/uploads/2018/11/white-play-icon-png-6.png";
+            const ICON_GEAR = "https://static.vecteezy.com/system/resources/thumbnails/073/194/431/small/white-gear-icon-3d-rendering-isolated-on-transparent-background-symbolizing-settings-machinery-or-engineering-concepts-with-clean-and-modern-design-for-technology-or-industry-use-png.png";
             function card(m) {
                 const c = document.createElement("div");
                 c.className = "card";
-                c.innerHTML = `<div class="poster-area"><div class="poster-loading"></div><div class="card-hover"><button class="card-hover-btn" title="Play">▶</button><div class="card-hover-meta"><span class="card-match">—</span><span class="card-hover-year"></span></div></div></div><div class="movie-info"><div class="movie-title"></div><div class="movie-original"></div><div class="movie-meta"><span class="star">★</span><span class="rating-number">—</span><span class="rating-badge rating-NR">NR</span></div><div class="movie-genres"></div></div>`;
+                c.innerHTML = `<div class="poster-area"><div class="poster-loading"></div><div class="card-hover"><button class="card-hover-btn" title="Play"><img class="play-ico" src="${ICON_PLAY}" alt="Play"></button><div class="card-hover-meta"><span class="card-match">—</span><span class="card-hover-year"></span></div></div></div><div class="movie-info"><div class="movie-title"></div><div class="movie-original"></div><div class="movie-meta"><span class="star">★</span><span class="rating-number">—</span><span class="rating-badge rating-NR">NR</span></div><div class="movie-genres"></div></div>`;
                 c.querySelector(".card-hover-btn").onclick = (e) => {
                     e.stopPropagation();
                     queueMovie(m, 999999);
@@ -1009,10 +1018,10 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
             }
             function metadataLimit() {
                 const n = Number(settings.concurrentLoads);
-                if (!n || n < 1) {
-                    return 100;
+                if (n && n >= 1) {
+                    return Math.min(MOBILE ? 12 : 32, Math.max(5, n));
                 }
-                return Math.min(100, Math.max(5, n));
+                return MOBILE ? 12 : 32;
             }
             function queueMovie(m, priority = 0) {
                 if (!m || m.loaded || m.loading) return;
@@ -1057,7 +1066,7 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                                 processMetadata();
                             }
                         });
-                    if (started >= 18 && metadataQueue.length) {
+                    if (started >= (MOBILE ? 8 : 18) && metadataQueue.length) {
                         break;
                     }
                 }
@@ -1136,7 +1145,7 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                 }
             }
             function posterLimit() {
-                return 30;
+                return MOBILE ? 8 : 30;
             }
             function queuePoster(m, priority = 0) {
                 if (!m || m.posterLoaded || m.posterLoading) return;
@@ -1202,12 +1211,15 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                     img.className = "poster";
                     img.alt = m.displayTitle;
                     img.decoding = "async";
-                    img.loading = "eager";
+                    img.loading = "lazy";
                     img.onload = () => {
-                        area.replaceChildren(img);
+                        mountPosterImg(area, img);
                         m.posterLoaded = true;
                         m.posterLoading = false;
                         updateContinuePoster(m);
+                        if (!posterInRange(m)) {
+                            unloadPoster(m);
+                        }
                     };
                     img.onerror = async () => {
                         const fallback = await wiki(m.displayTitle);
@@ -1218,12 +1230,15 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                             second.className = "poster";
                             second.alt = m.displayTitle;
                             second.decoding = "async";
-                            second.loading = "eager";
+                            second.loading = "lazy";
                             second.onload = () => {
-                                area.replaceChildren(second);
+                                mountPosterImg(area, second);
                                 m.posterLoaded = true;
                                 m.posterLoading = false;
                                 updateContinuePoster(m);
+                                if (!posterInRange(m)) {
+                                    unloadPoster(m);
+                                }
                             };
                             second.onerror = () => {
                                 placeholder(m);
@@ -1259,8 +1274,55 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
             }
             function placeholder(m) {
                 if (m.card) {
-                    m.card.querySelector(".poster-area").innerHTML = `<div class=placeholder>${m.displayTitle}</div>`;
+                    const area = m.card.querySelector(".poster-area");
+                    if (!area) return;
+                    area.querySelectorAll("img.poster").forEach((x) => x.remove());
+                    area.querySelectorAll(".poster-loading").forEach((x) => x.remove());
+                    let ph = area.querySelector(".placeholder");
+                    if (!ph) {
+                        ph = document.createElement("div");
+                        ph.className = "placeholder";
+                        const hover = area.querySelector(".card-hover");
+                        area.insertBefore(ph, hover);
+                    }
+                    ph.textContent = m.displayTitle;
                 }
+            }
+            function mountPosterImg(area, img) {
+                if (!area) return;
+                area.querySelectorAll("img.poster").forEach((x) => x.remove());
+                let loading = area.querySelector(".poster-loading");
+                if (loading) {
+                    loading.replaceWith(img);
+                } else {
+                    const hover = area.querySelector(".card-hover");
+                    area.insertBefore(img, hover);
+                }
+            }
+            function posterInRange(m) {
+                if (!m || !m.card) return true;
+                const r = m.card.getBoundingClientRect();
+                const pad = 1500;
+                const vh = window.innerHeight || document.documentElement.clientHeight;
+                return r.bottom >= -pad && r.top <= vh + pad;
+            }
+            function unloadPoster(m) {
+                if (!m || !m.card || !m.posterLoaded) return;
+                const area = m.card.querySelector(".poster-area");
+                if (!area) return;
+                const imgs = area.querySelectorAll("img.poster");
+                if (!imgs.length) {
+                    return;
+                }
+                imgs.forEach((x) => x.remove());
+                if (!area.querySelector(".poster-loading")) {
+                    const loading = document.createElement("div");
+                    loading.className = "poster-loading";
+                    const hover = area.querySelector(".card-hover");
+                    area.insertBefore(loading, hover);
+                }
+                m.posterLoaded = false;
+                m.posterLoading = false;
             }
             function setupPosterObserver() {
                 if (posterObserver) {
@@ -1269,20 +1331,21 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                 posterObserver = new IntersectionObserver(
                     (entries) => {
                         entries.forEach((entry) => {
-                            if (!entry.isIntersecting) {
-                                return;
-                            }
                             const m = entry.target._movie;
                             if (!m) {
                                 return;
                             }
-                            const rect = entry.boundingClientRect;
-                            const distance = Math.abs(rect.top);
-                            const priority = 1000000 - Math.min(distance, 900000);
-                            queuePoster(m, priority);
+                            if (entry.isIntersecting) {
+                                const rect = entry.boundingClientRect;
+                                const distance = Math.abs(rect.top);
+                                const priority = 1000000 - Math.min(distance, 900000);
+                                queuePoster(m, priority);
+                            } else if (m.posterLoaded) {
+                                unloadPoster(m);
+                            }
                         });
                     },
-                    { root: null, rootMargin: "0px", threshold: 0.01 }
+                    { root: null, rootMargin: "1500px 0px 1500px 0px", threshold: 0.01 }
                 );
                 movies.forEach((m) => {
                     if (m.card) {
@@ -1339,7 +1402,7 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                 actions.innerHTML = "";
                 const play = document.createElement("button");
                 play.className = "action-btn";
-                play.textContent = "▶ Play";
+                play.innerHTML = `<img class="play-ico big" src="${ICON_PLAY}" alt="Play">Play`;
                 play.onclick = () => {
                     closeDetails();
                     openPlayer(m);
@@ -2195,6 +2258,9 @@ loadSubtitles(m,attempt+1);
                 });
             }
             function refreshGenres() {
+                const now = performance.now();
+                if (now - lastGenresAt < 1200) return;
+                lastGenresAt = now;
                 const select = document.getElementById("genreSelect");
                 if (!select) return;
                 const known = new Set();
@@ -2483,7 +2549,7 @@ loadSubtitles(m,attempt+1);
                     const slide = document.createElement("div");
                     slide.className = "hero-slide" + (!index ? " active" : "");
                     slide.style.backgroundImage = "none";
-                    slide.innerHTML = `<div class=hero-content><div class=hero-kicker>FEATURED MOVIE</div><div class=hero-title>${m.displayTitle}</div><div class=hero-meta><span class=star>★</span><b>${m.rating}/10</b><span class="rating-badge ${rclass(m.rated)}">${m.rated}</span></div><div class=hero-description>${plot(m)}</div><button class=hero-play>▶ Play</button></div>`;
+                    slide.innerHTML = `<div class=hero-content><div class=hero-kicker>FEATURED MOVIE</div><div class=hero-title>${m.displayTitle}</div><div class=hero-meta><span class=star>★</span><b>${m.rating}/10</b><span class="rating-badge ${rclass(m.rated)}">${m.rated}</span></div><div class=hero-description>${plot(m)}</div><button class=hero-play><img class="play-ico big" src="${ICON_PLAY}" alt="Play">Play</button></div>`;
                     slide.querySelector("button").onclick = () => {
                         openPlayer(m);
                     };
