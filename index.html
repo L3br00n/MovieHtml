@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#0a0405" />
 <title>BronFlix+</title>
 <style>
 *{box-sizing:border-box}
@@ -221,6 +222,7 @@ footer{position:relative;text-align:center;color:#45454d;padding:48px 20px 55px;
 footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:80px;height:1px;background:var(--theme);box-shadow:0 0 20px var(--theme)}
 @media (max-width:1000px){#files{grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px}.hero-title{max-width:600px}.details-inner,.settings-box{margin:50px 20px}}
 @media (max-width:700px){header{height:auto;min-height:64px;padding:10px 17px 12px;flex-wrap:wrap;gap:10px;background:rgba(4,4,5,.95);backdrop-filter:blur(18px)}header:after{left:17px;right:17px}.logo{font-size:22px}.logo .logo-plus:before{width:4px;height:4px;top:-3px;right:-1px}.header-buttons{gap:5px}.header-btn{height:36px;padding:0 13px;font-size:12px}.header-btn:last-child{width:36px}.nav-links{gap:10px;margin-left:0;flex-wrap:wrap}.nav-link{font-size:12px;padding:4px 0}.nav-link.active:after{bottom:-1px}#search{order:3;max-width:none;width:100%;height:40px}#search:focus{width:100%;max-width:none}#hero{height:500px;min-height:500px;margin-bottom:0}#hero:before{height:220px;bottom:-5px;background:linear-gradient(180deg,transparent 0%,rgba(8,0,2,.12) 20%,rgba(35,1,5,.28) 47%,rgba(65,2,8,.46) 70%,rgba(8,1,2,.78) 89%,#080809 100%)}.hero-slide:after{background:linear-gradient(90deg,#080809 0%,rgba(8,8,9,.68) 55%,rgba(8,8,9,.35) 100%),linear-gradient(0deg,#080809 0%,rgba(8,8,9,.1) 55%,rgba(8,8,9,.2) 100%)}.hero-content{left:20px;right:20px;bottom:62px;max-width:none}.hero-kicker{font-size:9px;padding:6px 10px}.hero-title{font-size:38px;letter-spacing:-1.7px;max-width:95%}.hero-description{font-size:12px;line-height:1.55;margin:13px 0 19px;-webkit-line-clamp:3}.hero-play{padding:11px 20px;min-width:112px}.hero-dots{right:20px;bottom:23px}#loading,#stats,.section,.stats,.filter-bar{padding-left:17px;padding-right:17px}#loading{padding-top:14px}.filter-bar{padding-top:18px;gap:6px}.filter-label{width:100%;padding-left:1px}.filter-btn{padding:7px 11px;font-size:11px}.section{padding-top:12px;padding-bottom:23px}.section-title{font-size:18px;margin:14px 0 13px}.section-title:before{height:19px;width:3px}#files{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.filter-group{width:100%}.filter-controls{width:100%;margin-left:0}.filter-controls .sort-select{flex:1;min-width:0;font-size:16px;height:40px}#search{font-size:16px}.details-inner{margin:56px 12px;border-radius:16px}.details-top{grid-template-columns:1fr}.details-poster{min-height:0;height:56vw}.details-content{padding:24px 20px 30px}.details-title{font-size:30px}.details-description{margin:16px 0 20px}.cast-chip{min-width:80px;width:80px}#playerPage{margin-top:0;padding-bottom:0}#playerContainer{width:100%!important;height:min(60vh,420px)!important;min-width:0!important;margin-top:12px}.card{border-radius:11px}.card:hover{transform:none;box-shadow:0 8px 25px rgba(0,0,0,.25)}.movie-info{padding:10px 10px 11px}.movie-title{font-size:11px}.movie-meta{font-size:10px}.rating-badge{padding:3px 5px;font-size:8px}.continue-row{gap:10px;margin-right:-17px;padding-right:17px}.continue-card{width:220px;min-width:220px;border-radius:11px}.continue-poster{height:124px}.details-inner,.settings-box{margin:0;min-height:100vh;border-radius:0;border:0}.details-top{grid-template-columns:1fr}.details-poster{height:430px;min-height:430px}.details-content{padding:26px 21px 35px}.details-title{font-size:31px}.details-description{font-size:13px;line-height:1.65}.details-close,#closePlayer{right:14px;top:13px;width:42px;height:42px}.settings-box{padding:27px 20px}.settings-box h2{font-size:27px}.setting-row{padding:17px 0}.setting-description{max-width:240px}.api-box{padding:25px 21px;border-radius:17px}.api-box h1{font-size:26px}.subtitle-grid{grid-template-columns:1fr}.subtitle-settings{width:calc(100% - 20px);padding:20px 17px;border-radius:15px}.embed-settings{width:calc(100% - 20px);padding:20px 17px;border-radius:15px}#playerContainer{height:56vh;min-height:240px;margin-top:50px}.cc-button{right:58px;bottom:48px}.player-tool{bottom:48px;right:112px}#fsBtn{right:168px}.subtitle-text{left:3%;right:3%;max-width:94%}footer{padding-bottom:40px}}
+@media (max-width:700px){body{-webkit-tap-highlight-color:transparent;padding-bottom:env(safe-area-inset-bottom)}header{position:fixed;z-index:60;background:rgba(4,4,5,.92);backdrop-filter:blur(22px) saturate(140%)}.logo{font-size:21px}.nav-links{flex-wrap:nowrap;overflow-x:auto;gap:4px;padding-bottom:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.nav-links::-webkit-scrollbar{display:none}.nav-link{white-space:nowrap;flex:none;padding:9px 12px;font-size:12.5px}#search{margin-top:2px;height:42px;-webkit-appearance:none}#hero{height:min(500px,88vw)}.hero-title{font-size:clamp(30px,9vw,40px)}.filter-group{flex-wrap:nowrap;overflow-x:auto;margin:0 -17px;padding:0 17px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.filter-group::-webkit-scrollbar{display:none}.filter-btn{flex:none;white-space:nowrap;min-height:38px;padding:8px 15px;font-size:12px}.filter-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}.filter-controls .sort-select{width:100%;flex:none;height:44px;background:#111114}#files{gap:10px}.card{border-radius:12px}.card:active{transform:scale(.97)}.card:hover{transform:none}.card-hover{opacity:1;pointer-events:none;justify-content:flex-end;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.52) 100%)}.card-hover-btn{display:none}.card-hover-meta{position:static;padding:0 0 10px;justify-content:center}.poster-area:after{background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.42))}.movie-info{padding:9px 9px 10px}.movie-title{font-size:11.5px}.movie-meta{margin-top:7px}.continue-card{width:225px;min-width:225px}.continue-poster{height:127px}.continue-menu-btn{width:38px;height:38px}.continue-menu{width:190px;right:8px;top:50px}.section-title{font-size:19px}#playerContainer{margin-top:46px;border-radius:0}#playerPage{padding-bottom:50px}.cc-button,.player-tool{height:42px;min-width:52px;padding:0 13px;font-size:12px;border-radius:10px}.cc-button{right:72px;bottom:62px}.player-tool{bottom:62px}#theaterBtn{right:136px}#fsBtn{right:196px}#ccNotification{bottom:88px}.subtitle-text{font-size:20px;bottom:11%}.details-inner,.settings-box{margin:0;min-height:100vh;border-radius:0;border:0;width:100%;max-width:none;box-shadow:none}.details-content{padding:24px 20px 44px}.details-poster{height:clamp(300px,62vw,380px)}.details-close,#closePlayer{right:14px;top:12px;width:44px;height:44px;font-size:24px}.details-actions{gap:8px}.action-btn{flex:1;justify-content:center;display:inline-flex;align-items:center;min-height:48px}.settings-box{padding:26px 18px 40px}.subtitle-settings,.embed-settings{width:100%;border-radius:0;border:0;border-top:1px solid var(--border);margin-top:0}.embed-settings{margin-top:14px}.cast-chip{min-width:84px;width:84px}footer{padding:22px 20px calc(20px + env(safe-area-inset-bottom))}}
 @media (max-width:400px){.logo{font-size:20px}.header-btn{padding:0 10px}#files{gap:7px}.hero-title{font-size:34px}.continue-card{width:205px;min-width:205px}}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
@@ -557,6 +559,7 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
             let sortMode = "";
             let genreFilter = "";
             let genreFrame = 0;
+            let viewMode = "all";
             let posterStore = {};
             try {
                 posterStore = JSON.parse(localStorage.bronflixPosterCache || "{}");
@@ -707,25 +710,49 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
             }
             function clean(s) {
                 let n = basename(s);
+                n = n.split(/[•\u2022·\u00B7|]/)[0];
                 n = n
                     .replace(/\.[^/.]+$/, "")
-                    .replace(/[+_.]/g, " ")
+                    .replace(/^0+\d+\s+/, "")
+                    .replace(/[+_.•·]/g, " ")
                     .replace(/[\u{1F000}-\u{1FFFF}\u2600-\u27BF]/gu, "");
                 n = n
                     .replace(/\[[^\]]*\]/g, " ")
                     .replace(
-                        /\([^)]*(?:1080p|720p|2160p|4k|bluray|blu-ray|web|webrip|x264|x265|hevc|yify|yts)[^)]*\)/gi,
+                        /\([^)]*(?:1080p|720p|2160p|4k|bluray|blu-ray|web|webrip|x264|x265|hevc|yify|yts|miramax|dimension|artisan|universal|paramount|new line|mgm|columbia|warner|disney|dreamworks|touchstone|hbo|lionsgate)[^)]*\)/gi,
                         " "
                     )
                     .replace(/\b(?:19|20)\d{2}\b/g, " ")
+                    .replace(/\([^a-z0-9]*\)/gi, " ")
+                    .replace(/\([0-9]{4,}\)/g, " ")
                     .replace(
-                        /\b(?:1080p|720p|2160p|4k|uhd|fhd|hd|bluray|blu-ray|web-dl|webrip|web|hdtv|x264|x265|hevc|avc|hdr|dvdrip|brrip|br-rip|cam|proper|repack|aac|ac3|ddp|ddp5[\s.]?1|10bit|rarbg|yify|yts|extended|remastered|uncut|complete|fullscreen)\b/gi,
+                        /\([^()]*\b(?:short|short film|trailer|teaser|extra|featurette|clip|official|uncut)\b[^()]*\)/gi,
                         " "
                     )
+                    .replace(
+                        /\b(?:1080p|720p|2160p|4k|uhd|fhd|hd|bluray|blu-ray|web-dl|webrip|web|hdtv|x264|h264|x265|h265|hevc|avc|hdr|dvdrip|brrip|br-rip|cam|proper|repack|aac|ac3|ddp|ddp5[\s.]?1|10bit|rarbg|yify|yts|extended|remastered|uncut|complete|fullscreen|xvid|divx|480i|576i|720i|1080i|vhsrip|nogroup|remux|remuxed|subs?|subtitles?|dubbed|dual[ -]?audio)\b/gi,
+                        " "
+                    )
+                    .replace(/\bvhs\s+english\s*(?:film|rip|dvd|version)?\b/gi, " ")
+                    .replace(/\b[a-z]+\d{4,}\b/gi, " ")
+                    .replace(/\b\d+[kg]\b/gi, " ")
+                    .replace(/\bdd\s*\d(?:\s*\d)?\b/gi, " ")
                     .replace(/\b(?:part|pt)\s*[0-9]+\b/gi, " ")
                     .replace(/[-]+/g, " ")
                     .replace(/\s+/g, " ")
                     .trim();
+                n = n.replace(/\s+ia$/i, "");
+                if (n.split(",").length >= 3) {
+                    n = n.split(",")[0].trim();
+                }
+                const leadingNumber = n.match(/^(\d{1,3})\s+(.+)$/);
+                if (leadingNumber && n.split(/\s+/).length >= 4) {
+                    n = leadingNumber[2];
+                }
+                const tokens = n.split(/\s+/).filter((t) => !/^\d+$/.test(t));
+                if (n && tokens.length >= 5 && tokens.every((t) => /^[a-zA-Z]$/.test(t))) {
+                    n = tokens.join("");
+                }
                 for (const [regex, value] of titleRules) {
                     if (regex.test(n)) {
                         return value;
@@ -756,6 +783,13 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                 if (/ironman/i.test(cleaned)) {
                     list.push(cleaned.replace(/ironman/i, "iron man"));
                 }
+                if (/ \d{1,2}$/.test(cleaned)) {
+                    list.push(cleaned.replace(/ \d{1,2}$/, ""));
+                }
+                const cw = cleaned.split(/\s+/);
+                if (cw.length >= 4 && /^[A-Z][a-z]/.test(cw[cw.length - 1] || "")) {
+                    list.push(cw.slice(0, -2).join(" "));
+                }
                 return [...new Map(list.filter(Boolean).map((x) => [norm(x), x])).values()];
             }
             function match(a, b) {
@@ -763,7 +797,7 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                 b = norm(b);
                 return a === b || a.includes(b) || b.includes(a);
             }
-            async function tmdb(title) {
+            async function tmdb(title, year) {
                 if (!TMDB_API_KEY) return null;
                 const key = "tmdb:" + norm(title);
                 if (cache.has(key)) {
@@ -776,6 +810,14 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                 );
                 const result =
                     data?.results?.find((x) => norm(x.title) === norm(title)) ||
+                    (year
+                        ? data?.results?.find(
+                              (x) =>
+                                  match(title, x.title) &&
+                                  x.release_date &&
+                                  String(x.release_date).startsWith(String(year))
+                          )
+                        : null) ||
                     data?.results?.find((x) => match(title, x.title)) ||
                     data?.results?.[0] ||
                     null;
@@ -796,14 +838,14 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                 cache.set(key, result);
                 return result;
             }
-            async function omdb(title) {
+            async function omdb(title, year) {
                 if (!OMDB_API_KEY) return null;
-                const key = "omdb:" + norm(title);
+                const key = "omdb:" + norm(title) + (year ? ":" + year : "");
                 if (cache.has(key)) {
                     return cache.get(key);
                 }
                 const result = await fetchJSON(
-                    `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${encodeURIComponent(title)}&type=movie&plot=full`,
+                    `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${encodeURIComponent(title)}${year ? `&y=${year}` : ""}&type=movie&plot=full`,
                     6500,
                     0
                 );
@@ -818,8 +860,18 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                 }
                 let tmdbData = null;
                 let omdbData = null;
+                const rawName = String(m.file.name || "");
+                let yr = (rawName.match(/\b(?:19|20)\d{2}\b/) || [])[0] || "";
+                const cleanRaw = norm(clean(rawName));
+                if (
+                    !yr &&
+                    ((/mini\s{0,1}series|miniseries/i.test(rawName) && (cleanRaw === "it" || cleanRaw.startsWith("it "))) ||
+                        /^it[ \-]*(?:part\s*)?\d{1,2}$/.test(cleanRaw))
+                ) {
+                    yr = "1990";
+                }
                 for (const title of titleCandidates(m.file.name)) {
-                    const [tmdbResult, omdbResult] = await Promise.all([tmdb(title), omdb(title)]);
+                    const [tmdbResult, omdbResult] = await Promise.all([tmdb(title, yr), omdb(title, yr)]);
                     tmdbData = tmdbData || tmdbResult;
                     omdbData = omdbData || omdbResult;
                     if (tmdbData && omdbData) {
@@ -1026,6 +1078,17 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                         if (regex.test(original)) {
                             m.displayTitle = value;
                             break;
+                        }
+                    }
+                    const itTitle = norm(m.displayTitle);
+                    const rawIt = String(m.file.name || "");
+                    const cleanIt = norm(clean(m.file.name));
+                    const itSeq = itTitle === "it" || itTitle === "it miniseries" || /^it[ \-]*(?:part\s*)?\d{1,2}$/.test(cleanIt);
+                    if (itSeq) {
+                        const miniSnip = /mini\s{0,1}series|miniseries/i.test(rawIt);
+                        const y = String(data?.tmdb?.release_date || data?.omdb?.Year || "").match(/\d{4}/);
+                        if (miniSnip || /^it[ \-]*(?:part\s*)?\d{1,2}$/.test(cleanIt) || (y && y[0] !== "2017")) {
+                            m.displayTitle = "It (Miniseries)";
                         }
                     }
                     m.rating = parseFloat(rating(m)) || 0;
@@ -1338,7 +1401,7 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
             function recentWatched() {
                 const list = JSON.parse(localStorage.continueWatching || "[]");
                 for (const item of list) {
-                    const m = movies.find((x) => x.id === item.id && x.loaded && x.data);
+                    const m = movies.find((x) => x.id === item.id);
                     if (m) return m;
                 }
                 return null;
@@ -1378,7 +1441,7 @@ footer:before{content:"";position:absolute;top:-1px;left:50%;transform:translate
                 }
                 const watched = new Set(JSON.parse(localStorage.continueWatching || "[]").map((x) => x.id));
                 const recs = movies
-                    .filter((m) => m.loaded && m.data && m.id !== src.id && !watched.has(m.id) && genres(m).length)
+                    .filter((m) => m.id !== src.id && !watched.has(m.id))
                     .map((m) => ({ m, s: similarScore(src, m) }))
                     .filter((x) => x.s > 0)
                     .sort((a, b) => b.s - a.s)
@@ -1696,7 +1759,9 @@ if(td.status==="fulfilled")addId(td.value?.id);
 if(od.status==="fulfilled")addId(od.value?.imdbID);
 }catch(e){}
 };
-await Promise.all(uniqueCandidates.map(lookupTitle));
+if (!ids.size) {
+    await Promise.all(uniqueCandidates.slice(0,8).map(lookupTitle));
+}
 if(!ids.size){
 scheduleSubtitleRetry(m,attempt);
 return;
@@ -1717,7 +1782,7 @@ return results.filter(x=>x&&(x.url||x.download||x.subtitle||x.link));
 return[];
 }
 };
-const allResults=await Promise.all([...ids].map(subtitleSearch));
+const allResults=await Promise.all([...ids].slice(0,6).map(subtitleSearch));
 const usable=allResults.flat();
 if(!usable.length){
 scheduleSubtitleRetry(m,attempt);
@@ -2198,13 +2263,30 @@ loadSubtitles(m,attempt+1);
                 const duplicates = new Set();
                 if (settings.duplicates) {
                     const seen = new Map();
+                    const dataYear = (mo) => {
+                        const y = String(mo.data?.tmdb?.release_date || mo.data?.omdb?.Year || "");
+                        return (y.match(/\d{4}/) || [undefined])[0];
+                    };
+                    const fileYear = (mo) => {
+                        const y = (mo.file?.name || "").match(/\b(?:19|20)\d{2}\b/);
+                        return y ? y[0] : undefined;
+                    };
                     movies.forEach((m) => {
                         const title = norm(
-                            m.data?.tmdb?.title || m.data?.omdb?.Title || m.displayTitle || clean(m.file.name)
+                            m.displayTitle || m.data?.tmdb?.title || m.data?.omdb?.Title || clean(m.file.name)
                         );
                         if (!title) return;
                         if (seen.has(title)) {
                             const first = seen.get(title);
+                            const aY = dataYear(first) || fileYear(first);
+                            const bY = dataYear(m) || fileYear(m);
+                            if (aY || bY) {
+                                if (aY !== bY) {
+                                    duplicates.delete(first.id);
+                                    seen.set(title, m);
+                                    return;
+                                }
+                            }
                             const firstScore = first.data?.tmdb?.vote_count || first.data?.tmdb?.popularity || 0;
                             const thisScore = m.data?.tmdb?.vote_count || m.data?.tmdb?.popularity || 0;
                             if (thisScore > firstScore) {
@@ -2238,6 +2320,9 @@ loadSubtitles(m,attempt+1);
                     const others = list.filter((m) => !favorite(m));
                     list = [...favs, ...others];
                 }
+                if (viewMode === "favorites") {
+                    list = list.filter(favorite);
+                }
                 if (q) {
                     list.sort((a, b) => b.searchScore - a.searchScore || a.displayTitle.localeCompare(b.displayTitle));
                 }
@@ -2267,14 +2352,28 @@ loadSubtitles(m,attempt+1);
                     });
                     processMetadata();
                 }
-                document.getElementById("noResults").style.display = !list.length && movies.length ? "block" : "none";
+                if (viewMode === "favorites") {
+                    list.forEach((m, i) => {
+                        if (!m.loaded) {
+                            queueMovie(m, 4000000 - i);
+                        }
+                    });
+                    processMetadata();
+                }
+                const nr = document.getElementById("noResults");
+                nr.style.display = !list.length && movies.length ? "block" : "none";
+                nr.textContent = viewMode === "favorites" ? "Your list is empty." : "No movies found.";
                 document.getElementById("moviesTitle").textContent = q
                     ? "Search Results"
-                    : genreFilter
-                      ? `${genreFilter} Movies`
-                      : filters.size
-                        ? `Filtered Movies (${[...filters].join(", ")})`
-                        : "Movies";
+                    : viewMode === "favorites"
+                      ? "My List"
+                      : viewMode === "new"
+                        ? "New & Popular"
+                        : genreFilter
+                          ? `${genreFilter} Movies`
+                          : filters.size
+                            ? `Filtered Movies (${[...filters].join(", ")})`
+                            : "Movies";
             }
             function scheduleApply() {
                 if (applyFrame) return;
@@ -2318,6 +2417,9 @@ loadSubtitles(m,attempt+1);
                     document.querySelectorAll(".filter-btn").forEach((x) => x.classList.remove("active"));
                     genreFilter = "";
                     document.getElementById("genreSelect").value = "";
+                    if (act === "home" || act === "movies" || act === "new") {
+                        viewMode = act === "new" ? "new" : "all";
+                    }
                     if (act === "home" || act === "movies") {
                         sortMode = "";
                         document.getElementById("sortSelect").value = "";
@@ -2335,6 +2437,7 @@ loadSubtitles(m,attempt+1);
                 };
             });
             function clearSearch() {
+                viewMode = "all";
                 document.getElementById("search").value = "";
                 filters.clear();
                 document.querySelectorAll(".filter-btn").forEach((x) => x.classList.remove("active"));
@@ -2342,33 +2445,14 @@ loadSubtitles(m,attempt+1);
                 scrollTo(0, 0);
             }
             function showFavorites() {
+                viewMode = "favorites";
                 document.getElementById("search").value = "";
                 filters.clear();
                 document.querySelectorAll(".filter-btn").forEach((x) => x.classList.remove("active"));
-                const favorites = movies.filter(favorite);
-                movies.forEach((m) => {
-                    if (m.card) {
-                        m.card.style.display = "none";
-                    }
-                });
-                favorites.forEach((m) => {
-                    if (!m.card) {
-                        m.card = card(m);
-                        m.card._movie = m;
-                    }
-                    m.card.style.display = "";
-                    document.getElementById("files").appendChild(m.card);
-                    if (!m.loaded) {
-                        queueMovie(m, 999999);
-                    }
-                    queuePoster(m, 999999);
-                });
-                document.getElementById("moviesTitle").textContent = "My List";
-                document.getElementById("noResults").textContent = "Your list is empty.";
-                document.getElementById("noResults").style.display = favorites.length ? "none" : "block";
+                genreFilter = "";
+                document.getElementById("genreSelect").value = "";
+                apply();
                 scrollTo(0, 0);
-                processMetadata();
-                processPosters();
             }
             function goList() {
                 document.querySelectorAll(".nav-link").forEach((x) => x.classList.toggle("active", x.dataset.nav === "list"));
